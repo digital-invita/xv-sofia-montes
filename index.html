@@ -17,6 +17,7 @@
   <link rel="shortcut icon" href="favicon.png?v=20">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="FPrincipal.jpg" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Dancing+Script:wght@500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
 
   <style>
@@ -108,6 +109,14 @@
       width: min(100%, var(--content-width));
       margin: 0 auto;
       padding: 0 14px 0;
+    }
+
+    .section,
+    .separator,
+    .brand-footer,
+    .closing-note {
+      content-visibility: auto;
+      contain-intrinsic-size: 1px 520px;
     }
 
     #particles {
@@ -324,6 +333,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      will-change: transform;
       transform: scale(1.03);
       animation: heroDrift 24s ease-in-out infinite alternate;
     }
@@ -337,27 +347,53 @@
       z-index: 1;
     }
 
+    #heroParticles {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 3;
+      mix-blend-mode: screen;
+    }
+
     .hero-content {
       position: relative;
-      z-index: 2;
+      z-index: 4;
       width: 100%;
       max-width: 720px;
       margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       text-align: center;
       padding: 0 10px 16px;
       overflow: visible;
     }
 
     .hero-label {
-      display: inline-block;
-      margin-bottom: 8px;
-      font-size: 0.76rem;
-      letter-spacing: 0.46em;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 10px;
+      padding: 0;
+      font-size: 0.84rem;
+      letter-spacing: 0.34em;
       text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.7);
-      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.14);
+      color: rgba(255, 248, 236, 0.92);
+      text-shadow: 0 6px 16px rgba(0, 0, 0, 0.28);
       opacity: 0;
       transform: translateY(16px);
+    }
+
+    .hero-label::before,
+    .hero-label::after {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.44), transparent);
+      flex: 0 0 auto;
     }
 
     .hero-label.animate {
@@ -366,12 +402,13 @@
 
     .hero-name {
       margin: 0;
-      display: inline-block;
+      display: block;
       padding: 0 8px 14px;
       font-family: "Great Vibes", cursive;
-      font-size: clamp(4.15rem, 13vw, 6rem);
+      font-size: clamp(3.75rem, 11.2vw, 6rem);
       font-weight: 400;
       line-height: 1.1;
+      white-space: nowrap;
       letter-spacing: 0.01em;
       color: rgba(255, 253, 248, 0.98);
       text-shadow:
@@ -382,6 +419,7 @@
       transform: translateY(22px) scale(0.96);
       filter: blur(10px);
       position: relative;
+      text-align: center;
     }
 
     .hero-name::before {
@@ -483,16 +521,12 @@
       align-items: center;
       gap: 12px;
       margin-top: 8px;
-      padding: 7px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      background: rgba(255, 255, 255, 0.045);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      color: rgba(255, 244, 207, 0.92);
-      font-size: 0.76rem;
-      letter-spacing: 0.22em;
+      padding: 0;
+      color: rgba(255, 244, 207, 0.9);
+      font-size: 0.86rem;
+      letter-spacing: 0.28em;
       text-transform: uppercase;
+      text-shadow: 0 7px 18px rgba(0, 0, 0, 0.28);
       opacity: 0;
       transform: translateY(18px);
     }
@@ -504,9 +538,9 @@
     .hero-date::before,
     .hero-date::after {
       content: "";
-      width: 20px;
+      width: 36px;
       height: 1px;
-      background: rgba(255, 255, 255, 0.34);
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.42), transparent);
     }
 
     .section {
@@ -679,6 +713,10 @@
     .section.show .featured-photo img {
       transform: scale(1.03);
       filter: saturate(1.05);
+    }
+
+    .story-section .featured-photo + .story-text {
+      margin-top: 22px;
     }
 
     .script-block {
@@ -1023,8 +1061,7 @@
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .gallery-nav button:hover,
-    .lightbox-nav:hover {
+    .gallery-nav button:hover {
       transform: translateY(-1px);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
     }
@@ -1089,6 +1126,63 @@
       height: auto;
       object-fit: contain;
       filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.14));
+    }
+
+    .gift-options {
+      margin-top: 20px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .gift-option-card {
+      padding: 18px 16px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+      border: 1px solid rgba(246, 220, 140, 0.16);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 14px 26px rgba(0, 0, 0, 0.12);
+    }
+
+    .gift-option-media {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .gift-option-media img {
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.14));
+    }
+
+    .gift-option-media img.envelope {
+      width: min(124px, 40%);
+    }
+
+    .gift-option-media img.surprise {
+      width: min(98px, 32%);
+    }
+
+    .gift-option-title {
+      margin: 0;
+      font-size: 1.28rem;
+      font-weight: 600;
+      color: var(--gold-100);
+    }
+
+    .gift-option-copy {
+      margin-top: 8px;
+      font-size: 1rem;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+
+    .gift-links {
+      margin-top: 18px;
+      display: grid;
+      gap: 10px;
     }
 
     .mini-note {
@@ -1410,6 +1504,8 @@
       padding: 20px 16px 18px;
       overflow: hidden;
       position: relative;
+      touch-action: none;
+      cursor: zoom-in;
     }
 
     .lightbox-img {
@@ -1421,6 +1517,18 @@
       border-radius: 22px;
       box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
       transition: opacity 0.25s ease, transform 0.25s ease, filter 0.25s ease;
+      transform-origin: center center;
+      user-select: none;
+      -webkit-user-drag: none;
+      will-change: transform;
+    }
+
+    .lightbox-main.is-zoomed {
+      cursor: grab;
+    }
+
+    .lightbox-main.is-panning {
+      cursor: grabbing;
     }
 
     .lightbox-close {
@@ -1440,34 +1548,6 @@
       z-index: 5;
       display: grid;
       place-items: center;
-    }
-
-    .lightbox-nav {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 42px;
-      height: 42px;
-      border: 0;
-      border-radius: 50%;
-      background: rgba(10, 10, 10, 0.42);
-      color: #fff;
-      display: grid;
-      place-items: center;
-      font-size: 1.2rem;
-      cursor: pointer;
-      z-index: 4;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .lightbox-nav.prev {
-      left: 6px;
-    }
-
-    .lightbox-nav.next {
-      right: 6px;
     }
 
     .thumbs {
@@ -1764,6 +1844,38 @@
         padding: 28px 14px 48px;
       }
 
+      .hero-content {
+        padding: 0 6px 14px;
+      }
+
+      .hero-label {
+        margin-bottom: 9px;
+        gap: 10px;
+        font-size: 0.76rem;
+        letter-spacing: 0.26em;
+      }
+
+      .hero-label::before,
+      .hero-label::after {
+        width: 20px;
+      }
+
+      .hero-name {
+        padding: 0 4px 12px;
+        font-size: clamp(3.35rem, 12vw, 4.55rem);
+      }
+
+      .hero-date {
+        gap: 10px;
+        font-size: 0.76rem;
+        letter-spacing: 0.2em;
+      }
+
+      .hero-date::before,
+      .hero-date::after {
+        width: 24px;
+      }
+
       .section {
         padding: 24px 18px;
       }
@@ -1826,7 +1938,7 @@
         <h1 class="overlay-title">Sofia Montes</h1>
       </div>
       <button class="wax-btn" id="openBtn" type="button" aria-label="Abrir invitación">
-        <img src="sello_cera.png" alt="Sello para abrir invitación">
+        <img src="sello_cera.png" alt="Sello para abrir invitación" decoding="async" fetchpriority="high">
       </button>
       <div class="wax-caption">Tocar para abrir</div>
     </div>
@@ -1840,7 +1952,8 @@
 
   <main class="page">
     <section class="hero">
-      <img src="FPrincipal.jpg" alt="Sofia Montes">
+      <img src="FPrincipal.jpg" alt="Sofia Montes" decoding="async" fetchpriority="high">
+      <canvas id="heroParticles" aria-hidden="true"></canvas>
       <div class="hero-content">
         <div class="hero-label">Mis XV</div>
         <h1 class="hero-name" id="nombre">Sofia Montes</h1>
@@ -1854,7 +1967,7 @@
       <h2>Mi historia</h2>
       <p class="story-text" data-fulltext="Hoy celebro no solo mis 15 años, sino cada sonrisa que iluminó mi camino, cada aprendizaje que fortaleció mi corazón y cada sueño que, con amor y esperanza, me ha traído hasta este momento tan especial de mi vida."></p>
       <div class="featured-photo">
-        <img src="FHistoria.jpg" alt="Fotografía de Sofia">
+        <img src="FHistoria.jpg" alt="Fotografía de Sofia" loading="lazy" decoding="async">
       </div>
       <p class="story-text" data-fulltext="Aquí termina un capítulo lleno de recuerdos que atesoraré por siempre y comienza uno nuevo, donde la ilusión, la luz y los sueños por cumplir marcan el inicio de todo lo que está por venir."></p>
     </section>
@@ -1882,7 +1995,7 @@
         <div class="event-time">16:45 hrs</div>
         <div class="event-place">Parroquia Cristo Rey</div>
         <div class="dresscode-figure">
-          <img src="cereminia.png" alt="Ceremonia">
+          <img src="cereminia.png" alt="Ceremonia" loading="lazy" decoding="async">
         </div>
         <div>
           <a class="btn" href="https://maps.app.goo.gl/dSxG3vrm3iYQaScp7" target="_blank" rel="noopener noreferrer">Cómo llegar</a>
@@ -1956,7 +2069,7 @@
       <h2>Galería</h2>
       <div class="gallery-showcase">
         <div class="gallery-stage" id="galleryStage">
-          <img src="G1.jpg" alt="Galería destacada" id="galleryPreviewImg">
+          <img src="G1.jpg" alt="Galería destacada" id="galleryPreviewImg" loading="lazy" decoding="async">
         </div>
         <div class="gallery-controls">
           <div class="gallery-meta">
@@ -1970,12 +2083,12 @@
         </div>
       </div>
       <div class="gallery">
-        <img src="G1.jpg" alt="Galería 1">
-        <img src="G2.jpg" alt="Galería 2">
-        <img class="big" src="G3.jpg" alt="Galería 3">
-        <img class="big" src="G4.jpg" alt="Galería 4">
-        <img src="G5.jpg" alt="Galería 5">
-        <img src="G6.jpg" alt="Galería 6">
+        <img src="G1.jpg" alt="Galería 1" loading="lazy" decoding="async">
+        <img src="G2.jpg" alt="Galería 2" loading="lazy" decoding="async">
+        <img class="big" src="G3.jpg" alt="Galería 3" loading="lazy" decoding="async">
+        <img class="big" src="G4.jpg" alt="Galería 4" loading="lazy" decoding="async">
+        <img src="G5.jpg" alt="Galería 5" loading="lazy" decoding="async">
+        <img src="G6.jpg" alt="Galería 6" loading="lazy" decoding="async">
       </div>
     </section>
 
@@ -1985,7 +2098,7 @@
       <h2>Dress Code</h2>
       <p>Formal</p>
       <div class="dresscode-figure">
-        <img src="vestimenta.png" alt="Código de vestimenta">
+        <img src="vestimenta.png" alt="Código de vestimenta" loading="lazy" decoding="async">
       </div>
       <p class="mini-note">Rojo reservado para la quinceañera.</p>
     </section>
@@ -2015,9 +2128,32 @@
     <div class="separator"></div>
 
     <section class="section">
-      <p>Tu presencia es mi verdadero regalo, pero si deseas hacerme un detalle, lo agradeceré de corazón.</p>
-      <div class="gift-figure">
-        <img src="regalo.png" alt="Regalo">
+      <h2>Opciones de regalo</h2>
+      <p>Tu presencia es el regalo más valioso para mí, pero si deseas tener un detalle, aquí encontrarás algunas opciones pensadas con mucho cariño.</p>
+
+      <div class="gift-options">
+        <div class="gift-option-card">
+          <div class="gift-option-media">
+            <img class="envelope" src="sobre.png" alt="Lluvia de sobres" loading="lazy" decoding="async">
+          </div>
+          <h3 class="gift-option-title">Lluvia de sobres</h3>
+          <p class="gift-option-copy">Si lo prefieres, podrás acompañarme con un sobre el día del evento. Será un detalle recibido con muchísimo cariño y gratitud.</p>
+        </div>
+
+        <div class="gift-option-card">
+          <div class="gift-option-media">
+            <img class="surprise" src="regalo.png" alt="Regalo sorpresa" loading="lazy" decoding="async">
+          </div>
+          <h3 class="gift-option-title">Regalo sorpresa</h3>
+          <p class="gift-option-copy">También puedes sorprenderme con un detalle especial elegido por ti. Lo importante será el cariño con el que venga.</p>
+        </div>
+      </div>
+
+      <p class="mini-note" style="margin-top:18px;">Si prefieres elegir un detalle en línea, también puedes apoyarte en estas opciones de mesa de regalos:</p>
+
+      <div class="gift-links">
+        <a class="btn" href="https://www.liverpool.com.mx/tienda/mesa-de-regalos" target="_blank" rel="noopener noreferrer">Mesa de regalos Liverpool</a>
+        <a class="btn btn-secondary" href="https://www.elpalaciodehierro.com/sucursales/palacio-mitikah.html" target="_blank" rel="noopener noreferrer">Celebra Palacio</a>
       </div>
     </section>
 
@@ -2051,9 +2187,7 @@
       <button class="lightbox-close" id="closeLightbox" type="button" aria-label="Cerrar galería">×</button>
       <div class="lightbox-main">
         <div class="viewer-counter" id="viewerCounter">1 / 6</div>
-        <button class="lightbox-nav prev" id="lightboxPrev" type="button" aria-label="Anterior">‹</button>
         <img class="lightbox-img" id="lightboxImg" alt="Imagen ampliada">
-        <button class="lightbox-nav next" id="lightboxNext" type="button" aria-label="Siguiente">›</button>
       </div>
       <div class="thumbs" id="thumbs"></div>
     </div>
@@ -2094,9 +2228,8 @@
     const galleryStage = document.getElementById("galleryStage");
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightboxImg");
+    const lightboxMain = document.querySelector(".lightbox-main");
     const viewerCounter = document.getElementById("viewerCounter");
-    const lightboxPrev = document.getElementById("lightboxPrev");
-    const lightboxNext = document.getElementById("lightboxNext");
     const thumbs = document.getElementById("thumbs");
     const closeLightbox = document.getElementById("closeLightbox");
     const guestName = document.getElementById("guestName");
@@ -2113,6 +2246,19 @@
     let previousParts = [];
     let storyStarted = false;
     let toastTimer = 0;
+    let zoomScale = 1;
+    let zoomX = 0;
+    let zoomY = 0;
+    let pinchStartDistance = 0;
+    let pinchStartScale = 1;
+    let panStartX = 0;
+    let panStartY = 0;
+    let dragOriginX = 0;
+    let dragOriginY = 0;
+    let isPanningImage = false;
+    let lastTapTime = 0;
+    let touchStartX = 0;
+    let touchStartY = 0;
 
     if ("scrollRestoration" in history) {
       history.scrollRestoration = "manual";
@@ -2289,6 +2435,40 @@
       });
     }
 
+    function clampZoomOffsets() {
+      const maxOffsetX = ((zoomScale - 1) * lightboxMain.clientWidth) / 2;
+      const maxOffsetY = ((zoomScale - 1) * lightboxMain.clientHeight) / 2;
+      zoomX = Math.max(-maxOffsetX, Math.min(maxOffsetX, zoomX));
+      zoomY = Math.max(-maxOffsetY, Math.min(maxOffsetY, zoomY));
+    }
+
+    function applyImageZoom() {
+      clampZoomOffsets();
+      lightboxImg.style.transform = `translate3d(${zoomX}px, ${zoomY}px, 0) scale(${zoomScale})`;
+      lightboxMain.classList.toggle("is-zoomed", zoomScale > 1.01);
+    }
+
+    function resetImageZoom(animate = false) {
+      zoomScale = 1;
+      zoomX = 0;
+      zoomY = 0;
+      if (animate) {
+        lightboxImg.style.transition = "opacity 0.25s ease, transform 0.25s ease, filter 0.25s ease";
+      }
+      applyImageZoom();
+      if (animate) {
+        setTimeout(() => {
+          lightboxImg.style.transition = "opacity 0.25s ease, transform 0.25s ease, filter 0.25s ease";
+        }, 260);
+      }
+    }
+
+    function getTouchDistance(touches) {
+      const dx = touches[0].clientX - touches[1].clientX;
+      const dy = touches[0].clientY - touches[1].clientY;
+      return Math.hypot(dx, dy);
+    }
+
     function updateGalleryPreview(index) {
       previewIndex = (index + galleryImages.length) % galleryImages.length;
       const activeImage = galleryImages[previewIndex];
@@ -2312,8 +2492,9 @@
 
     function updateLightbox() {
       const activeImage = galleryImages[currentIndex];
+      resetImageZoom();
       lightboxImg.style.opacity = "0";
-      lightboxImg.style.transform = "scale(0.97)";
+      lightboxImg.style.transform = "translate3d(0, 0, 0) scale(0.97)";
       lightboxImg.src = activeImage.src;
       lightboxImg.alt = activeImage.alt || "Imagen ampliada";
       viewerCounter.textContent = `${currentIndex + 1} / ${galleryImages.length}`;
@@ -2322,7 +2503,7 @@
       });
       requestAnimationFrame(() => {
         lightboxImg.style.opacity = "1";
-        lightboxImg.style.transform = "scale(1)";
+        applyImageZoom();
       });
     }
 
@@ -2335,6 +2516,7 @@
     }
 
     function closeGallery() {
+      resetImageZoom();
       lightbox.classList.remove("show");
       if (overlay.classList.contains("hidden")) {
         body.classList.remove("locked");
@@ -2478,12 +2660,15 @@
 
     function initParticles() {
       const canvas = document.getElementById("particles");
-      const ctx = canvas.getContext("2d");
+      const ctx = canvas.getContext("2d", { alpha: true });
       if (!ctx) return;
 
       let width = 0;
       let height = 0;
       let particles = [];
+      let animationId = 0;
+      const lowPower = (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4)
+        || (navigator.deviceMemory && navigator.deviceMemory <= 4);
 
       function createParticle() {
         return {
@@ -2497,9 +2682,18 @@
       }
 
       function resize() {
-        width = canvas.width = window.innerWidth;
-        height = canvas.height = window.innerHeight;
-        const total = width < 768 ? 52 : 96;
+        const dpr = Math.min(window.devicePixelRatio || 1, 1.6);
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = Math.round(width * dpr);
+        canvas.height = Math.round(height * dpr);
+        canvas.style.width = `${width}px`;
+        canvas.style.height = `${height}px`;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+        const total = lowPower
+          ? (width < 768 ? 34 : 54)
+          : (width < 768 ? 52 : 96);
         particles = Array.from({ length: total }, createParticle);
       }
 
@@ -2517,12 +2711,103 @@
           ctx.fillStyle = `rgba(255, 244, 207, ${particle.alpha})`;
           ctx.fill();
         });
-        requestAnimationFrame(animate);
+        animationId = requestAnimationFrame(animate);
       }
 
       resize();
       animate();
       window.addEventListener("resize", resize);
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+          cancelAnimationFrame(animationId);
+          animationId = 0;
+        } else if (!animationId) {
+          animate();
+        }
+      });
+    }
+
+    function initHeroParticles() {
+      const hero = document.querySelector(".hero");
+      const canvas = document.getElementById("heroParticles");
+      if (!hero || !canvas) return;
+
+      const ctx = canvas.getContext("2d", { alpha: true });
+      if (!ctx) return;
+
+      let width = 0;
+      let height = 0;
+      let particles = [];
+      let animationId = 0;
+      const lowPower = (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4)
+        || (navigator.deviceMemory && navigator.deviceMemory <= 4);
+
+      function createParticle() {
+        return {
+          x: Math.random() * width,
+          y: Math.random() * height,
+          r: Math.random() * 1.8 + 0.6,
+          vx: (Math.random() - 0.5) * 0.2,
+          vy: (Math.random() - 0.5) * 0.2,
+          alpha: Math.random() * 0.24 + 0.16,
+          pulse: Math.random() * Math.PI * 2,
+          drift: Math.random() * Math.PI * 2
+        };
+      }
+
+      function resize() {
+        const rect = hero.getBoundingClientRect();
+        const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+        width = Math.max(rect.width, 1);
+        height = Math.max(rect.height, 1);
+        canvas.width = Math.round(width * dpr);
+        canvas.height = Math.round(height * dpr);
+        canvas.style.width = `${width}px`;
+        canvas.style.height = `${height}px`;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+        const total = lowPower ? 72 : 120;
+        particles = Array.from({ length: total }, createParticle);
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+
+        particles.forEach((particle) => {
+          particle.x += particle.vx;
+          particle.y += particle.vy;
+          particle.pulse += 0.02;
+          particle.drift += 0.008;
+
+          if (particle.x < -8 || particle.x > width + 8) particle.vx *= -1;
+          if (particle.y < -8 || particle.y > height + 8) particle.vy *= -1;
+
+          const alpha = particle.alpha + (Math.sin(particle.pulse) * 0.05);
+          const driftY = Math.sin(particle.drift) * 0.18;
+          const x = particle.x;
+          const y = particle.y + driftY;
+
+          ctx.beginPath();
+          ctx.arc(x, y, particle.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255, 244, 207, ${Math.max(0.14, alpha)})`;
+          ctx.fill();
+        });
+
+        animationId = requestAnimationFrame(animate);
+      }
+
+      resize();
+      animate();
+      window.addEventListener("resize", resize);
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+          cancelAnimationFrame(animationId);
+          animationId = 0;
+        } else if (!animationId) {
+          resize();
+          animate();
+        }
+      });
     }
 
     openBtn.addEventListener("click", () => {
@@ -2564,8 +2849,6 @@
     galleryPrev.addEventListener("click", prevPreview);
     galleryNext.addEventListener("click", nextPreview);
     galleryStage.addEventListener("click", () => openLightbox(previewIndex));
-    lightboxPrev.addEventListener("click", prevImage);
-    lightboxNext.addEventListener("click", nextImage);
 
     closeLightbox.addEventListener("click", closeGallery);
     lightbox.addEventListener("click", (event) => {
@@ -2579,19 +2862,101 @@
       if (event.key === "ArrowLeft") prevImage();
     });
 
-    let touchStartX = 0;
-    let touchStartY = 0;
-    lightbox.addEventListener("touchstart", (event) => {
-      touchStartX = event.touches[0].clientX;
-      touchStartY = event.touches[0].clientY;
-    }, { passive: true });
+    lightboxMain.addEventListener("dblclick", (event) => {
+      event.preventDefault();
+      if (zoomScale > 1.01) {
+        resetImageZoom(true);
+      } else {
+        zoomScale = 2;
+        zoomX = 0;
+        zoomY = 0;
+        applyImageZoom();
+      }
+    });
 
-    lightbox.addEventListener("touchend", (event) => {
-      const diffX = touchStartX - event.changedTouches[0].clientX;
-      const diffY = touchStartY - event.changedTouches[0].clientY;
-      if (Math.abs(diffX) > 50 && Math.abs(diffX) > Math.abs(diffY)) {
-        if (diffX > 0) nextImage();
-        else prevImage();
+    lightboxMain.addEventListener("wheel", (event) => {
+      event.preventDefault();
+      const direction = event.deltaY < 0 ? 0.22 : -0.22;
+      zoomScale = Math.max(1, Math.min(3, zoomScale + direction));
+      if (zoomScale <= 1.02) {
+        resetImageZoom();
+      } else {
+        applyImageZoom();
+      }
+    }, { passive: false });
+
+    lightboxMain.addEventListener("touchstart", (event) => {
+      if (event.touches.length === 2) {
+        pinchStartDistance = getTouchDistance(event.touches);
+        pinchStartScale = zoomScale;
+        isPanningImage = false;
+        return;
+      }
+
+      if (event.touches.length === 1) {
+        const now = Date.now();
+        if (now - lastTapTime < 280) {
+          event.preventDefault();
+          if (zoomScale > 1.01) resetImageZoom(true);
+          else {
+            zoomScale = 2;
+            zoomX = 0;
+            zoomY = 0;
+            applyImageZoom();
+          }
+        }
+        lastTapTime = now;
+
+        touchStartX = event.touches[0].clientX;
+        touchStartY = event.touches[0].clientY;
+
+        if (zoomScale > 1.01) {
+          isPanningImage = true;
+          lightboxMain.classList.add("is-panning");
+          dragOriginX = event.touches[0].clientX - zoomX;
+          dragOriginY = event.touches[0].clientY - zoomY;
+        } else {
+          panStartX = event.touches[0].clientX;
+          panStartY = event.touches[0].clientY;
+        }
+      }
+    }, { passive: false });
+
+    lightboxMain.addEventListener("touchmove", (event) => {
+      if (event.touches.length === 2) {
+        event.preventDefault();
+        const distance = getTouchDistance(event.touches);
+        zoomScale = Math.max(1, Math.min(3, pinchStartScale * (distance / Math.max(pinchStartDistance, 1))));
+        if (zoomScale <= 1.02) {
+          zoomScale = 1;
+          zoomX = 0;
+          zoomY = 0;
+        }
+        applyImageZoom();
+        return;
+      }
+
+      if (event.touches.length === 1 && zoomScale > 1.01 && isPanningImage) {
+        event.preventDefault();
+        zoomX = event.touches[0].clientX - dragOriginX;
+        zoomY = event.touches[0].clientY - dragOriginY;
+        applyImageZoom();
+      }
+    }, { passive: false });
+
+    lightboxMain.addEventListener("touchend", (event) => {
+      lightboxMain.classList.remove("is-panning");
+      isPanningImage = false;
+
+      if (zoomScale > 1.01) return;
+
+      if (event.changedTouches.length === 1) {
+        const diffX = panStartX - event.changedTouches[0].clientX;
+        const diffY = panStartY - event.changedTouches[0].clientY;
+        if (Math.abs(diffX) > 50 && Math.abs(diffX) > Math.abs(diffY)) {
+          if (diffX > 0) nextImage();
+          else prevImage();
+        }
       }
     });
 
@@ -2603,19 +2968,29 @@
       document.getElementById("countdown-section").scrollIntoView({ behavior: "smooth", block: "center" });
     });
 
+    let scrollTicking = false;
+
+    function handleScrollFrame() {
+      revealOnScroll();
+      updateFloatingButtons();
+      applyHeroParallax();
+      scrollTicking = false;
+    }
+
     populateGuestOptions();
     updateCountdown();
     updateGalleryPreview(0);
     revealOnScroll();
     updateFloatingButtons();
     initParticles();
+    initHeroParticles();
     applyHeroParallax();
 
     setInterval(updateCountdown, 1000);
     window.addEventListener("scroll", () => {
-      revealOnScroll();
-      updateFloatingButtons();
-      applyHeroParallax();
+      if (scrollTicking) return;
+      scrollTicking = true;
+      requestAnimationFrame(handleScrollFrame);
     }, { passive: true });
   </script>
 </body>
