@@ -1,0 +1,4639 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis XV Sofia Montes</title>
+
+  <meta name="description" content="Acompáñanos a celebrar este día tan especial.">
+  <meta property="og:title" content="Mis XV Sofia Montes">
+  <meta property="og:description" content="Acompáñanos a celebrar este día tan especial">
+  <meta property="og:image" content="https://xv-sofia-montes.digitalinvita.com.mx/portada-og.jpg">
+  <meta property="og:url" content="https://xv-sofia-montes.digitalinvita.com.mx/">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png?v=20">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon.png?v=20">
+  <link rel="shortcut icon" href="favicon.png?v=20">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="FPrincipal.jpg" fetchpriority="high">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Dancing+Script:wght@500;600;700&family=Great+Vibes&display=block" rel="stylesheet">
+
+  <style>
+    /* ================================
+       CLIENT THEME
+       Cambia solo estas variables para adaptar colores base
+    ================================ */
+    :root {
+      --font-body: "Cormorant Garamond", serif;
+      --font-script: "Dancing Script", cursive;
+      --font-display: "Great Vibes", cursive;
+      --overlay-scale: 1;
+      --overlay-image: url("FPrincipal.jpg");
+      --overlay-glass-blur: 14px;
+      --overlay-glass-saturate: 118%;
+      --section-blur: 18px;
+      /* Fondo principal */
+      --bg-glow-top: rgba(238, 180, 204, 0.22);
+      --bg-glow-mid: rgba(214, 74, 105, 0.2);
+      --bg-glow-bottom: rgba(255, 214, 168, 0.14);
+      --bg-top: #5a132d;
+      --bg-mid: #7f1f3f;
+      --bg-bottom: #2a0a15;
+
+      /* Colores base */
+      --wine-950: #18060d;
+      --wine-900: #2b0b18;
+      --wine-800: #56162d;
+      --wine-700: #8d2949;
+      --rose-300: #ffd4e2;
+      --gold-100: #fff4cf;
+      --gold-300: #ffe08e;
+      --gold-500: #f2c06f;
+      --gold-700: #9e7222;
+      --text: #fffaf3;
+      --muted: rgba(255, 248, 236, 0.78);
+      --panel: rgba(255, 255, 255, 0.08);
+      --panel-strong: rgba(255, 255, 255, 0.13);
+      --line: rgba(246, 220, 140, 0.28);
+      --shadow: 0 24px 60px rgba(0, 0, 0, 0.32);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --content-width: 430px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    html.locked-scroll {
+      overflow: hidden;
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--font-body);
+      color: var(--text);
+      background:
+        radial-gradient(circle at top, var(--bg-glow-top), transparent 28%),
+        radial-gradient(circle at 50% 22%, var(--bg-glow-mid), transparent 34%),
+        radial-gradient(circle at bottom, var(--bg-glow-bottom), transparent 38%),
+        linear-gradient(180deg, var(--bg-top) 0%, var(--bg-mid) 52%, var(--bg-bottom) 100%);
+      overflow-x: hidden;
+    }
+
+    body.locked {
+      overflow: hidden;
+      height: 100vh;
+      touch-action: none;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 18%),
+        linear-gradient(0deg, rgba(255, 255, 255, 0.04), transparent 18%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.016) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.012) 1px, transparent 1px);
+      background-size: 24px 24px;
+      opacity: 0.14;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    a,
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      width: min(100%, var(--content-width));
+      margin: 0 auto;
+      padding: 0 14px 0;
+    }
+
+    body.editor-open {
+      overflow: hidden;
+    }
+
+    .section,
+    .separator,
+    .brand-footer,
+    .closing-note {
+      content-visibility: auto;
+      contain-intrinsic-size: 1px 520px;
+    }
+
+    #particles {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: block;
+      padding: 24px;
+      background:
+        radial-gradient(circle at 50% 28%, rgba(255, 236, 210, 0.06), transparent 22%),
+        radial-gradient(circle at center, rgba(255, 255, 255, 0.03), transparent 34%),
+        linear-gradient(135deg, rgba(33, 10, 18, 0.9), rgba(5, 3, 5, 0.94));
+      transition: opacity 0.8s ease, visibility 0.8s ease;
+    }
+
+    .overlay::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(180deg, rgba(20, 6, 12, 0.26), rgba(20, 6, 12, 0.46)),
+        var(--overlay-image);
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.14);
+      filter: blur(34px) saturate(0.78);
+      opacity: 0.28;
+      pointer-events: none;
+    }
+
+    .overlay::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.01) 22%, rgba(255, 255, 255, 0.04) 100%),
+        linear-gradient(135deg, rgba(255, 244, 207, 0.05), rgba(255, 255, 255, 0.015) 34%, rgba(255, 216, 173, 0.04) 100%);
+      backdrop-filter: blur(var(--overlay-glass-blur)) saturate(var(--overlay-glass-saturate));
+      -webkit-backdrop-filter: blur(var(--overlay-glass-blur)) saturate(var(--overlay-glass-saturate));
+      pointer-events: none;
+    }
+
+    .overlay.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .overlay-card {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      text-align: center;
+      overflow: visible;
+      animation: overlayIn 1.1s cubic-bezier(.19,1,.22,1) both;
+    }
+
+    .overlay-scene {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform: scale(var(--overlay-scale));
+      transform-origin: center center;
+      will-change: transform;
+      transition: transform 0.25s ease;
+    }
+
+    .overlay-card::before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border-radius: 30px;
+      border: 1px solid rgba(255, 237, 199, 0.1);
+      box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.03),
+        0 0 0 1px rgba(255, 237, 199, 0.03);
+      pointer-events: none;
+    }
+
+    .overlay-card::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 17%;
+      width: min(260px, 58vw);
+      height: 80px;
+      transform: translateX(-50%);
+      background: radial-gradient(circle, rgba(246, 220, 140, 0.2), rgba(246, 220, 140, 0.05) 42%, transparent 72%);
+      filter: blur(18px);
+      opacity: 0.78;
+      pointer-events: none;
+    }
+
+    .low-power .overlay::before {
+      filter: blur(18px) saturate(0.8);
+      opacity: 0.24;
+      transform: scale(1.08);
+    }
+
+    .low-power .overlay::after {
+      backdrop-filter: blur(8px) saturate(108%);
+      -webkit-backdrop-filter: blur(8px) saturate(108%);
+    }
+
+    .low-power .overlay-card::before {
+      opacity: 0.7;
+    }
+
+    .overlay.hidden .overlay-card {
+      animation: overlayOut 0.85s cubic-bezier(.19,1,.22,1) forwards;
+    }
+
+    .overlay-kicker {
+      margin: 0 0 10px;
+      padding-top: 7vh;
+      font-size: 0.95rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+    }
+
+    .overlay-title {
+      margin: 0;
+      padding: 14px 0 8px;
+      position: relative;
+      display: inline-block;
+      font-family: "Great Vibes", cursive;
+      font-size: clamp(3rem, 12vw, 4.8rem);
+      line-height: 1.14;
+      color: var(--gold-100);
+      text-shadow: 0 8px 28px rgba(0, 0, 0, 0.34);
+      background: linear-gradient(90deg, #fff4cf, #f6dc8c, #fff4cf);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: none;
+    }
+
+    .overlay.opening .overlay-kicker,
+    .overlay.opening .overlay-title,
+    .overlay.opening .wax-caption {
+      animation: fadeAwayLuxury 0.45s ease forwards;
+    }
+
+    .overlay-title-wrap {
+      position: relative;
+      display: inline-block;
+      padding: 4px 12px;
+    }
+
+    .overlay-title-wrap .title-glow {
+      position: absolute;
+      inset: 16% 10% 12%;
+      background: radial-gradient(circle, rgba(246, 220, 140, 0.32), rgba(246, 220, 140, 0.12) 38%, transparent 72%);
+      filter: blur(18px);
+      opacity: 0.72;
+      z-index: -1;
+      animation: none;
+    }
+
+    .overlay-title-wrap::before,
+    .overlay-title-wrap::after,
+    .overlay-title::before,
+    .overlay-title::after {
+      content: "";
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.95), rgba(246, 220, 140, 0.55) 45%, transparent 72%);
+      box-shadow: 0 0 14px rgba(246, 220, 140, 0.4);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .overlay-title-wrap::before {
+      top: 12%;
+      left: 6%;
+      animation: none;
+      opacity: 0.22;
+    }
+
+    .overlay-title-wrap::after {
+      right: 8%;
+      bottom: 8%;
+      animation: none;
+      opacity: 0.18;
+    }
+
+    .overlay-title::before {
+      top: 18%;
+      right: 22%;
+      animation: none;
+      opacity: 0.16;
+    }
+
+    .overlay-title::after {
+      left: 24%;
+      bottom: 10%;
+      animation: none;
+      opacity: 0.14;
+    }
+
+    .wax-btn {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 164px;
+      height: 164px;
+      margin-top: 0;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      filter:
+        drop-shadow(0 18px 35px rgba(0, 0, 0, 0.35))
+        drop-shadow(0 0 18px rgba(246, 220, 140, 0.18));
+      transition: transform 0.25s ease, filter 0.25s ease;
+      animation: waxEnter 0.8s cubic-bezier(.19,1,.22,1) 0.12s both;
+    }
+
+    .wax-btn img {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      filter:
+        drop-shadow(0 20px 28px rgba(0, 0, 0, 0.24))
+        drop-shadow(0 0 20px rgba(116, 16, 36, 0.08));
+    }
+
+    .wax-btn:hover {
+      transform: translate(-50%, -50%) scale(1.06) rotate(-2deg);
+      filter:
+        drop-shadow(0 20px 38px rgba(0, 0, 0, 0.38))
+        drop-shadow(0 0 24px rgba(246, 220, 140, 0.3));
+    }
+
+    .wax-btn:active {
+      transform: translate(-50%, -50%) scale(0.97);
+    }
+
+    .wax-btn::after {
+      content: "";
+      position: absolute;
+      inset: 18% 14%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(246, 220, 140, 0.14), rgba(246, 220, 140, 0.04) 34%, transparent 72%);
+      filter: blur(16px);
+      opacity: 0.42;
+      z-index: -1;
+      animation: none;
+    }
+
+    .wax-btn::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 220px;
+      height: 78px;
+      transform: translate(-50%, -50%);
+      border-radius: 999px;
+      background:
+        linear-gradient(90deg, transparent 0%, rgba(246, 220, 140, 0.08) 16%, rgba(255, 244, 207, 0.42) 50%, rgba(246, 220, 140, 0.08) 84%, transparent 100%);
+      filter: blur(0.8px);
+      opacity: 0.42;
+      z-index: -2;
+      mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.9) 35%, rgba(0,0,0,0.9) 65%, transparent 100%);
+    }
+
+    .overlay.opening .wax-btn {
+      animation: waxOpenOut 0.45s ease forwards;
+    }
+
+    .wax-caption {
+      position: absolute;
+      left: 50%;
+      top: calc(50% + 122px);
+      transform: translateX(-50%);
+      margin-top: 0;
+      font-size: 0.88rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold-300);
+      animation: none;
+      white-space: nowrap;
+    }
+
+    .hero {
+      position: relative;
+      width: 100vw;
+      margin-left: 50%;
+      transform: translateX(-50%);
+      min-height: 100vh;
+      min-height: 100svh;
+      min-height: 100dvh;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 30px 18px 54px;
+      border-radius: 0;
+      overflow: hidden;
+    }
+
+    .hero img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      will-change: transform;
+      transform: scale(1.03);
+      animation: heroDrift 24s ease-in-out infinite alternate;
+    }
+
+    .low-power .hero img {
+      animation: none;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(0deg, rgba(14, 4, 8, 0.68) 0%, rgba(14, 4, 8, 0.28) 22%, rgba(14, 4, 8, 0.08) 38%, rgba(14, 4, 8, 0) 52%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 4;
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 10px 16px;
+      overflow: visible;
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 10px;
+      padding: 0;
+      font-size: 0.84rem;
+      letter-spacing: 0.34em;
+      text-transform: uppercase;
+      color: rgba(255, 248, 236, 0.92);
+      text-shadow: 0 6px 16px rgba(0, 0, 0, 0.28);
+      opacity: 0;
+      transform: translateY(16px);
+    }
+
+    .hero-label::before,
+    .hero-label::after {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.44), transparent);
+      flex: 0 0 auto;
+    }
+
+    .hero-label.animate {
+      animation: fadeRise 1.2s ease forwards;
+    }
+
+    .hero-name {
+      margin: 0;
+      display: block;
+      padding: 0 8px 14px;
+      font-family: var(--font-display);
+      font-size: clamp(3.75rem, 11.2vw, 6rem);
+      font-weight: 400;
+      line-height: 1.1;
+      white-space: nowrap;
+      letter-spacing: 0.01em;
+      color: rgba(255, 253, 248, 0.98);
+      text-shadow:
+        0 0 16px rgba(255, 244, 207, 0.16),
+        0 2px 8px rgba(0, 0, 0, 0.16),
+        0 12px 28px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      transform: translateY(22px) scale(0.96);
+      filter: blur(10px);
+      position: relative;
+      text-align: center;
+    }
+
+    .hero-name::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 54%;
+      width: 72%;
+      height: 44%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(246, 220, 140, 0.28), transparent 72%);
+      filter: blur(18px);
+      opacity: 0;
+      z-index: -1;
+    }
+
+    .hero-name.animate {
+      animation:
+        revealName 2.4s cubic-bezier(.2, .9, .2, 1) forwards,
+        nameBreath 6.5s ease-in-out 2.6s infinite;
+    }
+
+    .hero-name.animate::before {
+      animation:
+        heroGlowIn 1.8s ease 0.6s forwards,
+        heroGlowPulse 4.8s ease-in-out 2.6s infinite;
+    }
+
+    .hero-name::after {
+      content: "";
+      position: absolute;
+      inset: -8% -18%;
+      background: linear-gradient(110deg, transparent 42%, rgba(255, 255, 255, 0.8) 50%, transparent 58%);
+      mix-blend-mode: screen;
+      transform: translateX(-140%) skewX(-12deg);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .hero-name.animate::after {
+      animation: nameShine 2.6s ease 1.35s forwards;
+    }
+
+    @keyframes revealName {
+      0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+        filter: blur(12px);
+      }
+      55% {
+        opacity: 1;
+        transform: translateY(-3px) scale(1.015);
+        filter: blur(0);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+      }
+    }
+
+    @keyframes nameBreath {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-2px) scale(1.01); }
+    }
+
+    @keyframes nameShine {
+      0% {
+        transform: translateX(-140%) skewX(-12deg);
+        opacity: 0;
+      }
+      18% {
+        opacity: 0.9;
+      }
+      100% {
+        transform: translateX(140%) skewX(-12deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes heroGlowIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes heroGlowPulse {
+      0%, 100% {
+        opacity: 0.72;
+        transform: translate(-50%, -50%) scale(1);
+      }
+      50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.06);
+      }
+    }
+
+    .hero-date {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 8px;
+      padding: 0;
+      color: rgba(255, 244, 207, 0.9);
+      font-size: 0.86rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      text-shadow: 0 7px 18px rgba(0, 0, 0, 0.28);
+      opacity: 0;
+      transform: translateY(18px);
+    }
+
+    .hero-date.animate {
+      animation: fadeRise 1.1s ease 0.5s forwards;
+    }
+
+    .hero-date::before,
+    .hero-date::after {
+      content: "";
+      width: 36px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.42), transparent);
+    }
+
+    .section {
+      margin-top: 18px;
+      padding: 30px 22px 26px;
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.05));
+      border: 1px solid var(--line);
+      backdrop-filter: blur(var(--section-blur));
+      -webkit-backdrop-filter: blur(var(--section-blur));
+      box-shadow: var(--shadow);
+      text-align: center;
+      opacity: 0;
+      transform: translateY(46px) scale(0.97);
+      filter: blur(10px);
+      transition: opacity 0.9s cubic-bezier(.19,1,.22,1), transform 0.9s cubic-bezier(.19,1,.22,1), box-shadow 0.35s ease, border-color 0.35s ease, filter 0.9s ease;
+    }
+
+    .low-power .section {
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 18px 34px rgba(0, 0, 0, 0.22);
+    }
+
+    .android-optimized {
+      --overlay-glass-blur: 0px;
+      --overlay-glass-saturate: 100%;
+      --section-blur: 0px;
+    }
+
+    .android-optimized .overlay::before {
+      filter: blur(10px) saturate(0.76);
+      opacity: 0.16;
+      transform: scale(1.03);
+    }
+
+    .android-optimized .overlay::after {
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01) 22%, rgba(255, 255, 255, 0.02) 100%),
+        linear-gradient(135deg, rgba(255, 244, 207, 0.025), rgba(255, 255, 255, 0.01) 34%, rgba(255, 216, 173, 0.02) 100%);
+    }
+
+    .android-optimized .overlay-card::after {
+      filter: blur(6px);
+      opacity: 0.42;
+    }
+
+    .android-optimized .overlay-card::before {
+      inset: 20px;
+      border-color: rgba(255, 237, 199, 0.08);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+    }
+
+    .android-optimized .overlay-scene {
+      transition: none;
+      will-change: auto;
+    }
+
+    .android-optimized .overlay-title-wrap .title-glow {
+      filter: blur(10px);
+      opacity: 0.58;
+    }
+
+    .android-optimized .wax-btn {
+      filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.24));
+      transition: none;
+    }
+
+    .android-optimized .wax-btn img {
+      filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.18));
+    }
+
+    .android-optimized .wax-btn::after,
+    .android-optimized .wax-btn::before {
+      display: none;
+    }
+
+    .android-optimized .section {
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.045));
+      box-shadow: 0 16px 28px rgba(0, 0, 0, 0.2);
+      transition: opacity 0.55s cubic-bezier(.19,1,.22,1), transform 0.55s cubic-bezier(.19,1,.22,1);
+      filter: none;
+    }
+
+    .android-optimized .section.show {
+      animation: none;
+      filter: none;
+    }
+
+    .android-optimized .section,
+    .android-optimized .section .featured-photo,
+    .android-optimized .section .script-block,
+    .android-optimized .section .event-card,
+    .android-optimized .section .timeline,
+    .android-optimized .section .gallery-showcase,
+    .android-optimized .section .gallery,
+    .android-optimized .section .rsvp-card,
+    .android-optimized .section .utilities {
+      will-change: auto;
+    }
+
+    .android-optimized .separator::after,
+    .android-optimized .separator::before {
+      display: none;
+    }
+
+    .android-optimized .timeline-item::before,
+    .android-optimized .brand-copy::before {
+      animation: none;
+    }
+
+    .android-optimized .count-box.tick {
+      animation-duration: 0.24s;
+    }
+
+
+    .section.show {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+      animation: sectionGlow 1.15s ease both;
+    }
+
+    .section h2 {
+      margin: 0 0 12px;
+      font-size: 2.02rem;
+      font-weight: 600;
+      color: var(--gold-100);
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.75s ease 0.12s, transform 0.75s ease 0.12s;
+    }
+
+    .section p {
+      margin: 0;
+      font-size: 1.12rem;
+      line-height: 1.62;
+      color: var(--text);
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.75s ease 0.2s, transform 0.75s ease 0.2s;
+    }
+
+    .section p + p {
+      margin-top: 14px;
+    }
+
+    .section.show h2,
+    .section.show p {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section .featured-photo,
+    .section .script-block,
+    .section .event-card,
+    .section .timeline,
+    .section .gallery-showcase,
+    .section .gallery,
+    .section .rsvp-card,
+    .section .utilities {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.85s ease 0.28s, transform 0.85s ease 0.28s;
+    }
+
+    .section.show .featured-photo,
+    .section.show .script-block,
+    .section.show .event-card,
+    .section.show .timeline,
+    .section.show .gallery-showcase,
+    .section.show .gallery,
+    .section.show .rsvp-card,
+    .section.show .utilities {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .story-text {
+      min-height: 3.3em;
+    }
+
+    .story-text.is-typing::after {
+      content: "";
+      display: inline-block;
+      width: 1px;
+      height: 0.95em;
+      margin-left: 4px;
+      vertical-align: -0.08em;
+      background: rgba(255, 244, 207, 0.88);
+      animation: storyCaret 0.9s steps(1) infinite;
+    }
+
+    .separator {
+      width: 138px;
+      height: 1px;
+      margin: 26px auto 2px;
+      border-radius: 999px;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(246, 220, 140, 0.22) 14%,
+        rgba(255, 244, 207, 0.86) 50%,
+        rgba(246, 220, 140, 0.22) 86%,
+        transparent 100%
+      );
+      box-shadow:
+        0 0 14px rgba(246, 220, 140, 0.12),
+        0 0 26px rgba(246, 220, 140, 0.07);
+      position: relative;
+      overflow: hidden;
+      opacity: 0.98;
+    }
+
+    .separator::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 42px;
+      height: 14px;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(255, 244, 207, 0.42), rgba(255, 244, 207, 0) 72%);
+      filter: blur(5.5px);
+      pointer-events: none;
+      opacity: 1;
+    }
+
+    .separator::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 44px;
+      left: -44px;
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0.52),
+        rgba(255, 255, 255, 0)
+      );
+      filter: blur(0.6px);
+      transform: skewX(-18deg);
+      animation: separatorShine 4.8s ease-in-out infinite;
+      will-change: left, opacity;
+    }
+
+    .featured-photo,
+    .dresscode-figure,
+    .gift-figure {
+      margin: 18px auto 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    .featured-photo img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      border-radius: 22px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+      transition: transform 0.6s ease, filter 0.6s ease;
+    }
+
+    .section.show .featured-photo img {
+      transform: scale(1.03);
+      filter: saturate(1.05);
+    }
+
+    .story-section .featured-photo + .story-text {
+      margin-top: 22px;
+    }
+
+    .script-block {
+      font-family: var(--font-script);
+      font-size: 2.3rem;
+      font-weight: 600;
+      line-height: 1.12;
+      letter-spacing: 0.01em;
+      color: rgba(255, 244, 207, 0.98);
+      text-shadow: 0 6px 18px rgba(0, 0, 0, 0.14);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 10px;
+      font-size: 0.78rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold-300);
+    }
+
+    .event-card {
+      display: grid;
+      gap: 12px;
+      text-align: center;
+      justify-items: center;
+    }
+
+    .event-media-stack {
+      width: 100%;
+      display: grid;
+      gap: 12px;
+      justify-items: center;
+    }
+
+    .event-media-stack[hidden] {
+      display: none !important;
+    }
+
+    .event-time {
+      font-size: 1rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold-300);
+    }
+
+    .event-place {
+      font-size: 1.42rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .map {
+      width: 100%;
+      max-width: 360px;
+      overflow: hidden;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+    }
+
+    .map iframe {
+      display: block;
+      width: 100%;
+      height: 210px;
+      border: 0;
+    }
+
+    .event-place-photo {
+      width: 100%;
+      max-width: 360px;
+      overflow: hidden;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+    }
+
+    .event-place-photo img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .btn,
+    .rsvp-buttons button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 50px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(246, 220, 140, 0.35);
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.07));
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.24),
+        0 12px 24px rgba(0, 0, 0, 0.18);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::after,
+    .rsvp-buttons button::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.28) 50%, transparent 70%);
+      transform: translateX(-140%);
+      transition: transform 0.7s ease;
+    }
+
+    .btn:hover,
+    .rsvp-buttons button:hover {
+      transform: translateY(-2px);
+      border-color: rgba(246, 220, 140, 0.6);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.28),
+        0 16px 30px rgba(0, 0, 0, 0.22);
+    }
+
+    .btn:hover::after,
+    .rsvp-buttons button:hover::after {
+      transform: translateX(140%);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .timeline {
+      position: relative;
+      margin-top: 18px;
+      padding-left: 34px;
+      text-align: left;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 9px;
+      top: 4px;
+      bottom: 4px;
+      width: 2px;
+      background: linear-gradient(180deg, transparent, var(--gold-300), var(--gold-500), transparent);
+      box-shadow: 0 0 14px rgba(246, 220, 140, 0.28);
+      transform: scaleY(0);
+      transform-origin: top;
+    }
+
+    .section.show .timeline::before {
+      animation: timelineDraw 1.3s cubic-bezier(.19,1,.22,1) 0.2s forwards;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: 22px;
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-item.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -30px;
+      top: 6px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, var(--gold-100), var(--gold-500));
+      box-shadow: 0 0 16px rgba(246, 220, 140, 0.4);
+      animation: dotPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes timelineDraw {
+      from { transform: scaleY(0); }
+      to { transform: scaleY(1); }
+    }
+
+    .timeline-time {
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold-300);
+    }
+
+    .timeline-title {
+      margin-top: 5px;
+      font-size: 1.12rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .timeline-desc {
+      margin-top: 4px;
+      font-size: 0.96rem;
+      color: var(--muted);
+    }
+
+    #countdown {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .countdown-shell {
+      margin-top: 18px;
+      padding: 10px 4px 2px;
+      border-radius: 0;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+    }
+
+    .count-box {
+      padding: 12px 8px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 6px 16px rgba(0, 0, 0, 0.08);
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+      animation: none;
+    }
+
+    .count-box:hover {
+      transform: none;
+      border-color: rgba(255, 255, 255, 0.08);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        0 8px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    .count-box.tick {
+      animation: countTick 0.38s ease;
+    }
+
+    .count-box strong {
+      display: block;
+      font-size: clamp(1.45rem, 4vw, 1.9rem);
+      font-weight: 500;
+      line-height: 1;
+      color: var(--gold-100);
+    }
+
+    .count-box span {
+      display: block;
+      margin-top: 6px;
+      font-size: 0.6rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .countdown-caption {
+      margin-top: 12px;
+      font-size: 0.82rem;
+      letter-spacing: 0.03em;
+      color: rgba(255, 248, 236, 0.68);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .gallery-showcase {
+      margin-top: 18px;
+      padding: 14px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+      border: 1px solid rgba(246, 220, 140, 0.18);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    .gallery-stage {
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 368px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.025));
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+
+    .gallery-stage img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.45s ease, opacity 0.3s ease, filter 0.3s ease;
+      will-change: transform, opacity;
+    }
+
+    .gallery-stage:hover img {
+      transform: scale(1.015);
+    }
+
+    .gallery-stage-copy {
+      display: none;
+    }
+
+    .gallery-stage-kicker {
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.76);
+    }
+
+    .gallery-stage-title {
+      margin-top: 4px;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.15;
+      word-break: break-word;
+      text-wrap: balance;
+    }
+
+    .gallery-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .gallery-nav {
+      display: flex;
+      gap: 8px;
+    }
+
+    .gallery-nav button {
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      font-size: 1rem;
+      line-height: 1;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .gallery-nav button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
+    }
+
+    .gallery-meta {
+      text-align: left;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .gallery-meta strong {
+      display: block;
+      font-size: 1.03rem;
+      color: var(--gold-100);
+      line-height: 1.2;
+      word-break: break-word;
+    }
+
+    .gallery-meta span {
+      display: block;
+      margin-top: 2px;
+      font-size: 0.86rem;
+      color: var(--muted);
+      line-height: 1.35;
+      word-break: break-word;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      border-radius: 18px;
+      cursor: pointer;
+      transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
+    }
+
+    .gallery img.big {
+      grid-column: span 2;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.04) rotate(-0.4deg);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
+      filter: saturate(1.06) brightness(1.02);
+    }
+
+    .gallery img.is-active {
+      outline: 2px solid rgba(246, 220, 140, 0.7);
+      outline-offset: 2px;
+      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.26);
+    }
+
+    .dresscode-figure img {
+      width: min(180px, 58%);
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.16));
+    }
+
+    .gift-figure img {
+      width: min(112px, 34%);
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.14));
+    }
+
+    .gift-options {
+      margin-top: 20px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .gift-option-card {
+      padding: 18px 16px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+      border: 1px solid rgba(246, 220, 140, 0.16);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 14px 26px rgba(0, 0, 0, 0.12);
+    }
+
+    .gift-option-media {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .gift-option-media img {
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.14));
+    }
+
+    .gift-option-media img.envelope {
+      width: min(124px, 40%);
+    }
+
+    .gift-option-media img.surprise {
+      width: min(98px, 32%);
+    }
+
+    .gift-option-title {
+      margin: 0;
+      font-size: 1.28rem;
+      font-weight: 600;
+      color: var(--gold-100);
+    }
+
+    .gift-option-copy {
+      margin-top: 8px;
+      font-size: 1rem;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+
+    .gift-links {
+      margin-top: 18px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .mini-note {
+      margin-top: 10px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .rsvp-card {
+      margin-top: 20px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .field {
+      text-align: left;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.82rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold-300);
+    }
+
+    .field input,
+    .field select {
+      width: 100%;
+      min-height: 52px;
+      padding: 0 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      outline: none;
+    }
+
+    .field input::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .field select option {
+      color: #241016;
+    }
+
+    .field input:focus,
+    .field select:focus {
+      border-color: rgba(246, 220, 140, 0.6);
+      box-shadow: 0 0 0 4px rgba(246, 220, 140, 0.08);
+    }
+
+    .rsvp-buttons {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .utilities {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .brand-footer {
+      position: relative;
+      width: 100vw;
+      margin-top: 16px;
+      margin-left: 50%;
+      transform: translateX(-50%);
+      padding: 12px 18px calc(12px + env(safe-area-inset-bottom, 0px));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      border-radius: 0;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.05)),
+        rgba(74, 32, 48, 0.46);
+      border-top: 1px solid rgba(246, 220, 140, 0.18);
+      box-shadow:
+        0 -14px 30px rgba(0, 0, 0, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(24px) saturate(145%);
+      -webkit-backdrop-filter: blur(24px) saturate(145%);
+    }
+
+    .brand-copy {
+      min-width: 0;
+      padding-left: max(0px, env(safe-area-inset-left, 0px));
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-copy::before {
+      content: "";
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 248, 236, 1), rgba(246, 220, 140, 0.72) 46%, rgba(246, 220, 140, 0) 70%);
+      box-shadow: 0 0 8px rgba(246, 220, 140, 0.16);
+      flex: 0 0 auto;
+      animation: brandPulse 3.2s ease-in-out infinite;
+    }
+
+    .brand-caption {
+      display: none;
+    }
+
+    .brand-link {
+      display: block;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      text-decoration: none;
+      color: rgba(255, 248, 236, 0.94);
+      animation: none;
+      text-wrap: balance;
+    }
+
+    .brand-question {
+      display: none;
+    }
+
+    .closing-note {
+      margin-top: 24px;
+      margin-bottom: 16px;
+      padding: 10px 0 6px;
+      font-family: var(--font-display);
+      font-size: 2.34rem;
+      line-height: 1.14;
+      color: var(--gold-100);
+      text-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
+      text-align: center;
+      overflow: visible;
+    }
+
+    .brand-cta {
+      margin-top: 0;
+      flex: 0 0 auto;
+      padding-right: max(0px, env(safe-area-inset-right, 0px));
+    }
+
+    .brand-cta a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 34px;
+      padding: 0 14px;
+      border-radius: 11px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0;
+      color: rgba(255, 248, 236, 0.9);
+      text-decoration: none;
+      white-space: nowrap;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.08)),
+        rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(246, 220, 140, 0.26);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.18),
+        0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .brand-cta a:hover {
+      transform: translateY(-1px);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.1)),
+        rgba(255, 255, 255, 0.1);
+    }
+
+    @keyframes brandPulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.82;
+        box-shadow: 0 0 7px rgba(246, 220, 140, 0.14);
+      }
+      50% {
+        transform: scale(1.16);
+        opacity: 1;
+        box-shadow: 0 0 10px rgba(246, 220, 140, 0.22);
+      }
+    }
+
+    @media (max-width: 520px) {
+      .brand-footer {
+        padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px));
+        gap: 10px;
+      }
+
+      .brand-link {
+        font-size: 0.8rem;
+      }
+
+      .brand-cta a {
+        min-height: 32px;
+        padding: 0 13px;
+        font-size: 0.76rem;
+        border-radius: 10px;
+      }
+    }
+
+    .floating-btn {
+      position: fixed;
+      bottom: 20px;
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.14);
+      color: #fff;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.26);
+      z-index: 40;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(14px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .floating-btn.show {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .floating-btn:hover {
+      transform: translateY(-2px) scale(1.05);
+    }
+
+    #musicBtn {
+      left: 18px;
+    }
+
+    #toTopBtn {
+      right: 18px;
+      font-size: 1.2rem;
+    }
+
+    #musicBtn::before,
+    #musicBtn::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 3px;
+      height: 16px;
+      border-radius: 2px;
+      background: #fff;
+      transition: all 0.25s ease;
+    }
+
+    #musicBtn::before {
+      transform: translate(-5px, -50%);
+    }
+
+    #musicBtn::after {
+      transform: translate(2px, -50%);
+    }
+
+    #musicBtn.is-paused::before {
+      width: 0;
+      height: 0;
+      border-left: 12px solid #fff;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      background: transparent;
+      transform: translate(-3px, -50%);
+    }
+
+    #musicBtn.is-paused::after {
+      opacity: 0;
+      transform: translate(6px, -50%);
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .lightbox.show {
+      display: flex;
+    }
+
+    .lightbox-content {
+      position: relative;
+      width: min(92vw, 620px);
+      height: min(88vh, 780px);
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) 96px;
+      gap: 0;
+      padding: 16px;
+      border-radius: 28px;
+      background: rgba(18, 10, 14, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+    }
+
+    .lightbox-main {
+      min-height: 0;
+      display: grid;
+      place-items: center;
+      padding: 20px 16px 18px;
+      overflow: hidden;
+      position: relative;
+      touch-action: none;
+      cursor: zoom-in;
+    }
+
+    .lightbox-img {
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 22px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
+      transition: opacity 0.25s ease, transform 0.25s ease, filter 0.25s ease;
+      transform-origin: center center;
+      user-select: none;
+      -webkit-user-drag: none;
+      will-change: transform;
+    }
+
+    .lightbox-main.is-zoomed {
+      cursor: grab;
+    }
+
+    .lightbox-main.is-panning {
+      cursor: grabbing;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 42px;
+      height: 42px;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(10, 10, 10, 0.42);
+      color: #fff;
+      font-size: 1.4rem;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 5;
+      display: grid;
+      place-items: center;
+    }
+
+    .thumbs {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 92px;
+      padding: 14px 6px 4px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+      scrollbar-width: none;
+    }
+
+    .thumbs::-webkit-scrollbar {
+      display: none;
+    }
+
+    .thumbs img {
+      width: 56px;
+      height: 56px;
+      flex: 0 0 auto;
+      object-fit: contain;
+      border-radius: 12px;
+      opacity: 0.55;
+      cursor: pointer;
+      border: 1px solid transparent;
+      background: rgba(255, 255, 255, 0.04);
+      transition: transform 0.22s ease, opacity 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .thumbs img.active {
+      opacity: 1;
+      transform: translateY(-1px) scale(1.04);
+      border-color: var(--gold-300);
+      box-shadow: 0 0 0 1px rgba(246, 220, 140, 0.2), 0 10px 18px rgba(0, 0, 0, 0.14);
+    }
+
+    .viewer-counter {
+      position: absolute;
+      left: 16px;
+      top: 16px;
+      min-height: 34px;
+      padding: 0 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      background: rgba(10, 10, 10, 0.36);
+      color: #fff;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      z-index: 4;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: calc(env(safe-area-inset-bottom, 0px) + 92px);
+      transform: translate(-50%, 10px);
+      max-width: min(86vw, 360px);
+      padding: 12px 16px;
+      border-radius: 18px;
+      background: rgba(16, 8, 12, 0.88);
+      color: #fff;
+      font-size: 0.92rem;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.22);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.22s ease, transform 0.22s ease;
+      z-index: 1002;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+
+    .editor-toggle {
+      position: fixed;
+      top: 14px;
+      right: 14px;
+      z-index: 1200;
+      width: 40px;
+      height: 40px;
+      border: 0;
+      border-radius: 50%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(26, 12, 18, 0.82);
+      color: rgba(255, 248, 236, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+      cursor: pointer;
+    }
+
+    body.editor-open .editor-toggle {
+      display: inline-flex;
+    }
+
+    .editor-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1190;
+      background: rgba(7, 4, 6, 0.48);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.22s ease;
+    }
+
+    body.editor-open .editor-overlay {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .editor-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: min(92vw, 390px);
+      height: 100dvh;
+      z-index: 1201;
+      padding: 14px 12px 18px;
+      background: rgba(20, 10, 14, 0.9);
+      color: rgba(255, 248, 236, 0.96);
+      box-shadow: -24px 0 60px rgba(0, 0, 0, 0.28);
+      backdrop-filter: blur(18px) saturate(140%);
+      -webkit-backdrop-filter: blur(18px) saturate(140%);
+      transform: translateX(102%);
+      transition: transform 0.28s ease;
+      overflow-y: auto;
+    }
+
+    body.editor-open .editor-panel {
+      transform: translateX(0);
+    }
+
+    .editor-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .editor-head h3 {
+      margin: 0;
+      font-size: 1.3rem;
+      color: var(--gold-100);
+    }
+
+    .editor-note {
+      margin: 0 0 10px;
+      font-size: 0.82rem;
+      line-height: 1.35;
+      color: rgba(255, 248, 236, 0.72);
+    }
+
+    .editor-block {
+      margin-bottom: 10px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+    }
+
+    .editor-block h4 {
+      margin: 0;
+      font-size: 1.02rem;
+      color: var(--gold-100);
+    }
+
+    .editor-block summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .editor-block summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .editor-block summary::after {
+      content: "⌄";
+      font-size: 1rem;
+      color: rgba(255, 248, 236, 0.76);
+      transition: transform 0.2s ease;
+    }
+
+    .editor-block[open] summary::after {
+      transform: rotate(180deg);
+    }
+
+    .editor-block-body {
+      padding: 0 12px 12px;
+    }
+
+    .editor-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .editor-field {
+      display: grid;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+
+    .editor-field label {
+      font-size: 0.7rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: rgba(255, 248, 236, 0.72);
+    }
+
+    .editor-field input,
+    .editor-field textarea,
+    .editor-field select {
+      width: 100%;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      padding: 9px 11px;
+      font-size: 16px;
+      outline: none;
+      resize: vertical;
+    }
+
+    .editor-field textarea {
+      min-height: 62px;
+    }
+
+    .editor-field input[type="color"] {
+      padding: 4px;
+      min-height: 42px;
+    }
+
+    .editor-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .editor-row label {
+      font-size: 0.9rem;
+      color: rgba(255, 248, 236, 0.84);
+    }
+
+    .editor-row input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--gold-500);
+    }
+
+    .editor-actions {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .editor-btn {
+      min-height: 38px;
+      border: 1px solid rgba(246, 220, 140, 0.24);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.08);
+      color: rgba(255, 248, 236, 0.94);
+      cursor: pointer;
+      font-size: 0.82rem;
+    }
+
+    .editor-btn.primary {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.08));
+    }
+
+    .editor-links-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .editor-link-card {
+      padding: 10px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .editor-subcard {
+      padding: 10px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      display: grid;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .editor-subcard h5 {
+      margin: 0;
+      font-size: 0.88rem;
+      color: var(--gold-100);
+    }
+
+    .editor-helper {
+      margin: -2px 0 4px;
+      font-size: 0.76rem;
+      line-height: 1.35;
+      color: rgba(255, 248, 236, 0.62);
+    }
+
+    .font-preview {
+      margin-top: 4px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      color: rgba(255, 248, 236, 0.94);
+      line-height: 1.15;
+    }
+
+    .font-preview small {
+      display: block;
+      margin-top: 4px;
+      font-size: 0.72rem;
+      color: rgba(255, 248, 236, 0.64);
+      font-family: system-ui, sans-serif;
+    }
+
+    .timeline-editor-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .timeline-editor-row {
+      padding: 10px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .timeline-editor-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1fr;
+      gap: 8px;
+    }
+
+    .timeline-editor-row .editor-field:last-child {
+      margin-bottom: 0;
+    }
+
+    .editor-auth .editor-actions {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .editor-secret-hotspot {
+      position: absolute;
+      left: 6px;
+      bottom: 2px;
+      width: 54px;
+      height: 54px;
+      border: 0;
+      padding: 0;
+      background: transparent;
+      opacity: 0;
+      z-index: 2;
+    }
+
+    .editor-auth {
+      position: fixed;
+      inset: 0;
+      z-index: 1250;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      background: rgba(7, 4, 6, 0.5);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .editor-auth.show {
+      display: flex;
+    }
+
+    .editor-auth-card {
+      width: min(92vw, 360px);
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(20, 10, 14, 0.92);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 26px 60px rgba(0, 0, 0, 0.28);
+    }
+
+    .editor-auth-card h4 {
+      margin: 0 0 8px;
+      font-size: 1.2rem;
+      color: var(--gold-100);
+    }
+
+    .editor-auth-card p {
+      margin: 0 0 14px;
+      font-size: 0.92rem;
+      color: rgba(255, 248, 236, 0.72);
+      line-height: 1.45;
+    }
+
+    .editor-auth-error {
+      min-height: 18px;
+      margin: 6px 0 0;
+      font-size: 0.84rem;
+      color: #ffb7c7;
+    }
+
+    @media (max-width: 520px) {
+      .editor-grid,
+      .editor-actions {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @keyframes overlayFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @keyframes overlayIn {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes overlayOut {
+      from {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      to {
+        opacity: 0;
+        transform: translateY(-12px);
+      }
+    }
+
+    @keyframes waxEnter {
+      0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.7);
+      }
+      70% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.06);
+      }
+      100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+
+    @keyframes waxOpenOut {
+      0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+        filter:
+          drop-shadow(0 18px 35px rgba(0, 0, 0, 0.35))
+          drop-shadow(0 0 18px rgba(246, 220, 140, 0.18));
+      }
+      100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1.45) rotate(-7deg);
+        filter:
+          drop-shadow(0 34px 60px rgba(0, 0, 0, 0.16))
+          drop-shadow(0 0 42px rgba(246, 220, 140, 0.52));
+      }
+    }
+
+    @keyframes fadeAwayLuxury {
+      0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-12px) scale(0.98);
+        filter: blur(6px);
+      }
+    }
+
+    @keyframes heroDrift {
+      0% { transform: scale(1.03) translate3d(0, 0, 0); }
+      100% { transform: scale(1.08) translate3d(-8px, -6px, 0); }
+    }
+
+    @keyframes fadeRise {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes sectionGlow {
+      0% {
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12);
+      }
+      100% {
+        box-shadow: var(--shadow);
+      }
+    }
+
+
+    @keyframes storyCaret {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+
+    @keyframes separatorShine {
+      0%, 18% {
+        left: -44px;
+        opacity: 0;
+      }
+      26% {
+        opacity: 0.84;
+      }
+      52% {
+        left: calc(100% + 26px);
+        opacity: 0;
+      }
+      100% {
+        left: calc(100% + 26px);
+        opacity: 0;
+      }
+    }
+
+    @keyframes dotPulse {
+      0%, 100% { box-shadow: 0 0 16px rgba(246, 220, 140, 0.32); }
+      50% { box-shadow: 0 0 24px rgba(246, 220, 140, 0.56); }
+    }
+
+    @keyframes countTick {
+      0% { transform: translateY(0) scale(1); }
+      35% { transform: translateY(-1px) scale(1.015); }
+      100% { transform: translateY(0) scale(1); }
+    }
+
+    @keyframes softGlow {
+      0%, 100% { text-shadow: 0 0 0 rgba(246, 220, 140, 0); }
+      50% { text-shadow: 0 0 14px rgba(246, 220, 140, 0.35); }
+    }
+
+    @media (max-width: 520px) {
+      .page {
+        padding-bottom: 0;
+      }
+
+      .overlay-kicker {
+        padding-top: 8.5vh;
+      }
+
+      .hero {
+        width: 100vw;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        min-height: 100vh;
+        min-height: 100svh;
+        min-height: 100dvh;
+        padding: 28px 14px 48px;
+      }
+
+      .hero-content {
+        padding: 0 6px 14px;
+      }
+
+      .hero-label {
+        margin-bottom: 9px;
+        gap: 10px;
+        font-size: 0.76rem;
+        letter-spacing: 0.26em;
+      }
+
+      .hero-label::before,
+      .hero-label::after {
+        width: 20px;
+      }
+
+      .hero-name {
+        padding: 0 4px 12px;
+        font-size: clamp(3.35rem, 12vw, 4.55rem);
+      }
+
+      .hero-date {
+        gap: 10px;
+        font-size: 0.76rem;
+        letter-spacing: 0.2em;
+      }
+
+      .hero-date::before,
+      .hero-date::after {
+        width: 24px;
+      }
+
+      .section {
+        padding: 24px 18px;
+      }
+
+      .section h2 {
+        font-size: 1.8rem;
+      }
+
+      .section p {
+        font-size: 1.06rem;
+      }
+
+      .script-block {
+        font-size: 2.05rem;
+      }
+
+      #countdown,
+      .rsvp-buttons {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .gallery-stage img {
+        width: 100%;
+        height: 100%;
+      }
+
+      .gallery-stage {
+        height: 292px;
+      }
+
+      .gallery-controls {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .gallery img {
+        height: auto;
+      }
+
+      .gallery img.big {
+        height: auto;
+      }
+
+      .dresscode-figure img {
+        width: min(168px, 62%);
+      }
+
+      .gift-figure img {
+        width: min(104px, 38%);
+      }
+    }
+  </style>
+</head>
+<body class="locked">
+  <div class="overlay" id="overlay">
+    <div class="overlay-card">
+      <div class="overlay-scene" id="overlayScene">
+        <p class="overlay-kicker" id="overlayKicker">Mis XV</p>
+        <div class="overlay-title-wrap">
+          <span class="title-glow" aria-hidden="true"></span>
+          <h1 class="overlay-title" id="overlayTitle">Sofia Montes</h1>
+        </div>
+        <button class="wax-btn" id="openBtn" type="button" aria-label="Abrir invitación">
+          <img src="sello_cera.png" alt="Sello para abrir invitación" decoding="async" fetchpriority="high">
+        </button>
+        <div class="wax-caption">Tocar para abrir</div>
+      </div>
+    </div>
+  </div>
+
+  <canvas id="particles" aria-hidden="true"></canvas>
+
+  <audio id="audio" loop preload="auto">
+    <source src="cancio.mp3" type="audio/mpeg">
+  </audio>
+
+  <main class="page">
+    <section class="hero">
+      <img id="heroImage" src="FPrincipal.jpg" alt="Sofia Montes" decoding="async" fetchpriority="high">
+      <div class="hero-content">
+        <div class="hero-label" id="heroLabel">Mis XV</div>
+        <h1 class="hero-name" id="nombre">Sofia Montes</h1>
+        <div class="hero-date" id="fechaEvento"></div>
+      </div>
+    </section>
+
+    <div class="separator"></div>
+
+    <section class="section story-section" id="storySection">
+      <h2 id="storyTitle">Mi historia</h2>
+      <p class="story-text" id="storyText1" data-fulltext="Hoy celebro no solo mis 15 años, sino cada sonrisa que iluminó mi camino, cada aprendizaje que fortaleció mi corazón y cada sueño que, con amor y esperanza, me ha traído hasta este momento tan especial de mi vida."></p>
+      <div class="featured-photo">
+        <img id="storyImage" src="FHistoria.jpg" alt="Fotografía de Sofia" loading="lazy" decoding="async">
+      </div>
+      <p class="story-text" id="storyText2" data-fulltext="Aquí termina un capítulo lleno de recuerdos que atesoraré por siempre y comienza uno nuevo, donde la ilusión, la luz y los sueños por cumplir marcan el inicio de todo lo que está por venir."></p>
+    </section>
+
+    <div class="separator"></div>
+
+    <section class="section" id="parentsSection">
+      <span class="eyebrow" id="parentsEyebrow">En compañía de mis padres</span>
+      <div class="script-block" id="parentsNames">María Fernanda López<br>&amp;<br>Carlos Alberto Montes</div>
+      <p id="parentsInviteText" style="margin-top:16px;">Tenemos el honor de invitarles a celebrar mis XV años.</p>
+    </section>
+
+    <div class="separator"></div>
+
+    <section class="section" id="godparentsSection">
+      <span class="eyebrow" id="godparentsEyebrow">Mis padrinos</span>
+      <div class="script-block" id="godparentsNames">Ana Patricia Hernández<br>&amp;<br>José Luis Ramírez</div>
+    </section>
+
+    <div class="separator"></div>
+
+    <section class="section" id="ceremonySection">
+      <h2 id="ceremonyTitle">Ceremonia</h2>
+      <div class="event-card">
+        <div class="event-time" id="ceremonyTime">16:45 hrs</div>
+        <div class="event-place" id="ceremonyPlace">Parroquia Cristo Rey</div>
+        <div class="event-media-stack" id="ceremonyIconWrap">
+          <div class="dresscode-figure">
+            <img id="ceremonyImage" src="cereminia.png" alt="Ceremonia" loading="lazy" decoding="async">
+          </div>
+        </div>
+        <div class="event-media-stack" id="ceremonyMapWrap" hidden>
+          <div class="map">
+            <iframe id="ceremonyMapEmbed" src="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa de la ceremonia"></iframe>
+          </div>
+        </div>
+        <div class="event-media-stack" id="ceremonyPhotoWrap" hidden>
+          <div class="event-place-photo">
+            <img id="ceremonyPhoto" src="" alt="Lugar de la ceremonia" loading="lazy" decoding="async">
+          </div>
+        </div>
+        <div>
+          <a class="btn" id="ceremonyMapLink" href="https://maps.app.goo.gl/dSxG3vrm3iYQaScp7" target="_blank" rel="noopener noreferrer">Cómo llegar</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="separator"></div>
+
+    <section class="section" id="receptionSection">
+      <h2 id="receptionTitle">Recepción</h2>
+      <div class="event-card">
+        <div class="event-time" id="receptionTime">18:30 hrs</div>
+        <div class="event-place" id="receptionPlace">Top Salón Obispado</div>
+        <div class="event-media-stack" id="receptionIconWrap" hidden>
+          <div class="dresscode-figure">
+            <img id="receptionImage" src="" alt="Recepción" loading="lazy" decoding="async">
+          </div>
+        </div>
+        <div class="event-media-stack" id="receptionMapWrap">
+          <div class="map">
+            <iframe id="receptionMapEmbed" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6926.491111782688!2d-100.34817465374192!3d25.681874007395155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x866295006436bab1%3A0x93176ce26d4e1a2c!2sTop%20Sal%C3%B3n%20Obispado!5e0!3m2!1ses!2smx!4v1773365282287!5m2!1ses!2smx" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa del salón"></iframe>
+          </div>
+        </div>
+        <div class="event-media-stack" id="receptionPhotoWrap" hidden>
+          <div class="event-place-photo">
+            <img id="receptionPhoto" src="" alt="Lugar de la recepción" loading="lazy" decoding="async">
+          </div>
+        </div>
+        <div>
+          <a class="btn" id="receptionMapLink" href="https://maps.app.goo.gl/q81RTb5wBwc5pQnr7" target="_blank" rel="noopener noreferrer">Cómo llegar</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="separator"></div>
+
+    <section class="section" id="timelineSection">
+      <h2>Itinerario</h2>
+      <div class="timeline" id="timelineList"></div>
+    </section>
+
+    <div class="separator"></div>
+
+    <section class="section" id="countdown-section">
+      <h2 id="countdownTitle">Faltan pocos días</h2>
+      <p id="countdownIntro">Cuenta regresiva para celebrar este gran día.</p>
+      <div class="countdown-shell">
+        <div id="countdown" aria-live="polite"></div>
+        <div class="countdown-caption" id="countdownCaption">Preparando una noche inolvidable.</div>
+      </div>
+    </section>
+
+    <div class="separator"></div>
+
+    <section class="section" id="gallerySection">
+      <h2>Galería</h2>
+      <div class="gallery-showcase">
+        <div class="gallery-stage" id="galleryStage">
+          <img src="G1.jpg" alt="Galería destacada" id="galleryPreviewImg" loading="lazy" decoding="async">
+        </div>
+        <div class="gallery-controls">
+          <div class="gallery-meta">
+            <strong id="galleryMetaIndex">Foto 1 de 6</strong>
+            <span id="galleryMetaHint">Toca una imagen para destacar o abrir.</span>
+          </div>
+          <div class="gallery-nav">
+            <button type="button" id="galleryPrev" aria-label="Foto anterior">‹</button>
+            <button type="button" id="galleryNext" aria-label="Foto siguiente">›</button>
+          </div>
+        </div>
+      </div>
+      <div class="gallery" id="galleryGrid"></div>
+    </section>
+
+    <div class="separator"></div>
+
+    <section class="section" id="dressSection">
+      <h2 id="dressTitle">Dress Code</h2>
+      <p id="dressValue">Formal</p>
+      <div class="dresscode-figure">
+        <img id="dressImage" src="vestimenta.png" alt="Código de vestimenta" loading="lazy" decoding="async">
+      </div>
+      <p class="mini-note" id="dressNote">Rojo reservado para la quinceañera.</p>
+    </section>
+
+    <div class="separator"></div>
+
+    <section class="section" id="rsvpSection">
+      <h2>Confirma tu presencia</h2>
+      <div class="rsvp-card">
+        <div class="field">
+          <label for="guestName">Tu nombre</label>
+          <input type="text" id="guestName" placeholder="Escríbelo aquí">
+        </div>
+        <div class="field" id="guestCountField">
+          <label for="guestCount">¿Cuántas personas asistirán?</label>
+          <select id="guestCount" data-pases="6">
+            <option value="">Selecciona una opción</option>
+          </select>
+        </div>
+        <div class="rsvp-buttons">
+          <button type="button" id="confirmYes">Confirmar asistencia</button>
+          <button type="button" id="confirmNo" class="btn-secondary">No podré asistir</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="separator"></div>
+
+    <section class="section" id="giftSection">
+      <h2 id="giftTitle">Opciones de regalo</h2>
+      <p id="giftIntro">Tu presencia es el regalo más valioso para mí, pero si deseas tener un detalle, aquí encontrarás algunas opciones pensadas con mucho cariño.</p>
+
+      <div class="gift-options">
+        <div class="gift-option-card">
+          <div class="gift-option-media">
+            <img class="envelope" id="envelopeImage" src="sobre.png" alt="Lluvia de sobres" loading="lazy" decoding="async">
+          </div>
+          <h3 class="gift-option-title" id="giftOption1Title">Lluvia de sobres</h3>
+          <p class="gift-option-copy" id="giftOption1Copy">Si lo prefieres, podrás acompañarme con un sobre el día del evento. Será un detalle recibido con muchísimo cariño y gratitud.</p>
+        </div>
+
+        <div class="gift-option-card">
+          <div class="gift-option-media">
+            <img class="surprise" id="surpriseImage" src="regalo.png" alt="Regalo sorpresa" loading="lazy" decoding="async">
+          </div>
+          <h3 class="gift-option-title" id="giftOption2Title">Regalo sorpresa</h3>
+          <p class="gift-option-copy" id="giftOption2Copy">También puedes sorprenderme con un detalle especial elegido por ti. Lo importante será el cariño con el que venga.</p>
+        </div>
+      </div>
+
+      <p class="mini-note" id="giftLinksIntro" style="margin-top:18px;">Si prefieres elegir un detalle en línea, también puedes apoyarte en estas opciones de mesa de regalos:</p>
+
+      <div class="gift-links" id="giftLinks"></div>
+    </section>
+
+    <div class="separator"></div>
+
+    <section class="section" id="agendaSectionUi">
+      <h2>Agenda este momento</h2>
+      <div class="utilities">
+        <a class="btn" href="#" id="calendarBtn">Agregar al calendario</a>
+        <a class="btn btn-secondary" href="#countdown-section" id="verCuenta">Ver cuenta regresiva</a>
+      </div>
+    </section>
+
+    <div class="separator"></div>
+    <div class="closing-note" id="closingNote">Gracias por ser parte de este momento inolvidable</div>
+
+    <footer class="brand-footer">
+      <button class="editor-secret-hotspot" id="editorSecretHotspot" type="button" aria-label="Abrir acceso de edición"></button>
+      <div class="brand-copy">
+        <p class="brand-caption">Invitación creada con amor digital</p>
+        <a class="brand-link" id="brandLink" href="https://www.facebook.com/profile.php?id=61587804296779&locale=es_LA" target="_blank" rel="noopener noreferrer">Creado por Digital Invita</a>
+        <p class="brand-question">Invitaciones digitales para eventos</p>
+      </div>
+      <div class="brand-cta">
+        <a id="brandCtaLink" href="https://wa.me/525550591264?text=Hola%21%20Quiero%20una%20invitaci%C3%B3n%20digital%20con%20estilo%20elegante%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n." target="_blank" rel="noopener noreferrer">Contáctanos</a>
+      </div>
+    </footer>
+  </main>
+
+  <div class="editor-overlay" id="editorOverlay"></div>
+  <button class="editor-toggle" id="editorToggle" type="button" aria-label="Cerrar panel de edición">×</button>
+  <aside class="editor-panel" id="editorPanel" aria-hidden="true">
+    <div class="editor-head">
+      <h3>Panel Digital Invita</h3>
+    </div>
+    <p class="editor-note">Atajo: <strong>Ctrl/Cmd + Shift + E</strong>. Guarda base para dejar tu plantilla favorita.</p>
+
+    <details class="editor-block" open>
+      <summary><h4>Fondo y Tipografías</h4></summary>
+      <div class="editor-block-body">
+        <div class="editor-field"><label for="cfgThemePreset">Tema rápido</label><select id="cfgThemePreset"><option value="">Selecciona un tema</option><option value="rosa">Rosa Luxury</option><option value="champagne">Champagne Blush</option><option value="rojo">Rojo Princesa</option></select></div>
+        <div class="editor-grid">
+          <div class="editor-field"><label for="cfgBgTop">Top</label><input type="color" id="cfgBgTop"></div>
+          <div class="editor-field"><label for="cfgBgMid">Mid</label><input type="color" id="cfgBgMid"></div>
+          <div class="editor-field"><label for="cfgBgBottom">Bottom</label><input type="color" id="cfgBgBottom"></div>
+          <div class="editor-field"><label for="cfgGold">Dorado</label><input type="color" id="cfgGold"></div>
+          <div class="editor-field"><label for="cfgTextColor">Texto</label><input type="color" id="cfgTextColor"></div>
+          <div class="editor-field"><label for="cfgMutedColor">Texto secundario</label><input type="color" id="cfgMutedColor"></div>
+          <div class="editor-field"><label for="cfgBodyFont">Tipografía base</label><select id="cfgBodyFont"><option value="Cormorant Garamond">Cormorant Garamond</option><option value="Georgia">Georgia</option><option value="Times New Roman">Times New Roman</option></select></div>
+          <div class="editor-field"><label for="cfgScriptFont">Tipografía cursiva</label><select id="cfgScriptFont"><option value="Dancing Script">Dancing Script</option><option value="Great Vibes">Great Vibes</option><option value="Cormorant Garamond">Cormorant Garamond Italic</option></select></div>
+          <div class="editor-field"><label for="cfgDisplayFont">Tipografía nombre</label><select id="cfgDisplayFont"><option value="Great Vibes">Great Vibes</option><option value="Dancing Script">Dancing Script</option><option value="Cormorant Garamond">Cormorant Garamond</option></select></div>
+        </div>
+        <div class="font-preview" id="bodyFontPreview">Vista base de texto<small>Texto general de la invitación</small></div>
+        <div class="font-preview" id="scriptFontPreview">María Fernanda López<small>Nombres cursivos</small></div>
+        <div class="font-preview" id="displayFontPreview">Sofia Montes<small>Nombre principal</small></div>
+      </div>
+    </details>
+
+    <details class="editor-block">
+      <summary><h4>Imágenes base</h4></summary>
+      <div class="editor-block-body">
+        <p class="editor-helper">Aquí solo cambias el archivo o nombre de imagen. El tamaño y estilo ya lo controla la plantilla.</p>
+        <div class="editor-field"><label for="cfgHeroImage">Portada hero</label><input type="text" id="cfgHeroImage"></div>
+        <div class="editor-field"><label for="cfgStoryImage">Imagen historia</label><input type="text" id="cfgStoryImage"></div>
+        <div class="editor-field"><label for="cfgDressImage">Imagen dress code</label><input type="text" id="cfgDressImage"></div>
+        <div class="editor-field"><label for="cfgEnvelopeImage">Imagen sobre</label><input type="text" id="cfgEnvelopeImage"></div>
+        <div class="editor-field"><label for="cfgSurpriseImage">Imagen regalo</label><input type="text" id="cfgSurpriseImage"></div>
+        <div class="editor-field"><label for="cfgGalleryImages">Galería (una por línea)</label><textarea id="cfgGalleryImages"></textarea></div>
+      </div>
+    </details>
+
+    <details class="editor-block">
+      <summary><h4>Hero</h4></summary>
+      <div class="editor-block-body">
+        <div class="editor-field"><label for="cfgEventLabel">Etiqueta</label><input type="text" id="cfgEventLabel"></div>
+        <div class="editor-field"><label for="cfgCelebrantName">Nombre</label><input type="text" id="cfgCelebrantName"></div>
+        <div class="editor-field"><label for="cfgEventDate">Fecha y hora inicio</label><input type="datetime-local" id="cfgEventDate"></div>
+        <div class="editor-field"><label for="cfgEventEnd">Fecha y hora fin</label><input type="datetime-local" id="cfgEventEnd"></div>
+      </div>
+    </details>
+
+    <details class="editor-block">
+      <summary><h4>Textos rápidos</h4></summary>
+      <div class="editor-block-body">
+        <div class="editor-field"><label for="cfgStoryTitle">Título historia</label><input type="text" id="cfgStoryTitle"></div>
+        <div class="editor-field"><label for="cfgStoryText1">Historia 1</label><textarea id="cfgStoryText1"></textarea></div>
+        <div class="editor-field"><label for="cfgStoryText2">Historia 2</label><textarea id="cfgStoryText2"></textarea></div>
+        <div class="editor-field"><label for="cfgParentsNames">Papás (usa &lt;br&gt;)</label><textarea id="cfgParentsNames"></textarea></div>
+        <div class="editor-field"><label for="cfgGodparentsNames">Padrinos (usa &lt;br&gt;)</label><textarea id="cfgGodparentsNames"></textarea></div>
+        <div class="editor-field"><label for="cfgDressValue">Dress code</label><input type="text" id="cfgDressValue"></div>
+        <div class="editor-field"><label for="cfgGiftIntro">Intro regalos</label><textarea id="cfgGiftIntro"></textarea></div>
+        <div class="editor-field"><label for="cfgClosingNote">Texto de cierre</label><textarea id="cfgClosingNote"></textarea></div>
+      </div>
+    </details>
+
+    <details class="editor-block">
+      <summary><h4>Ubicaciones</h4></summary>
+      <div class="editor-block-body">
+        <div class="editor-subcard">
+          <h5>Ceremonia</h5>
+          <div class="editor-helper">Elige cómo mostrar esta ubicación: solo ícono, solo mapa, ambos o foto del lugar.</div>
+          <div class="editor-field"><label for="cfgCeremonyTitle">Título ceremonia</label><input type="text" id="cfgCeremonyTitle"></div>
+          <div class="editor-field"><label for="cfgCeremonyTime">Hora ceremonia</label><input type="text" id="cfgCeremonyTime"></div>
+          <div class="editor-field"><label for="cfgCeremonyPlace">Lugar ceremonia</label><input type="text" id="cfgCeremonyPlace"></div>
+          <div class="editor-field"><label for="cfgCeremonyMediaMode">Modo visual</label><select id="cfgCeremonyMediaMode"><option value="icon">Ícono</option><option value="preview">Vista previa</option><option value="combined">Combinado</option><option value="photo">Foto del lugar</option></select></div>
+          <div class="editor-field"><label for="cfgCeremonyIconSrc">Ícono ceremonia</label><input type="text" id="cfgCeremonyIconSrc"></div>
+          <div class="editor-field"><label for="cfgCeremonyMapEmbed">Mapa embed ceremonia</label><textarea id="cfgCeremonyMapEmbed"></textarea></div>
+          <div class="editor-field"><label for="cfgCeremonyPhotoSrc">Foto del lugar</label><input type="text" id="cfgCeremonyPhotoSrc"></div>
+          <div class="editor-field"><label for="cfgCeremonyMapLink">Link ceremonia</label><input type="text" id="cfgCeremonyMapLink"></div>
+        </div>
+        <div class="editor-subcard">
+          <h5>Recepción</h5>
+          <div class="editor-helper">Puedes usar un estilo distinto al de ceremonia. Si dejas un campo vacío, la plantilla usa lo disponible sin romperse.</div>
+          <div class="editor-field"><label for="cfgReceptionTitle">Título recepción</label><input type="text" id="cfgReceptionTitle"></div>
+          <div class="editor-field"><label for="cfgReceptionTime">Hora recepción</label><input type="text" id="cfgReceptionTime"></div>
+          <div class="editor-field"><label for="cfgReceptionPlace">Lugar recepción</label><input type="text" id="cfgReceptionPlace"></div>
+          <div class="editor-field"><label for="cfgReceptionMediaMode">Modo visual</label><select id="cfgReceptionMediaMode"><option value="icon">Ícono</option><option value="preview">Vista previa</option><option value="combined">Combinado</option><option value="photo">Foto del lugar</option></select></div>
+          <div class="editor-field"><label for="cfgReceptionIconSrc">Ícono recepción</label><input type="text" id="cfgReceptionIconSrc"></div>
+          <div class="editor-field"><label for="cfgReceptionMapEmbed">Mapa embed recepción</label><textarea id="cfgReceptionMapEmbed"></textarea></div>
+          <div class="editor-field"><label for="cfgReceptionPhotoSrc">Foto del lugar</label><input type="text" id="cfgReceptionPhotoSrc"></div>
+          <div class="editor-field"><label for="cfgReceptionMapLink">Link recepción</label><input type="text" id="cfgReceptionMapLink"></div>
+        </div>
+      </div>
+    </details>
+
+    <details class="editor-block">
+      <summary><h4>Itinerario</h4></summary>
+      <div class="editor-block-body">
+        <div class="timeline-editor-list" id="editorTimelineList"></div>
+        <button class="editor-btn" id="addTimelineRowBtn" type="button">Agregar evento</button>
+      </div>
+    </details>
+
+    <details class="editor-block">
+      <summary><h4>Secciones</h4></summary>
+      <div class="editor-block-body">
+        <div class="editor-row"><label for="cfgShowStory">Mostrar historia</label><input type="checkbox" id="cfgShowStory"></div>
+        <div class="editor-row"><label for="cfgShowParents">Mostrar papás</label><input type="checkbox" id="cfgShowParents"></div>
+        <div class="editor-row"><label for="cfgShowGodparents">Mostrar padrinos</label><input type="checkbox" id="cfgShowGodparents"></div>
+        <div class="editor-row"><label for="cfgShowDress">Mostrar dress code</label><input type="checkbox" id="cfgShowDress"></div>
+        <div class="editor-row"><label for="cfgShowGifts">Mostrar regalos</label><input type="checkbox" id="cfgShowGifts"></div>
+        <div class="editor-row"><label for="cfgShowAgenda">Mostrar agenda</label><input type="checkbox" id="cfgShowAgenda"></div>
+        <div class="editor-row"><label for="cfgShowClosing">Mostrar cierre</label><input type="checkbox" id="cfgShowClosing"></div>
+      </div>
+    </details>
+
+    <details class="editor-block">
+      <summary><h4>RSVP</h4></summary>
+      <div class="editor-block-body">
+        <div class="editor-field"><label for="cfgRsvpPhone">WhatsApp RSVP</label><input type="text" id="cfgRsvpPhone"></div>
+        <div class="editor-row"><label for="cfgShowGuestCount">Mostrar número de acompañantes</label><input type="checkbox" id="cfgShowGuestCount"></div>
+        <div class="editor-field"><label for="cfgMaxGuests">Máximo de acompañantes</label><input type="number" id="cfgMaxGuests" min="1" max="20"></div>
+      </div>
+    </details>
+
+    <details class="editor-block">
+      <summary><h4>Regalos</h4></summary>
+      <div class="editor-block-body">
+        <div class="editor-row"><label for="cfgShowGiftLinks">Mostrar botones de mesa de regalos</label><input type="checkbox" id="cfgShowGiftLinks"></div>
+        <div class="editor-links-list" id="editorGiftLinksList"></div>
+        <button class="editor-btn" id="addGiftLinkBtn" type="button">Agregar botón</button>
+      </div>
+    </details>
+
+    <div class="editor-actions">
+      <button class="editor-btn" id="exportEditorConfigBtn" type="button">Exportar</button>
+      <button class="editor-btn" id="saveEditorBaseBtn" type="button">Guardar base</button>
+      <button class="editor-btn primary" id="saveEditorConfigBtn" type="button">Guardar cambios</button>
+      <button class="editor-btn" id="resetEditorConfigBtn" type="button">Volver a base</button>
+      <button class="editor-btn" id="importEditorConfigBtn" type="button">Importar</button>
+    </div>
+  </aside>
+  <input type="file" id="importEditorConfigInput" accept="application/json" hidden>
+
+  <div class="editor-auth" id="editorAuth">
+    <div class="editor-auth-card">
+      <h4>Acceso de edición</h4>
+      <p>Ingresa tus datos para abrir el panel desde el teléfono o desde vista cliente.</p>
+      <div class="editor-field">
+        <label for="editorUsername">Usuario</label>
+        <input type="text" id="editorUsername" autocomplete="username">
+      </div>
+      <div class="editor-field">
+        <label for="editorPassword">Contraseña</label>
+        <input type="password" id="editorPassword" autocomplete="current-password">
+      </div>
+      <div class="editor-auth-error" id="editorAuthError"></div>
+      <div class="editor-actions">
+        <button class="editor-btn primary" id="editorLoginBtn" type="button">Entrar</button>
+        <button class="editor-btn" id="editorCancelBtn" type="button">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="closeLightbox" type="button" aria-label="Cerrar galería">×</button>
+      <div class="lightbox-main">
+        <div class="viewer-counter" id="viewerCounter">1 / 6</div>
+        <img class="lightbox-img" id="lightboxImg" alt="Imagen ampliada">
+      </div>
+      <div class="thumbs" id="thumbs"></div>
+    </div>
+  </div>
+
+  <button class="floating-btn" id="musicBtn" type="button" aria-label="Pausar música"></button>
+  <button class="floating-btn" id="toTopBtn" type="button" aria-label="Volver arriba">↑</button>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    /* ================================
+       CLIENT CONFIG
+       Cambia aquí los textos, datos y links principales
+    ================================ */
+    const INVITATION_CONFIG = {
+      meta: {
+        pageTitle: "Mis XV Sofia Montes",
+        ogTitle: "Mis XV Sofia Montes",
+        ogDescription: "Acompáñanos a celebrar este día tan especial"
+      },
+      event: {
+        label: "Mis XV",
+        celebrantName: "Sofia Montes",
+        eventDate: "2026-04-25T17:00:00",
+        eventEnd: "2026-04-25T23:59:59",
+        eventLocation: "Top Salón Obispado",
+        rsvpPhone: "525550591264"
+      },
+      theme: {
+        bgTop: "#5a132d",
+        bgMid: "#7f1f3f",
+        bgBottom: "#2a0a15",
+        gold500: "#f2c06f",
+        text: "#fffaf3",
+        muted: "#f9e6e0d1",
+        bodyFont: "Cormorant Garamond",
+        scriptFont: "Dancing Script",
+        displayFont: "Great Vibes"
+      },
+      images: {
+        hero: "FPrincipal.jpg",
+        story: "FHistoria.jpg",
+        dress: "vestimenta.png",
+        envelope: "sobre.png",
+        surprise: "regalo.png",
+        gallery: ["G1.jpg", "G2.jpg", "G3.jpg", "G4.jpg", "G5.jpg", "G6.jpg"]
+      },
+      story: {
+        title: "Mi historia",
+        paragraph1: "Hoy celebro no solo mis 15 años, sino cada sonrisa que iluminó mi camino, cada aprendizaje que fortaleció mi corazón y cada sueño que, con amor y esperanza, me ha traído hasta este momento tan especial de mi vida.",
+        paragraph2: "Aquí termina un capítulo lleno de recuerdos que atesoraré por siempre y comienza uno nuevo, donde la ilusión, la luz y los sueños por cumplir marcan el inicio de todo lo que está por venir."
+      },
+      family: {
+        parentsEyebrow: "En compañía de mis padres",
+        parentsNamesHtml: "María Fernanda López<br>&amp;<br>Carlos Alberto Montes",
+        parentsInviteText: "Tenemos el honor de invitarles a celebrar mis XV años.",
+        godparentsEyebrow: "Mis padrinos",
+        godparentsNamesHtml: "Ana Patricia Hernández<br>&amp;<br>José Luis Ramírez"
+      },
+      ceremony: {
+        title: "Ceremonia",
+        time: "16:45 hrs",
+        place: "Parroquia Cristo Rey",
+        mediaMode: "icon",
+        iconSrc: "cereminia.png",
+        mapEmbed: "",
+        photoSrc: "",
+        mapLink: "https://maps.app.goo.gl/dSxG3vrm3iYQaScp7"
+      },
+      reception: {
+        title: "Recepción",
+        time: "18:30 hrs",
+        place: "Top Salón Obispado",
+        mediaMode: "preview",
+        iconSrc: "",
+        mapLink: "https://maps.app.goo.gl/q81RTb5wBwc5pQnr7",
+        mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6926.491111782688!2d-100.34817465374192!3d25.681874007395155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x866295006436bab1%3A0x93176ce26d4e1a2c!2sTop%20Sal%C3%B3n%20Obispado!5e0!3m2!1ses!2smx!4v1773365282287!5m2!1ses!2smx",
+        photoSrc: ""
+      },
+      timeline: {
+        items: [
+          { time: "16:45 hrs", title: "Ceremonia", desc: "Parroquia Cristo Rey" },
+          { time: "18:30 hrs", title: "Recepción", desc: "Top Salón Obispado" },
+          { time: "19:30 hrs", title: "Cena", desc: "Un momento para brindar y compartir." },
+          { time: "21:00 hrs", title: "Vals", desc: "Presentación de Sofia Montes." },
+          { time: "Después", title: "Baile", desc: "Celebremos juntos esta noche inolvidable." }
+        ]
+      },
+      countdown: {
+        title: "Faltan pocos días",
+        intro: "Cuenta regresiva para celebrar este gran día."
+      },
+      dressCode: {
+        title: "Dress Code",
+        value: "Formal",
+        note: "Rojo reservado para la quinceañera."
+      },
+      gifts: {
+        title: "Opciones de regalo",
+        intro: "Tu presencia es el regalo más valioso para mí, pero si deseas tener un detalle, aquí encontrarás algunas opciones pensadas con mucho cariño.",
+        option1Title: "Lluvia de sobres",
+        option1Copy: "Si lo prefieres, podrás acompañarme con un sobre el día del evento. Será un detalle recibido con muchísimo cariño y gratitud.",
+        option2Title: "Regalo sorpresa",
+        option2Copy: "También puedes sorprenderme con un detalle especial elegido por ti. Lo importante será el cariño con el que venga.",
+        linksIntro: "Si prefieres elegir un detalle en línea, también puedes apoyarte en estas opciones de mesa de regalos:",
+        showLinks: true,
+        links: [
+          {
+            label: "Mesa de regalos Liverpool",
+            href: "https://www.liverpool.com.mx/tienda/mesa-de-regalos",
+            style: "primary"
+          },
+          {
+            label: "Celebra Palacio",
+            href: "https://www.elpalaciodehierro.com/sucursales/palacio-mitikah.html",
+            style: "secondary"
+          }
+        ]
+      },
+      rsvp: {
+        showGuestCount: true,
+        maxGuests: 6
+      },
+      sections: {
+        story: true,
+        parents: true,
+        godparents: true,
+        dress: true,
+        gifts: true,
+        agenda: true,
+        closing: true
+      },
+      closing: {
+        note: "Gracias por ser parte de este momento inolvidable"
+      },
+      brand: {
+        creditText: "Creado por Digital Invita",
+        creditHref: "https://www.facebook.com/profile.php?id=61587804296779&locale=es_LA",
+        ctaLabel: "Contáctanos",
+        ctaHref: "https://wa.me/525550591264?text=Hola%21%20Quiero%20una%20invitaci%C3%B3n%20digital%20con%20estilo%20elegante%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n."
+      }
+    };
+
+    let EVENT_DATE = new Date(INVITATION_CONFIG.event.eventDate);
+    let EVENT_END = new Date(INVITATION_CONFIG.event.eventEnd);
+    let EVENT_LOCATION = INVITATION_CONFIG.event.eventLocation;
+    let RSVP_PHONE = INVITATION_CONFIG.event.rsvpPhone;
+
+    const body = document.body;
+    const overlay = document.getElementById("overlay");
+    const openBtn = document.getElementById("openBtn");
+    const audio = document.getElementById("audio");
+    const musicBtn = document.getElementById("musicBtn");
+    const toTopBtn = document.getElementById("toTopBtn");
+    const brandFooter = document.querySelector(".brand-footer");
+    const heroName = document.getElementById("nombre");
+    const heroLabel = document.querySelector(".hero-label");
+    const fechaEvento = document.getElementById("fechaEvento");
+    const countdownEl = document.getElementById("countdown");
+    const countdownCaption = document.getElementById("countdownCaption");
+    const sections = document.querySelectorAll(".section");
+    const storySection = document.getElementById("storySection");
+    const storyParagraphs = Array.from(document.querySelectorAll(".story-text"));
+    let galleryImages = [];
+    const galleryPreviewImg = document.getElementById("galleryPreviewImg");
+    const galleryMetaIndex = document.getElementById("galleryMetaIndex");
+    const galleryMetaHint = document.getElementById("galleryMetaHint");
+    const galleryPrev = document.getElementById("galleryPrev");
+    const galleryNext = document.getElementById("galleryNext");
+    const galleryStage = document.getElementById("galleryStage");
+    const galleryGrid = document.getElementById("galleryGrid");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const lightboxMain = document.querySelector(".lightbox-main");
+    const viewerCounter = document.getElementById("viewerCounter");
+    const thumbs = document.getElementById("thumbs");
+    const closeLightbox = document.getElementById("closeLightbox");
+    const guestName = document.getElementById("guestName");
+    const guestCount = document.getElementById("guestCount");
+    const confirmYes = document.getElementById("confirmYes");
+    const confirmNo = document.getElementById("confirmNo");
+    const calendarBtn = document.getElementById("calendarBtn");
+    const verCuenta = document.getElementById("verCuenta");
+    const toast = document.getElementById("toast");
+    const agendaSection = calendarBtn.closest(".section");
+    const guestCountField = document.getElementById("guestCountField");
+    const giftLinks = document.getElementById("giftLinks");
+    const timelineList = document.getElementById("timelineList");
+    const editorPanel = document.getElementById("editorPanel");
+    const editorOverlay = document.getElementById("editorOverlay");
+    const editorToggle = document.getElementById("editorToggle");
+    const editorGiftLinksList = document.getElementById("editorGiftLinksList");
+    const editorTimelineList = document.getElementById("editorTimelineList");
+    const addGiftLinkBtn = document.getElementById("addGiftLinkBtn");
+    const addTimelineRowBtn = document.getElementById("addTimelineRowBtn");
+    const exportEditorConfigBtn = document.getElementById("exportEditorConfigBtn");
+    const importEditorConfigBtn = document.getElementById("importEditorConfigBtn");
+    const importEditorConfigInput = document.getElementById("importEditorConfigInput");
+    const saveEditorConfigBtn = document.getElementById("saveEditorConfigBtn");
+    const saveEditorBaseBtn = document.getElementById("saveEditorBaseBtn");
+    const resetEditorConfigBtn = document.getElementById("resetEditorConfigBtn");
+    const editorSecretHotspot = document.getElementById("editorSecretHotspot");
+    const editorAuth = document.getElementById("editorAuth");
+    const editorUsername = document.getElementById("editorUsername");
+    const editorPassword = document.getElementById("editorPassword");
+    const editorAuthError = document.getElementById("editorAuthError");
+    const editorLoginBtn = document.getElementById("editorLoginBtn");
+    const editorCancelBtn = document.getElementById("editorCancelBtn");
+    const overlayScene = document.getElementById("overlayScene");
+    const bodyFontPreview = document.getElementById("bodyFontPreview");
+    const scriptFontPreview = document.getElementById("scriptFontPreview");
+    const displayFontPreview = document.getElementById("displayFontPreview");
+    const heroImage = document.getElementById("heroImage");
+    const storyImage = document.getElementById("storyImage");
+    const ceremonyImage = document.getElementById("ceremonyImage");
+    const ceremonyPhoto = document.getElementById("ceremonyPhoto");
+    const ceremonyMapEmbed = document.getElementById("ceremonyMapEmbed");
+    const ceremonyIconWrap = document.getElementById("ceremonyIconWrap");
+    const ceremonyMapWrap = document.getElementById("ceremonyMapWrap");
+    const ceremonyPhotoWrap = document.getElementById("ceremonyPhotoWrap");
+    const receptionImage = document.getElementById("receptionImage");
+    const receptionPhoto = document.getElementById("receptionPhoto");
+    const receptionMapEmbed = document.getElementById("receptionMapEmbed");
+    const receptionIconWrap = document.getElementById("receptionIconWrap");
+    const receptionMapWrap = document.getElementById("receptionMapWrap");
+    const receptionPhotoWrap = document.getElementById("receptionPhotoWrap");
+    const dressImage = document.getElementById("dressImage");
+    const envelopeImage = document.getElementById("envelopeImage");
+    const surpriseImage = document.getElementById("surpriseImage");
+
+    let currentIndex = 0;
+    let previewIndex = 0;
+    let previousParts = [];
+    let storyStarted = false;
+    let toastTimer = 0;
+    let zoomScale = 1;
+    let zoomX = 0;
+    let zoomY = 0;
+    let pinchStartDistance = 0;
+    let pinchStartScale = 1;
+    let panStartX = 0;
+    let panStartY = 0;
+    let dragOriginX = 0;
+    let dragOriginY = 0;
+    let isPanningImage = false;
+    let lastTapTime = 0;
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let editorTapCount = 0;
+    let editorTapTimer = 0;
+    let editorAuthenticated = false;
+
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+
+    const STORAGE_KEY = "digital-invita-editor-config-v1";
+    const BASE_STORAGE_KEY = "digital-invita-editor-base-v1";
+    const EDITOR_SECRET = [85, 115, 101, 114].map((code) => String.fromCharCode(code)).join("");
+    const EDITOR_KEY = [49, 54, 50, 56].map((code) => String.fromCharCode(code)).join("");
+    const IS_ANDROID = /Android/i.test(navigator.userAgent);
+    const IS_IOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+    const IS_LOW_POWER_DEVICE = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
+      && ((navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 6)
+      || (navigator.deviceMemory && navigator.deviceMemory <= 6));
+
+    if (IS_LOW_POWER_DEVICE) {
+      body.classList.add("low-power");
+    }
+    if (IS_ANDROID) {
+      body.classList.add("android-optimized");
+    }
+
+    function setText(id, value) {
+      const node = document.getElementById(id);
+      if (node && value) node.textContent = value;
+    }
+
+    function setHTML(id, value) {
+      const node = document.getElementById(id);
+      if (node && value) node.innerHTML = value;
+    }
+
+    function setHref(id, value) {
+      const node = document.getElementById(id);
+      if (node && value) node.href = value;
+    }
+
+    function setOptionalLink(id, value) {
+      const node = document.getElementById(id);
+      if (!node) return;
+      if (value) {
+        node.href = value;
+        node.hidden = false;
+      } else {
+        node.href = "#";
+        node.hidden = true;
+      }
+    }
+
+    function setScrollLocked(locked) {
+      document.documentElement.classList.toggle("locked-scroll", locked);
+      body.classList.toggle("locked", locked);
+    }
+
+    function updateOverlayScale() {
+      if (!overlayScene) return;
+      const widthScale = window.innerWidth / (IS_ANDROID ? 410 : 430);
+      const heightScale = window.innerHeight / (IS_ANDROID ? 900 : 920);
+      const scale = Math.max(0.72, Math.min(1.06, Math.min(widthScale, heightScale)));
+      document.documentElement.style.setProperty("--overlay-scale", scale.toFixed(3));
+    }
+
+    function setVisibility(node, visible) {
+      if (!node) return;
+      node.hidden = !visible;
+    }
+
+    function applyLocationMedia(config, nodes) {
+      if (!nodes) return;
+
+      const iconSrc = (config.iconSrc || "").trim();
+      const mapEmbed = (config.mapEmbed || "").trim();
+      const photoSrc = (config.photoSrc || "").trim();
+      const requestedMode = config.mediaMode || "icon";
+
+      let mode = requestedMode;
+      if ((mode === "icon" || mode === "combined") && !iconSrc) {
+        mode = mapEmbed ? "preview" : (photoSrc ? "photo" : "icon");
+      }
+      if ((mode === "preview" || mode === "combined") && !mapEmbed) {
+        mode = iconSrc ? "icon" : (photoSrc ? "photo" : "preview");
+      }
+      if (mode === "photo" && !photoSrc) {
+        mode = iconSrc ? "icon" : (mapEmbed ? "preview" : "photo");
+      }
+
+      if (nodes.icon) {
+        if (iconSrc) {
+          nodes.icon.src = iconSrc;
+        } else {
+          nodes.icon.removeAttribute("src");
+        }
+      }
+      if (nodes.map) {
+        if (mapEmbed) {
+          nodes.map.src = mapEmbed;
+        } else {
+          nodes.map.removeAttribute("src");
+        }
+      }
+      if (nodes.photo) {
+        if (photoSrc) {
+          nodes.photo.src = photoSrc;
+        } else {
+          nodes.photo.removeAttribute("src");
+        }
+      }
+
+      setVisibility(nodes.iconWrap, mode === "icon" || mode === "combined");
+      setVisibility(nodes.mapWrap, mode === "preview" || mode === "combined");
+      setVisibility(nodes.photoWrap, mode === "photo");
+    }
+
+    function deepMerge(base, override) {
+      if (Array.isArray(base)) {
+        return Array.isArray(override) ? override : base;
+      }
+
+      const result = { ...base };
+      Object.keys(override || {}).forEach((key) => {
+        const baseValue = base[key];
+        const overrideValue = override[key];
+        if (baseValue && typeof baseValue === "object" && !Array.isArray(baseValue) && overrideValue && typeof overrideValue === "object" && !Array.isArray(overrideValue)) {
+          result[key] = deepMerge(baseValue, overrideValue);
+        } else {
+          result[key] = overrideValue;
+        }
+      });
+      return result;
+    }
+
+    const DEFAULT_CONFIG = JSON.parse(JSON.stringify(INVITATION_CONFIG));
+    let BASE_CONFIG = JSON.parse(JSON.stringify(DEFAULT_CONFIG));
+
+    function loadSavedConfig() {
+      try {
+        const baseRaw = localStorage.getItem(BASE_STORAGE_KEY);
+        if (baseRaw) {
+          BASE_CONFIG = deepMerge(DEFAULT_CONFIG, JSON.parse(baseRaw));
+          Object.assign(INVITATION_CONFIG, deepMerge(INVITATION_CONFIG, BASE_CONFIG));
+        }
+
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return;
+        const parsed = JSON.parse(raw);
+        Object.assign(INVITATION_CONFIG, deepMerge(INVITATION_CONFIG, parsed));
+      } catch (error) {
+        console.warn("No se pudo cargar la configuración guardada.", error);
+      }
+    }
+
+    function saveConfigToStorage() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(INVITATION_CONFIG));
+    }
+
+    function saveBaseConfigToStorage() {
+      BASE_CONFIG = JSON.parse(JSON.stringify(INVITATION_CONFIG));
+      localStorage.setItem(BASE_STORAGE_KEY, JSON.stringify(BASE_CONFIG));
+    }
+
+    function replaceConfig(target) {
+      const clone = JSON.parse(JSON.stringify(target));
+      Object.keys(INVITATION_CONFIG).forEach((key) => {
+        delete INVITATION_CONFIG[key];
+      });
+      Object.assign(INVITATION_CONFIG, clone);
+    }
+
+    function setRootVar(name, value) {
+      document.documentElement.style.setProperty(name, value);
+    }
+
+    function cssFontValue(label, fallback) {
+      if (label === "Georgia") return "Georgia, serif";
+      if (label === "Times New Roman") return "\"Times New Roman\", serif";
+      if (label === "Great Vibes") return "\"Great Vibes\", cursive";
+      if (label === "Dancing Script") return "\"Dancing Script\", cursive";
+      return fallback;
+    }
+
+    function updateFontPreviews() {
+      if (bodyFontPreview) bodyFontPreview.style.fontFamily = cssFontValue(getEditorField("cfgBodyFont").value, "\"Cormorant Garamond\", serif");
+      if (scriptFontPreview) scriptFontPreview.style.fontFamily = cssFontValue(getEditorField("cfgScriptFont").value, "\"Dancing Script\", cursive");
+      if (displayFontPreview) displayFontPreview.style.fontFamily = cssFontValue(getEditorField("cfgDisplayFont").value, "\"Great Vibes\", cursive");
+    }
+
+    function applyThemePreset(preset) {
+      const presets = {
+        rosa: {
+          bgTop: "#5a132d",
+          bgMid: "#7f1f3f",
+          bgBottom: "#2a0a15",
+          gold500: "#f2c06f",
+          text: "#fffaf3",
+          muted: "#f9e6e0"
+        },
+        champagne: {
+          bgTop: "#6a4a58",
+          bgMid: "#4a2f3b",
+          bgBottom: "#24161f",
+          gold500: "#f4c97a",
+          text: "#fff8f2",
+          muted: "#f0ddd1"
+        },
+        rojo: {
+          bgTop: "#6a1026",
+          bgMid: "#431022",
+          bgBottom: "#210711",
+          gold500: "#ffcf6a",
+          text: "#fff7f1",
+          muted: "#efd7d1"
+        }
+      };
+
+      if (!presets[preset]) return;
+      Object.assign(INVITATION_CONFIG.theme, presets[preset]);
+      fillEditorPanel();
+      applyInvitationConfig();
+    }
+
+    function renderGiftButtons() {
+      if (!giftLinks) return;
+      giftLinks.innerHTML = "";
+
+      const links = INVITATION_CONFIG.gifts.links || [];
+      const showLinks = INVITATION_CONFIG.gifts.showLinks !== false;
+      const intro = document.getElementById("giftLinksIntro");
+
+      if (intro) intro.style.display = showLinks && links.length ? "" : "none";
+      if (!showLinks || !links.length) {
+        giftLinks.style.display = "none";
+        return;
+      }
+
+      giftLinks.style.display = "grid";
+      links.forEach((link) => {
+        const anchor = document.createElement("a");
+        anchor.className = link.style === "secondary" ? "btn btn-secondary" : "btn";
+        anchor.href = link.href || "#";
+        anchor.target = "_blank";
+        anchor.rel = "noopener noreferrer";
+        anchor.textContent = link.label || "Botón";
+        giftLinks.appendChild(anchor);
+      });
+    }
+
+    function renderGalleryGrid() {
+      if (!galleryGrid) return;
+      galleryGrid.innerHTML = "";
+      (INVITATION_CONFIG.images.gallery || []).forEach((src, index) => {
+        const img = document.createElement("img");
+        img.src = src;
+        img.alt = `Galería ${index + 1}`;
+        img.loading = "lazy";
+        img.decoding = "async";
+        if (index === 2 || index === 3) img.classList.add("big");
+        galleryGrid.appendChild(img);
+      });
+      galleryImages = Array.from(galleryGrid.querySelectorAll("img"));
+      if (galleryImages.length) {
+        previewIndex = Math.min(previewIndex, galleryImages.length - 1);
+        currentIndex = Math.min(currentIndex, galleryImages.length - 1);
+      } else {
+        previewIndex = 0;
+        currentIndex = 0;
+      }
+    }
+
+    function renderTimeline() {
+      if (!timelineList) return;
+      timelineList.innerHTML = "";
+
+      (INVITATION_CONFIG.timeline.items || []).forEach((item) => {
+        const node = document.createElement("div");
+        node.className = "timeline-item";
+        node.innerHTML = `
+          <div class="timeline-time">${item.time || ""}</div>
+          <div class="timeline-title">${item.title || ""}</div>
+          <div class="timeline-desc">${item.desc || ""}</div>
+        `;
+        timelineList.appendChild(node);
+      });
+    }
+
+    function applySectionVisibility() {
+      const sectionMap = {
+        story: document.getElementById("storySection"),
+        parents: document.getElementById("parentsSection"),
+        godparents: document.getElementById("godparentsSection"),
+        dress: document.getElementById("dressSection"),
+        gifts: document.getElementById("giftSection"),
+        agenda: document.getElementById("agendaSectionUi"),
+        closing: document.getElementById("closingNote")
+      };
+
+      Object.entries(sectionMap).forEach(([key, element]) => {
+        if (!element) return;
+        element.style.display = INVITATION_CONFIG.sections[key] === false ? "none" : "";
+      });
+    }
+
+    function syncEventRuntimeValues() {
+      EVENT_DATE = new Date(INVITATION_CONFIG.event.eventDate);
+      EVENT_END = new Date(INVITATION_CONFIG.event.eventEnd);
+      EVENT_LOCATION = INVITATION_CONFIG.event.eventLocation;
+      RSVP_PHONE = INVITATION_CONFIG.event.rsvpPhone;
+
+      fechaEvento.textContent = EVENT_DATE.toLocaleDateString("es-MX", {
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+      });
+    }
+
+    function applyInvitationConfig() {
+      document.title = INVITATION_CONFIG.meta.pageTitle;
+
+      const ogTitle = document.querySelector('meta[property="og:title"]');
+      const ogDescription = document.querySelector('meta[property="og:description"]');
+      if (ogTitle) ogTitle.setAttribute("content", INVITATION_CONFIG.meta.ogTitle);
+      if (ogDescription) ogDescription.setAttribute("content", INVITATION_CONFIG.meta.ogDescription);
+
+      setText("overlayKicker", INVITATION_CONFIG.event.label);
+      setText("overlayTitle", INVITATION_CONFIG.event.celebrantName);
+      setText("heroLabel", INVITATION_CONFIG.event.label);
+      setText("nombre", INVITATION_CONFIG.event.celebrantName);
+      syncEventRuntimeValues();
+
+      setRootVar("--bg-top", INVITATION_CONFIG.theme.bgTop);
+      setRootVar("--bg-mid", INVITATION_CONFIG.theme.bgMid);
+      setRootVar("--bg-bottom", INVITATION_CONFIG.theme.bgBottom);
+      setRootVar("--gold-500", INVITATION_CONFIG.theme.gold500);
+      setRootVar("--text", INVITATION_CONFIG.theme.text);
+      setRootVar("--muted", INVITATION_CONFIG.theme.muted);
+      document.documentElement.style.setProperty("--overlay-image", `url("${INVITATION_CONFIG.images.hero}")`);
+      setRootVar("--font-body", cssFontValue(INVITATION_CONFIG.theme.bodyFont, "\"Cormorant Garamond\", serif"));
+      setRootVar("--font-script", cssFontValue(INVITATION_CONFIG.theme.scriptFont, "\"Dancing Script\", cursive"));
+      setRootVar("--font-display", cssFontValue(INVITATION_CONFIG.theme.displayFont, "\"Great Vibes\", cursive"));
+      if (heroImage) heroImage.src = INVITATION_CONFIG.images.hero;
+      if (storyImage) storyImage.src = INVITATION_CONFIG.images.story;
+      if (dressImage) dressImage.src = INVITATION_CONFIG.images.dress;
+      if (envelopeImage) envelopeImage.src = INVITATION_CONFIG.images.envelope;
+      if (surpriseImage) surpriseImage.src = INVITATION_CONFIG.images.surprise;
+      renderGalleryGrid();
+
+      setText("storyTitle", INVITATION_CONFIG.story.title);
+      const story1 = document.getElementById("storyText1");
+      const story2 = document.getElementById("storyText2");
+      if (story1) {
+        story1.dataset.fulltext = INVITATION_CONFIG.story.paragraph1;
+        story1.textContent = storyStarted ? INVITATION_CONFIG.story.paragraph1 : "";
+      }
+      if (story2) {
+        story2.dataset.fulltext = INVITATION_CONFIG.story.paragraph2;
+        story2.textContent = storyStarted ? INVITATION_CONFIG.story.paragraph2 : "";
+      }
+
+      setText("parentsEyebrow", INVITATION_CONFIG.family.parentsEyebrow);
+      setHTML("parentsNames", INVITATION_CONFIG.family.parentsNamesHtml);
+      setText("parentsInviteText", INVITATION_CONFIG.family.parentsInviteText);
+      setText("godparentsEyebrow", INVITATION_CONFIG.family.godparentsEyebrow);
+      setHTML("godparentsNames", INVITATION_CONFIG.family.godparentsNamesHtml);
+
+      setText("ceremonyTitle", INVITATION_CONFIG.ceremony.title);
+      setText("ceremonyTime", INVITATION_CONFIG.ceremony.time);
+      setText("ceremonyPlace", INVITATION_CONFIG.ceremony.place);
+      setOptionalLink("ceremonyMapLink", INVITATION_CONFIG.ceremony.mapLink);
+      applyLocationMedia({
+        ...INVITATION_CONFIG.ceremony,
+        iconSrc: INVITATION_CONFIG.ceremony.iconSrc || INVITATION_CONFIG.images.ceremony || ""
+      }, {
+        icon: ceremonyImage,
+        map: ceremonyMapEmbed,
+        photo: ceremonyPhoto,
+        iconWrap: ceremonyIconWrap,
+        mapWrap: ceremonyMapWrap,
+        photoWrap: ceremonyPhotoWrap
+      });
+
+      setText("receptionTitle", INVITATION_CONFIG.reception.title);
+      setText("receptionTime", INVITATION_CONFIG.reception.time);
+      setText("receptionPlace", INVITATION_CONFIG.reception.place);
+      setOptionalLink("receptionMapLink", INVITATION_CONFIG.reception.mapLink);
+      applyLocationMedia(INVITATION_CONFIG.reception, {
+        icon: receptionImage,
+        map: receptionMapEmbed,
+        photo: receptionPhoto,
+        iconWrap: receptionIconWrap,
+        mapWrap: receptionMapWrap,
+        photoWrap: receptionPhotoWrap
+      });
+      renderTimeline();
+
+      setText("countdownTitle", INVITATION_CONFIG.countdown.title);
+      setText("countdownIntro", INVITATION_CONFIG.countdown.intro);
+
+      setText("dressTitle", INVITATION_CONFIG.dressCode.title);
+      setText("dressValue", INVITATION_CONFIG.dressCode.value);
+      setText("dressNote", INVITATION_CONFIG.dressCode.note);
+
+      setText("giftTitle", INVITATION_CONFIG.gifts.title);
+      setText("giftIntro", INVITATION_CONFIG.gifts.intro);
+      setText("giftOption1Title", INVITATION_CONFIG.gifts.option1Title);
+      setText("giftOption1Copy", INVITATION_CONFIG.gifts.option1Copy);
+      setText("giftOption2Title", INVITATION_CONFIG.gifts.option2Title);
+      setText("giftOption2Copy", INVITATION_CONFIG.gifts.option2Copy);
+      setText("giftLinksIntro", INVITATION_CONFIG.gifts.linksIntro);
+      renderGiftButtons();
+      if (galleryImages.length) updateGalleryPreview(previewIndex);
+
+      setText("closingNote", INVITATION_CONFIG.closing.note);
+      setText("brandLink", INVITATION_CONFIG.brand.creditText);
+      setHref("brandLink", INVITATION_CONFIG.brand.creditHref);
+      setText("brandCtaLink", INVITATION_CONFIG.brand.ctaLabel);
+      setHref("brandCtaLink", INVITATION_CONFIG.brand.ctaHref);
+
+      guestCount.dataset.pases = String(INVITATION_CONFIG.rsvp.maxGuests || 1);
+      guestCountField.style.display = INVITATION_CONFIG.rsvp.showGuestCount === false ? "none" : "";
+      applySectionVisibility();
+      populateGuestOptions();
+    }
+
+    loadSavedConfig();
+    applyInvitationConfig();
+    updateOverlayScale();
+    setScrollLocked(!overlay.classList.contains("hidden"));
+
+    function populateGuestOptions() {
+      if (INVITATION_CONFIG.rsvp.showGuestCount === false) {
+        guestCount.innerHTML = '<option value="">No aplica</option>';
+        return;
+      }
+
+      const maxPases = Number(guestCount.dataset.pases) || 1;
+      guestCount.innerHTML = '<option value="">Selecciona una opción</option>';
+
+      for (let i = 0; i < maxPases; i += 1) {
+        const option = document.createElement("option");
+        if (i === 0) {
+          option.value = "Asistiré solo";
+          option.textContent = "Asistiré solo";
+        } else {
+          const plural = i > 1 ? "s" : "";
+          const acompana = i > 1 ? "n" : "";
+          option.value = `Me acompaña${acompana} ${i} persona${plural}`;
+          option.textContent = option.value;
+        }
+        guestCount.appendChild(option);
+      }
+    }
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = EVENT_DATE - now;
+
+      if (diff <= 0) {
+        const ended = [
+          ["00", "Días"],
+          ["00", "Horas"],
+          ["00", "Min"],
+          ["00", "Seg"]
+        ];
+        countdownEl.innerHTML = ended.map(([value, label]) => `
+          <div class="count-box tick">
+            <strong>${value}</strong>
+            <span>${label}</span>
+          </div>
+        `).join("");
+        countdownCaption.textContent = "Gracias por formar parte de este momento.";
+        previousParts = ended.map(([value]) => value);
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      const parts = [
+        [String(days), "Días"],
+        [String(hours).padStart(2, "0"), "Horas"],
+        [String(minutes).padStart(2, "0"), "Min"],
+        [String(seconds).padStart(2, "0"), "Seg"]
+      ];
+
+      countdownEl.innerHTML = parts.map(([value, label]) => `
+        <div class="count-box">
+          <strong>${value}</strong>
+          <span>${label}</span>
+        </div>
+      `).join("");
+
+      Array.from(countdownEl.querySelectorAll(".count-box")).forEach((box, index) => {
+        if (!previousParts.length || previousParts[index] !== parts[index][0]) {
+          box.classList.add("tick");
+        }
+      });
+
+      previousParts = parts.map(([value]) => value);
+
+      if (days > 30) {
+        countdownCaption.textContent = "Cada día suma emoción para esta noche especial.";
+      } else if (days > 7) {
+        countdownCaption.textContent = "La emoción empieza a sentirse cada vez más cerca.";
+      } else if (days > 0) {
+        countdownCaption.textContent = "Entramos en la recta final para celebrar en grande.";
+      } else {
+        countdownCaption.textContent = "Todo está listo para una noche inolvidable.";
+      }
+    }
+
+    function revealOnScroll() {
+      const trigger = window.innerHeight * 0.88;
+      sections.forEach((section) => {
+        if (section.getBoundingClientRect().top < trigger) {
+          section.classList.add("show");
+        }
+      });
+
+      const timelineItems = document.querySelectorAll(".timeline-item");
+      timelineItems.forEach((item, index) => {
+        if (item.getBoundingClientRect().top < trigger - 30) {
+          setTimeout(() => item.classList.add("show"), index * 120);
+        }
+      });
+
+      if (!storyStarted && storySection && storySection.getBoundingClientRect().top < trigger - 20) {
+        storyStarted = true;
+        typeStoryParagraphs();
+      }
+    }
+
+    function typeText(element, text, speed = 20) {
+      return new Promise((resolve) => {
+        let index = 0;
+        element.textContent = "";
+        element.classList.add("is-typing");
+
+        function step() {
+          if (index < text.length) {
+            element.textContent += text.charAt(index);
+            index += 1;
+            setTimeout(step, speed);
+          } else {
+            element.classList.remove("is-typing");
+            resolve();
+          }
+        }
+
+        step();
+      });
+    }
+
+    async function typeStoryParagraphs() {
+      for (const paragraph of storyParagraphs) {
+        const fullText = paragraph.dataset.fulltext || "";
+        await typeText(paragraph, fullText, 18);
+        await new Promise((resolve) => setTimeout(resolve, 220));
+      }
+    }
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.remove("show");
+      }, 2200);
+    }
+
+    function updateFloatingButtons() {
+      const shouldShow = window.scrollY > 420;
+      const agendaTop = agendaSection.getBoundingClientRect().top;
+      const isAtAgenda = agendaTop < window.innerHeight * 0.78;
+
+      toTopBtn.classList.toggle("show", shouldShow && !isAtAgenda);
+      if (!overlay.classList.contains("hidden")) {
+        musicBtn.classList.remove("show");
+      } else {
+        musicBtn.classList.toggle("show", !isAtAgenda);
+      }
+    }
+
+    function renderThumbs() {
+      if (!galleryImages.length) {
+        thumbs.innerHTML = "";
+        return;
+      }
+      thumbs.innerHTML = "";
+      galleryImages.forEach((image, index) => {
+        const thumb = document.createElement("img");
+        thumb.src = image.src;
+        thumb.alt = image.alt || `Miniatura ${index + 1}`;
+        thumb.classList.toggle("active", index === currentIndex);
+        thumb.addEventListener("click", () => {
+          currentIndex = index;
+          updateLightbox();
+        });
+        thumbs.appendChild(thumb);
+      });
+    }
+
+    function clampZoomOffsets() {
+      const maxOffsetX = ((zoomScale - 1) * lightboxMain.clientWidth) / 2;
+      const maxOffsetY = ((zoomScale - 1) * lightboxMain.clientHeight) / 2;
+      zoomX = Math.max(-maxOffsetX, Math.min(maxOffsetX, zoomX));
+      zoomY = Math.max(-maxOffsetY, Math.min(maxOffsetY, zoomY));
+    }
+
+    function applyImageZoom() {
+      clampZoomOffsets();
+      lightboxImg.style.transform = `translate3d(${zoomX}px, ${zoomY}px, 0) scale(${zoomScale})`;
+      lightboxMain.classList.toggle("is-zoomed", zoomScale > 1.01);
+    }
+
+    function resetImageZoom(animate = false) {
+      zoomScale = 1;
+      zoomX = 0;
+      zoomY = 0;
+      if (animate) {
+        lightboxImg.style.transition = "opacity 0.25s ease, transform 0.25s ease, filter 0.25s ease";
+      }
+      applyImageZoom();
+      if (animate) {
+        setTimeout(() => {
+          lightboxImg.style.transition = "opacity 0.25s ease, transform 0.25s ease, filter 0.25s ease";
+        }, 260);
+      }
+    }
+
+    function getTouchDistance(touches) {
+      const dx = touches[0].clientX - touches[1].clientX;
+      const dy = touches[0].clientY - touches[1].clientY;
+      return Math.hypot(dx, dy);
+    }
+
+    function updateGalleryPreview(index) {
+      if (!galleryImages.length) return;
+      previewIndex = (index + galleryImages.length) % galleryImages.length;
+      const activeImage = galleryImages[previewIndex];
+
+      galleryPreviewImg.style.opacity = "0";
+      galleryPreviewImg.style.transform = "scale(0.97)";
+      galleryPreviewImg.src = activeImage.src;
+      galleryPreviewImg.alt = activeImage.alt || `Galería ${previewIndex + 1}`;
+      galleryMetaIndex.textContent = `Foto ${previewIndex + 1} de ${galleryImages.length}`;
+      galleryMetaHint.textContent = "Usa las flechas o toca una miniatura para explorar.";
+
+      galleryImages.forEach((image, imageIndex) => {
+        image.classList.toggle("is-active", imageIndex === previewIndex);
+      });
+
+      requestAnimationFrame(() => {
+        galleryPreviewImg.style.opacity = "1";
+        galleryPreviewImg.style.transform = "scale(1)";
+      });
+    }
+
+    function updateLightbox() {
+      if (!galleryImages.length) return;
+      const activeImage = galleryImages[currentIndex];
+      resetImageZoom();
+      lightboxImg.style.opacity = "0";
+      lightboxImg.style.transform = "translate3d(0, 0, 0) scale(0.97)";
+      lightboxImg.src = activeImage.src;
+      lightboxImg.alt = activeImage.alt || "Imagen ampliada";
+      viewerCounter.textContent = `${currentIndex + 1} / ${galleryImages.length}`;
+      Array.from(thumbs.querySelectorAll("img")).forEach((thumb, index) => {
+        thumb.classList.toggle("active", index === currentIndex);
+      });
+      requestAnimationFrame(() => {
+        lightboxImg.style.opacity = "1";
+        applyImageZoom();
+      });
+    }
+
+    function openLightbox(index) {
+      if (!galleryImages.length) return;
+      currentIndex = index;
+      renderThumbs();
+      updateLightbox();
+      lightbox.classList.add("show");
+      setScrollLocked(true);
+    }
+
+    function closeGallery() {
+      resetImageZoom();
+      lightbox.classList.remove("show");
+      if (overlay.classList.contains("hidden")) {
+        setScrollLocked(false);
+      }
+    }
+
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % galleryImages.length;
+      updateLightbox();
+    }
+
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+      updateLightbox();
+    }
+
+    function nextPreview() {
+      updateGalleryPreview(previewIndex + 1);
+    }
+
+    function prevPreview() {
+      updateGalleryPreview(previewIndex - 1);
+    }
+
+    function getEditorField(id) {
+      return document.getElementById(id);
+    }
+
+    function renderEditorGiftLinks() {
+      if (!editorGiftLinksList) return;
+      editorGiftLinksList.innerHTML = "";
+
+      (INVITATION_CONFIG.gifts.links || []).forEach((link, index) => {
+        const card = document.createElement("div");
+        card.className = "editor-link-card";
+        card.innerHTML = `
+          <div class="editor-field">
+            <label>Texto del botón</label>
+            <input type="text" data-gift-link-field="label" data-index="${index}" value="${link.label || ""}">
+          </div>
+          <div class="editor-field">
+            <label>Link</label>
+            <input type="text" data-gift-link-field="href" data-index="${index}" value="${link.href || ""}">
+          </div>
+          <div class="editor-field">
+            <label>Estilo</label>
+            <select data-gift-link-field="style" data-index="${index}">
+              <option value="primary" ${link.style !== "secondary" ? "selected" : ""}>Principal</option>
+              <option value="secondary" ${link.style === "secondary" ? "selected" : ""}>Secundario</option>
+            </select>
+          </div>
+          <button class="editor-btn" type="button" data-remove-gift-link="${index}">Quitar botón</button>
+        `;
+        editorGiftLinksList.appendChild(card);
+      });
+    }
+
+    function renderEditorTimelineRows() {
+      if (!editorTimelineList) return;
+      editorTimelineList.innerHTML = "";
+
+      (INVITATION_CONFIG.timeline.items || []).forEach((item, index) => {
+        const row = document.createElement("div");
+        row.className = "timeline-editor-row";
+        row.innerHTML = `
+          <div class="timeline-editor-grid">
+            <div class="editor-field">
+              <label>Hora</label>
+              <input type="text" data-timeline-field="time" data-index="${index}" value="${item.time || ""}">
+            </div>
+            <div class="editor-field">
+              <label>Título</label>
+              <input type="text" data-timeline-field="title" data-index="${index}" value="${item.title || ""}">
+            </div>
+          </div>
+          <div class="editor-field">
+            <label>Descripción</label>
+            <input type="text" data-timeline-field="desc" data-index="${index}" value="${item.desc || ""}">
+          </div>
+          <button class="editor-btn" type="button" data-remove-timeline-row="${index}">Quitar evento</button>
+        `;
+        editorTimelineList.appendChild(row);
+      });
+    }
+
+    function fillEditorPanel() {
+      getEditorField("cfgThemePreset").value = "";
+      getEditorField("cfgBgTop").value = INVITATION_CONFIG.theme.bgTop;
+      getEditorField("cfgBgMid").value = INVITATION_CONFIG.theme.bgMid;
+      getEditorField("cfgBgBottom").value = INVITATION_CONFIG.theme.bgBottom;
+      getEditorField("cfgGold").value = INVITATION_CONFIG.theme.gold500;
+      getEditorField("cfgTextColor").value = INVITATION_CONFIG.theme.text;
+      getEditorField("cfgMutedColor").value = INVITATION_CONFIG.theme.muted.startsWith("#") ? INVITATION_CONFIG.theme.muted : "#fef0e1";
+      getEditorField("cfgBodyFont").value = INVITATION_CONFIG.theme.bodyFont;
+      getEditorField("cfgScriptFont").value = INVITATION_CONFIG.theme.scriptFont;
+      getEditorField("cfgDisplayFont").value = INVITATION_CONFIG.theme.displayFont;
+      getEditorField("cfgHeroImage").value = INVITATION_CONFIG.images.hero;
+      getEditorField("cfgStoryImage").value = INVITATION_CONFIG.images.story;
+      getEditorField("cfgDressImage").value = INVITATION_CONFIG.images.dress;
+      getEditorField("cfgEnvelopeImage").value = INVITATION_CONFIG.images.envelope;
+      getEditorField("cfgSurpriseImage").value = INVITATION_CONFIG.images.surprise;
+      getEditorField("cfgGalleryImages").value = (INVITATION_CONFIG.images.gallery || []).join("\n");
+      getEditorField("cfgEventLabel").value = INVITATION_CONFIG.event.label;
+      getEditorField("cfgCelebrantName").value = INVITATION_CONFIG.event.celebrantName;
+      getEditorField("cfgEventDate").value = INVITATION_CONFIG.event.eventDate.slice(0, 16);
+      getEditorField("cfgEventEnd").value = INVITATION_CONFIG.event.eventEnd.slice(0, 16);
+      getEditorField("cfgStoryTitle").value = INVITATION_CONFIG.story.title;
+      getEditorField("cfgStoryText1").value = INVITATION_CONFIG.story.paragraph1;
+      getEditorField("cfgStoryText2").value = INVITATION_CONFIG.story.paragraph2;
+      getEditorField("cfgParentsNames").value = INVITATION_CONFIG.family.parentsNamesHtml;
+      getEditorField("cfgGodparentsNames").value = INVITATION_CONFIG.family.godparentsNamesHtml;
+      getEditorField("cfgCeremonyTitle").value = INVITATION_CONFIG.ceremony.title;
+      getEditorField("cfgCeremonyTime").value = INVITATION_CONFIG.ceremony.time;
+      getEditorField("cfgCeremonyPlace").value = INVITATION_CONFIG.ceremony.place;
+      getEditorField("cfgCeremonyMediaMode").value = INVITATION_CONFIG.ceremony.mediaMode || "icon";
+      getEditorField("cfgCeremonyIconSrc").value = INVITATION_CONFIG.ceremony.iconSrc || INVITATION_CONFIG.images.ceremony || "";
+      getEditorField("cfgCeremonyMapEmbed").value = INVITATION_CONFIG.ceremony.mapEmbed || "";
+      getEditorField("cfgCeremonyPhotoSrc").value = INVITATION_CONFIG.ceremony.photoSrc || "";
+      getEditorField("cfgCeremonyMapLink").value = INVITATION_CONFIG.ceremony.mapLink;
+      getEditorField("cfgReceptionTitle").value = INVITATION_CONFIG.reception.title;
+      getEditorField("cfgReceptionTime").value = INVITATION_CONFIG.reception.time;
+      getEditorField("cfgReceptionPlace").value = INVITATION_CONFIG.reception.place;
+      getEditorField("cfgReceptionMediaMode").value = INVITATION_CONFIG.reception.mediaMode || "preview";
+      getEditorField("cfgReceptionIconSrc").value = INVITATION_CONFIG.reception.iconSrc || "";
+      getEditorField("cfgReceptionMapLink").value = INVITATION_CONFIG.reception.mapLink;
+      getEditorField("cfgReceptionMapEmbed").value = INVITATION_CONFIG.reception.mapEmbed;
+      getEditorField("cfgReceptionPhotoSrc").value = INVITATION_CONFIG.reception.photoSrc || "";
+      getEditorField("cfgDressValue").value = INVITATION_CONFIG.dressCode.value;
+      getEditorField("cfgGiftIntro").value = INVITATION_CONFIG.gifts.intro;
+      getEditorField("cfgClosingNote").value = INVITATION_CONFIG.closing.note;
+      getEditorField("cfgShowStory").checked = INVITATION_CONFIG.sections.story !== false;
+      getEditorField("cfgShowParents").checked = INVITATION_CONFIG.sections.parents !== false;
+      getEditorField("cfgShowGodparents").checked = INVITATION_CONFIG.sections.godparents !== false;
+      getEditorField("cfgShowDress").checked = INVITATION_CONFIG.sections.dress !== false;
+      getEditorField("cfgShowGifts").checked = INVITATION_CONFIG.sections.gifts !== false;
+      getEditorField("cfgShowAgenda").checked = INVITATION_CONFIG.sections.agenda !== false;
+      getEditorField("cfgShowClosing").checked = INVITATION_CONFIG.sections.closing !== false;
+      getEditorField("cfgRsvpPhone").value = INVITATION_CONFIG.event.rsvpPhone;
+      getEditorField("cfgShowGuestCount").checked = INVITATION_CONFIG.rsvp.showGuestCount !== false;
+      getEditorField("cfgMaxGuests").value = INVITATION_CONFIG.rsvp.maxGuests || 1;
+      getEditorField("cfgShowGiftLinks").checked = INVITATION_CONFIG.gifts.showLinks !== false;
+      renderEditorGiftLinks();
+      renderEditorTimelineRows();
+      updateFontPreviews();
+    }
+
+    function readEditorPanel() {
+      INVITATION_CONFIG.theme.bgTop = getEditorField("cfgBgTop").value;
+      INVITATION_CONFIG.theme.bgMid = getEditorField("cfgBgMid").value;
+      INVITATION_CONFIG.theme.bgBottom = getEditorField("cfgBgBottom").value;
+      INVITATION_CONFIG.theme.gold500 = getEditorField("cfgGold").value;
+      INVITATION_CONFIG.theme.text = getEditorField("cfgTextColor").value;
+      INVITATION_CONFIG.theme.muted = getEditorField("cfgMutedColor").value;
+      INVITATION_CONFIG.theme.bodyFont = getEditorField("cfgBodyFont").value;
+      INVITATION_CONFIG.theme.scriptFont = getEditorField("cfgScriptFont").value;
+      INVITATION_CONFIG.theme.displayFont = getEditorField("cfgDisplayFont").value;
+      INVITATION_CONFIG.images.hero = getEditorField("cfgHeroImage").value || INVITATION_CONFIG.images.hero;
+      INVITATION_CONFIG.images.story = getEditorField("cfgStoryImage").value || INVITATION_CONFIG.images.story;
+      INVITATION_CONFIG.images.dress = getEditorField("cfgDressImage").value || INVITATION_CONFIG.images.dress;
+      INVITATION_CONFIG.images.envelope = getEditorField("cfgEnvelopeImage").value || INVITATION_CONFIG.images.envelope;
+      INVITATION_CONFIG.images.surprise = getEditorField("cfgSurpriseImage").value || INVITATION_CONFIG.images.surprise;
+      INVITATION_CONFIG.images.gallery = getEditorField("cfgGalleryImages").value.split("\n").map((line) => line.trim()).filter(Boolean);
+      INVITATION_CONFIG.event.label = getEditorField("cfgEventLabel").value || INVITATION_CONFIG.event.label;
+      INVITATION_CONFIG.event.celebrantName = getEditorField("cfgCelebrantName").value || INVITATION_CONFIG.event.celebrantName;
+      INVITATION_CONFIG.event.eventDate = getEditorField("cfgEventDate").value || INVITATION_CONFIG.event.eventDate;
+      INVITATION_CONFIG.event.eventEnd = getEditorField("cfgEventEnd").value || INVITATION_CONFIG.event.eventEnd;
+      INVITATION_CONFIG.story.title = getEditorField("cfgStoryTitle").value || INVITATION_CONFIG.story.title;
+      INVITATION_CONFIG.story.paragraph1 = getEditorField("cfgStoryText1").value || INVITATION_CONFIG.story.paragraph1;
+      INVITATION_CONFIG.story.paragraph2 = getEditorField("cfgStoryText2").value || INVITATION_CONFIG.story.paragraph2;
+      INVITATION_CONFIG.family.parentsNamesHtml = getEditorField("cfgParentsNames").value || INVITATION_CONFIG.family.parentsNamesHtml;
+      INVITATION_CONFIG.family.godparentsNamesHtml = getEditorField("cfgGodparentsNames").value || INVITATION_CONFIG.family.godparentsNamesHtml;
+      INVITATION_CONFIG.ceremony.title = getEditorField("cfgCeremonyTitle").value || INVITATION_CONFIG.ceremony.title;
+      INVITATION_CONFIG.ceremony.time = getEditorField("cfgCeremonyTime").value || INVITATION_CONFIG.ceremony.time;
+      INVITATION_CONFIG.ceremony.place = getEditorField("cfgCeremonyPlace").value || INVITATION_CONFIG.ceremony.place;
+      INVITATION_CONFIG.ceremony.mediaMode = getEditorField("cfgCeremonyMediaMode").value || "icon";
+      INVITATION_CONFIG.ceremony.iconSrc = getEditorField("cfgCeremonyIconSrc").value.trim();
+      INVITATION_CONFIG.ceremony.mapEmbed = getEditorField("cfgCeremonyMapEmbed").value.trim();
+      INVITATION_CONFIG.ceremony.photoSrc = getEditorField("cfgCeremonyPhotoSrc").value.trim();
+      INVITATION_CONFIG.ceremony.mapLink = getEditorField("cfgCeremonyMapLink").value.trim();
+      INVITATION_CONFIG.reception.title = getEditorField("cfgReceptionTitle").value || INVITATION_CONFIG.reception.title;
+      INVITATION_CONFIG.reception.time = getEditorField("cfgReceptionTime").value || INVITATION_CONFIG.reception.time;
+      INVITATION_CONFIG.reception.place = getEditorField("cfgReceptionPlace").value || INVITATION_CONFIG.reception.place;
+      INVITATION_CONFIG.reception.mediaMode = getEditorField("cfgReceptionMediaMode").value || "preview";
+      INVITATION_CONFIG.reception.iconSrc = getEditorField("cfgReceptionIconSrc").value.trim();
+      INVITATION_CONFIG.reception.mapLink = getEditorField("cfgReceptionMapLink").value.trim();
+      INVITATION_CONFIG.reception.mapEmbed = getEditorField("cfgReceptionMapEmbed").value.trim();
+      INVITATION_CONFIG.reception.photoSrc = getEditorField("cfgReceptionPhotoSrc").value.trim();
+      const timeFields = editorTimelineList.querySelectorAll('[data-timeline-field="time"]');
+      const titleFields = editorTimelineList.querySelectorAll('[data-timeline-field="title"]');
+      const descFields = editorTimelineList.querySelectorAll('[data-timeline-field="desc"]');
+      INVITATION_CONFIG.timeline.items = Array.from(timeFields).map((input, index) => ({
+        time: input.value || "",
+        title: titleFields[index].value || "",
+        desc: descFields[index].value || ""
+      }));
+      INVITATION_CONFIG.dressCode.value = getEditorField("cfgDressValue").value || INVITATION_CONFIG.dressCode.value;
+      INVITATION_CONFIG.gifts.intro = getEditorField("cfgGiftIntro").value || INVITATION_CONFIG.gifts.intro;
+      INVITATION_CONFIG.closing.note = getEditorField("cfgClosingNote").value || INVITATION_CONFIG.closing.note;
+      INVITATION_CONFIG.event.rsvpPhone = getEditorField("cfgRsvpPhone").value || INVITATION_CONFIG.event.rsvpPhone;
+      INVITATION_CONFIG.sections.story = getEditorField("cfgShowStory").checked;
+      INVITATION_CONFIG.sections.parents = getEditorField("cfgShowParents").checked;
+      INVITATION_CONFIG.sections.godparents = getEditorField("cfgShowGodparents").checked;
+      INVITATION_CONFIG.sections.dress = getEditorField("cfgShowDress").checked;
+      INVITATION_CONFIG.sections.gifts = getEditorField("cfgShowGifts").checked;
+      INVITATION_CONFIG.sections.agenda = getEditorField("cfgShowAgenda").checked;
+      INVITATION_CONFIG.sections.closing = getEditorField("cfgShowClosing").checked;
+      INVITATION_CONFIG.rsvp.showGuestCount = getEditorField("cfgShowGuestCount").checked;
+      INVITATION_CONFIG.rsvp.maxGuests = Math.max(1, Number(getEditorField("cfgMaxGuests").value) || 1);
+      INVITATION_CONFIG.gifts.showLinks = getEditorField("cfgShowGiftLinks").checked;
+
+      const labels = editorGiftLinksList.querySelectorAll('[data-gift-link-field="label"]');
+      const hrefs = editorGiftLinksList.querySelectorAll('[data-gift-link-field="href"]');
+      const styles = editorGiftLinksList.querySelectorAll('[data-gift-link-field="style"]');
+
+      INVITATION_CONFIG.gifts.links = Array.from(labels).map((input, index) => ({
+        label: input.value.trim() || `Botón ${index + 1}`,
+        href: hrefs[index].value.trim() || "#",
+        style: styles[index].value || "primary"
+      }));
+    }
+
+    function openEditorPanel() {
+      closeEditorAuth();
+      body.classList.add("editor-open");
+      editorPanel.setAttribute("aria-hidden", "false");
+      fillEditorPanel();
+    }
+
+    function closeEditorPanel() {
+      body.classList.remove("editor-open");
+      editorPanel.setAttribute("aria-hidden", "true");
+    }
+
+    function openEditorAuth() {
+      editorAuth.classList.add("show");
+      editorAuthError.textContent = "";
+      editorUsername.value = "";
+      editorPassword.value = "";
+      setTimeout(() => editorUsername.focus(), 30);
+    }
+
+    function closeEditorAuth() {
+      editorAuth.classList.remove("show");
+      editorAuthError.textContent = "";
+    }
+
+    function requestEditorAccess() {
+      if (editorAuthenticated) {
+        openEditorPanel();
+        return;
+      }
+      openEditorAuth();
+    }
+
+    function registerEditorTap() {
+      editorTapCount += 1;
+      clearTimeout(editorTapTimer);
+      editorTapTimer = setTimeout(() => {
+        editorTapCount = 0;
+      }, 1800);
+
+      if (editorTapCount >= 8) {
+        editorTapCount = 0;
+        requestEditorAccess();
+      }
+    }
+
+    function sendConfirmation(attending) {
+      const name = guestName.value.trim();
+      const count = guestCount.value;
+
+      if (!name) {
+        showToast("Por favor escribe tu nombre.");
+        guestName.focus();
+        return;
+      }
+
+      let message = "";
+
+      if (attending) {
+        if (INVITATION_CONFIG.rsvp.showGuestCount !== false && !count) {
+          showToast("Selecciona cuántas personas asistirán.");
+          guestCount.focus();
+          return;
+        }
+
+        message = [
+          "✨ Confirmación de asistencia ✨",
+          "",
+          `Con mucha alegría confirmo mi presencia en los ${INVITATION_CONFIG.event.label} de ${INVITATION_CONFIG.event.celebrantName}.`,
+          "",
+          `Nombre: ${name}`,
+          ...(INVITATION_CONFIG.rsvp.showGuestCount !== false ? [count] : []),
+          "",
+          "Será un honor acompañarte en este día tan especial."
+        ].join("\n");
+      } else {
+        message = [
+          `✨ ${INVITATION_CONFIG.event.label} ${INVITATION_CONFIG.event.celebrantName} ✨`,
+          "",
+          `Hola, mi nombre es ${name}.`,
+          "",
+          "Con mucho cariño quiero decir que en esta ocasión no podré acompañarte,",
+          "pero te deseo un día maravilloso y lleno de felicidad."
+        ].join("\n");
+      }
+
+      const button = attending ? confirmYes : confirmNo;
+      const originalText = button.textContent;
+      button.disabled = true;
+      button.textContent = attending ? "Preparando mensaje..." : "Avisando...";
+      showToast(attending ? "Estamos preparando tu confirmación." : "Estamos preparando tu mensaje.");
+
+      setTimeout(() => {
+        window.open(`https://wa.me/${RSVP_PHONE}?text=${encodeURIComponent(message)}`, "_blank");
+        button.disabled = false;
+        button.textContent = originalText;
+      }, 520);
+    }
+
+    function fadeInAudio() {
+      audio.volume = 0;
+      audio.play().then(() => {
+        let volume = 0;
+        const interval = setInterval(() => {
+          volume = Math.min(1, volume + 0.08);
+          audio.volume = volume;
+          if (volume >= 1) clearInterval(interval);
+        }, 120);
+      }).catch(() => {});
+    }
+
+    function applyHeroParallax() {
+      const hero = document.querySelector(".hero");
+      const heroImage = hero.querySelector("img");
+      const rect = hero.getBoundingClientRect();
+      const progress = Math.max(-1, Math.min(1, rect.top / window.innerHeight));
+      heroImage.style.transform = `scale(1.03) translate3d(0, ${progress * -18}px, 0)`;
+    }
+
+    function addToCalendar(event) {
+      event.preventDefault();
+
+      const title = `${INVITATION_CONFIG.event.label} ${INVITATION_CONFIG.event.celebrantName}`;
+      const details = `Acompáñame a celebrar ${INVITATION_CONFIG.event.label}.`;
+      const isApple = /iPad|iPhone|iPod|Mac/.test(navigator.userAgent);
+
+      const formatDate = (date, withZ) => {
+        const iso = date.toISOString().replace(/[-:]/g, "").split(".")[0];
+        return withZ ? `${iso}Z` : iso;
+      };
+
+      if (isApple) {
+        const content = [
+          "BEGIN:VCALENDAR",
+          "VERSION:2.0",
+          "BEGIN:VEVENT",
+          `DTSTART:${formatDate(EVENT_DATE, true)}`,
+          `DTEND:${formatDate(EVENT_END, true)}`,
+          `SUMMARY:${title}`,
+          `DESCRIPTION:${details}`,
+          `LOCATION:${EVENT_LOCATION}`,
+          "END:VEVENT",
+          "END:VCALENDAR"
+        ].join("\n");
+
+        const blob = new Blob([content], { type: "text/calendar" });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "xv-sofia-montes.ics";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+        return;
+      }
+
+      const start = formatDate(EVENT_DATE, false);
+      const end = formatDate(EVENT_END, false);
+      const gcalUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${start}/${end}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(EVENT_LOCATION)}`;
+      window.open(gcalUrl, "_blank");
+    }
+
+    function initParticles() {
+      const canvas = document.getElementById("particles");
+      const ctx = canvas.getContext("2d", { alpha: true });
+      if (!ctx) return;
+
+      let width = 0;
+      let height = 0;
+      let particles = [];
+      let animationId = 0;
+      const lowPower = IS_LOW_POWER_DEVICE
+        || (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4)
+        || (navigator.deviceMemory && navigator.deviceMemory <= 4);
+
+      function createParticle() {
+        return {
+          x: Math.random() * width,
+          y: Math.random() * height,
+          r: Math.random() * 1.8 + 0.6,
+          vx: (Math.random() - 0.5) * 0.22,
+          vy: (Math.random() - 0.5) * 0.22,
+          alpha: Math.random() * 0.35 + 0.15
+        };
+      }
+
+      function resize() {
+        const dpr = Math.min(window.devicePixelRatio || 1, IS_ANDROID ? 1.15 : 1.6);
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = Math.round(width * dpr);
+        canvas.height = Math.round(height * dpr);
+        canvas.style.width = `${width}px`;
+        canvas.style.height = `${height}px`;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+        const total = IS_ANDROID
+          ? (width < 768 ? 10 : 16)
+          : (lowPower
+            ? (width < 768 ? 16 : 26)
+            : (width < 768 ? 44 : 82));
+        particles = Array.from({ length: total }, createParticle);
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+        particles.forEach((particle) => {
+          particle.x += particle.vx;
+          particle.y += particle.vy;
+
+          if (particle.x < 0 || particle.x > width) particle.vx *= -1;
+          if (particle.y < 0 || particle.y > height) particle.vy *= -1;
+
+          ctx.beginPath();
+          ctx.arc(particle.x, particle.y, particle.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255, 244, 207, ${particle.alpha})`;
+          ctx.fill();
+        });
+        animationId = requestAnimationFrame(animate);
+      }
+
+      resize();
+      animate();
+      window.addEventListener("resize", resize);
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+          cancelAnimationFrame(animationId);
+          animationId = 0;
+        } else if (!animationId) {
+          animate();
+        }
+      });
+    }
+
+    openBtn.addEventListener("click", () => {
+      if (overlay.classList.contains("hidden")) return;
+      musicBtn.classList.add("show");
+      fadeInAudio();
+      musicBtn.classList.remove("is-paused");
+      overlay.classList.add("hidden");
+      setScrollLocked(false);
+      heroLabel.classList.add("animate");
+      heroName.classList.add("animate");
+      fechaEvento.classList.add("animate");
+    });
+
+    musicBtn.addEventListener("click", () => {
+      if (audio.paused) {
+        audio.play().catch(() => {});
+        musicBtn.classList.remove("is-paused");
+        musicBtn.setAttribute("aria-label", "Pausar música");
+      } else {
+        audio.pause();
+        musicBtn.classList.add("is-paused");
+        musicBtn.setAttribute("aria-label", "Reproducir música");
+      }
+    });
+
+    toTopBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    galleryGrid.addEventListener("mouseover", (event) => {
+      const image = event.target.closest("img");
+      if (!image) return;
+      const index = galleryImages.indexOf(image);
+      if (index >= 0) updateGalleryPreview(index);
+    });
+
+    galleryGrid.addEventListener("click", (event) => {
+      const image = event.target.closest("img");
+      if (!image) return;
+      const index = galleryImages.indexOf(image);
+      if (index >= 0) {
+        updateGalleryPreview(index);
+        openLightbox(index);
+      }
+    });
+
+    galleryPrev.addEventListener("click", prevPreview);
+    galleryNext.addEventListener("click", nextPreview);
+    galleryStage.addEventListener("click", () => openLightbox(previewIndex));
+
+    closeLightbox.addEventListener("click", closeGallery);
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) closeGallery();
+    });
+
+    editorToggle.addEventListener("click", closeEditorPanel);
+    editorOverlay.addEventListener("click", closeEditorPanel);
+    editorSecretHotspot.addEventListener("click", registerEditorTap);
+    editorLoginBtn.addEventListener("click", () => {
+      if (editorUsername.value === EDITOR_SECRET && editorPassword.value === EDITOR_KEY) {
+        editorAuthenticated = true;
+        closeEditorAuth();
+        openEditorPanel();
+      } else {
+        editorAuthError.textContent = "Usuario o contraseña incorrectos.";
+      }
+    });
+    editorCancelBtn.addEventListener("click", closeEditorAuth);
+    editorPassword.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        editorLoginBtn.click();
+      }
+    });
+    addGiftLinkBtn.addEventListener("click", () => {
+      INVITATION_CONFIG.gifts.links.push({
+        label: "Nuevo botón",
+        href: "#",
+        style: "primary"
+      });
+      renderEditorGiftLinks();
+    });
+
+    addTimelineRowBtn.addEventListener("click", () => {
+      INVITATION_CONFIG.timeline.items.push({
+        time: "",
+        title: "",
+        desc: ""
+      });
+      renderEditorTimelineRows();
+    });
+
+    editorGiftLinksList.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-remove-gift-link]");
+      if (!button) return;
+      const index = Number(button.dataset.removeGiftLink);
+      INVITATION_CONFIG.gifts.links.splice(index, 1);
+      renderEditorGiftLinks();
+    });
+
+    editorTimelineList.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-remove-timeline-row]");
+      if (!button) return;
+      const index = Number(button.dataset.removeTimelineRow);
+      INVITATION_CONFIG.timeline.items.splice(index, 1);
+      renderEditorTimelineRows();
+    });
+
+    ["cfgBodyFont", "cfgScriptFont", "cfgDisplayFont"].forEach((id) => {
+      const field = getEditorField(id);
+      if (field) field.addEventListener("change", updateFontPreviews);
+    });
+
+    getEditorField("cfgThemePreset").addEventListener("change", (event) => {
+      if (event.target.value) applyThemePreset(event.target.value);
+    });
+
+    saveEditorConfigBtn.addEventListener("click", () => {
+      readEditorPanel();
+      saveConfigToStorage();
+      applyInvitationConfig();
+      showToast("Configuración guardada en este navegador.");
+    });
+
+    saveEditorBaseBtn.addEventListener("click", () => {
+      readEditorPanel();
+      applyInvitationConfig();
+      saveBaseConfigToStorage();
+      saveConfigToStorage();
+      showToast("Base guardada correctamente.");
+    });
+
+    exportEditorConfigBtn.addEventListener("click", () => {
+      readEditorPanel();
+      const blob = new Blob([JSON.stringify(INVITATION_CONFIG, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "digital-invita-config.json";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    });
+
+    importEditorConfigBtn.addEventListener("click", () => {
+      importEditorConfigInput.click();
+    });
+
+    importEditorConfigInput.addEventListener("change", async (event) => {
+      const file = event.target.files?.[0];
+      if (!file) return;
+      try {
+        const text = await file.text();
+        const parsed = JSON.parse(text);
+        replaceConfig(deepMerge(DEFAULT_CONFIG, parsed));
+        saveConfigToStorage();
+        applyInvitationConfig();
+        fillEditorPanel();
+        showToast("Configuración importada.");
+      } catch (error) {
+        showToast("No se pudo importar el archivo.");
+      } finally {
+        importEditorConfigInput.value = "";
+      }
+    });
+
+    resetEditorConfigBtn.addEventListener("click", () => {
+      replaceConfig(BASE_CONFIG || DEFAULT_CONFIG);
+      saveConfigToStorage();
+      applyInvitationConfig();
+      fillEditorPanel();
+      showToast("Se restableció la base guardada.");
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if ((event.ctrlKey || event.metaKey) && event.shiftKey && event.key.toLowerCase() === "e") {
+        event.preventDefault();
+        if (body.classList.contains("editor-open")) closeEditorPanel();
+        else requestEditorAccess();
+        return;
+      }
+      if (event.key === "Escape" && editorAuth.classList.contains("show")) {
+        closeEditorAuth();
+        return;
+      }
+      if (!lightbox.classList.contains("show")) return;
+      if (event.key === "Escape") closeGallery();
+      if (event.key === "ArrowRight") nextImage();
+      if (event.key === "ArrowLeft") prevImage();
+    });
+
+    lightboxMain.addEventListener("dblclick", (event) => {
+      event.preventDefault();
+      if (zoomScale > 1.01) {
+        resetImageZoom(true);
+      } else {
+        zoomScale = 2;
+        zoomX = 0;
+        zoomY = 0;
+        applyImageZoom();
+      }
+    });
+
+    lightboxMain.addEventListener("wheel", (event) => {
+      event.preventDefault();
+      const direction = event.deltaY < 0 ? 0.22 : -0.22;
+      zoomScale = Math.max(1, Math.min(3, zoomScale + direction));
+      if (zoomScale <= 1.02) {
+        resetImageZoom();
+      } else {
+        applyImageZoom();
+      }
+    }, { passive: false });
+
+    lightboxMain.addEventListener("touchstart", (event) => {
+      if (event.touches.length === 2) {
+        pinchStartDistance = getTouchDistance(event.touches);
+        pinchStartScale = zoomScale;
+        isPanningImage = false;
+        return;
+      }
+
+      if (event.touches.length === 1) {
+        const now = Date.now();
+        if (now - lastTapTime < 280) {
+          event.preventDefault();
+          if (zoomScale > 1.01) resetImageZoom(true);
+          else {
+            zoomScale = 2;
+            zoomX = 0;
+            zoomY = 0;
+            applyImageZoom();
+          }
+        }
+        lastTapTime = now;
+
+        touchStartX = event.touches[0].clientX;
+        touchStartY = event.touches[0].clientY;
+
+        if (zoomScale > 1.01) {
+          isPanningImage = true;
+          lightboxMain.classList.add("is-panning");
+          dragOriginX = event.touches[0].clientX - zoomX;
+          dragOriginY = event.touches[0].clientY - zoomY;
+        } else {
+          panStartX = event.touches[0].clientX;
+          panStartY = event.touches[0].clientY;
+        }
+      }
+    }, { passive: false });
+
+    lightboxMain.addEventListener("touchmove", (event) => {
+      if (event.touches.length === 2) {
+        event.preventDefault();
+        const distance = getTouchDistance(event.touches);
+        zoomScale = Math.max(1, Math.min(3, pinchStartScale * (distance / Math.max(pinchStartDistance, 1))));
+        if (zoomScale <= 1.02) {
+          zoomScale = 1;
+          zoomX = 0;
+          zoomY = 0;
+        }
+        applyImageZoom();
+        return;
+      }
+
+      if (event.touches.length === 1 && zoomScale > 1.01 && isPanningImage) {
+        event.preventDefault();
+        zoomX = event.touches[0].clientX - dragOriginX;
+        zoomY = event.touches[0].clientY - dragOriginY;
+        applyImageZoom();
+      }
+    }, { passive: false });
+
+    lightboxMain.addEventListener("touchend", (event) => {
+      lightboxMain.classList.remove("is-panning");
+      isPanningImage = false;
+
+      if (zoomScale > 1.01) return;
+
+      if (event.changedTouches.length === 1) {
+        const diffX = panStartX - event.changedTouches[0].clientX;
+        const diffY = panStartY - event.changedTouches[0].clientY;
+        if (Math.abs(diffX) > 50 && Math.abs(diffX) > Math.abs(diffY)) {
+          if (diffX > 0) nextImage();
+          else prevImage();
+        }
+      }
+    });
+
+    confirmYes.addEventListener("click", () => sendConfirmation(true));
+    confirmNo.addEventListener("click", () => sendConfirmation(false));
+    calendarBtn.addEventListener("click", addToCalendar);
+    verCuenta.addEventListener("click", (event) => {
+      event.preventDefault();
+      document.getElementById("countdown-section").scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+
+    let scrollTicking = false;
+    let androidScrollTimer = 0;
+
+    function handleScrollFrame() {
+      revealOnScroll();
+      updateFloatingButtons();
+      if (!IS_ANDROID) applyHeroParallax();
+      scrollTicking = false;
+    }
+
+    populateGuestOptions();
+    updateCountdown();
+    updateGalleryPreview(0);
+    revealOnScroll();
+    updateFloatingButtons();
+    initParticles();
+    if (!IS_ANDROID) applyHeroParallax();
+    updateOverlayScale();
+    fillEditorPanel();
+
+    setInterval(updateCountdown, 1000);
+    window.addEventListener("resize", updateOverlayScale, { passive: true });
+    window.addEventListener("scroll", () => {
+      if (scrollTicking) return;
+      scrollTicking = true;
+      if (IS_ANDROID) {
+        clearTimeout(androidScrollTimer);
+        androidScrollTimer = setTimeout(handleScrollFrame, 34);
+      } else {
+        requestAnimationFrame(handleScrollFrame);
+      }
+    }, { passive: true });
+  </script>
+</body>
+</html>
