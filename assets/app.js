@@ -149,7 +149,7 @@
     "buttonHref": "#"
   },
   "rsvp": {
-    "showGuestCount": false,
+    "showGuestCount": true,
     "maxGuests": 6
   },
   "sections": {
