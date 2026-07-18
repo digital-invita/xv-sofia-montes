@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi graduación | Prim. Justo Sierra</title>
+
+  <meta name="description" content="Acompáñanos a celebrar este día tan especial.">
+  <meta property="og:title" content="Mi graduación | Prim. Justo Sierra">
+  <meta property="og:description" content="Tenemos el honor de invitarle a la
+ceremonia de Graduación">
+  <meta property="og:image" content="portada-og.jpg">
+  <meta property="og:image:secure_url" content="portada-og.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="portada-og.jpg">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png?v=20">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon.png?v=20">
+  <link rel="shortcut icon" href="favicon.png?v=20">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="FPrincipal.jpg" fetchpriority="high">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Dancing+Script:wght@500;600;700&family=Great+Vibes&display=block" rel="stylesheet">
+
+  <link rel="preload" href="assets/styles.css" as="style">
+  <link rel="stylesheet" href="assets/styles.css">
+
+</head>
+<body class="locked">
+  <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="overlayTitle">
+    <div class="overlay-card">
+      <div class="overlay-scene" id="overlayScene">
+        <p class="overlay-kicker" id="overlayKicker">Mis XV</p>
+        <div class="overlay-title-wrap">
+          <span class="title-glow" aria-hidden="true"></span>
+          <h1 class="overlay-title" id="overlayTitle">Nombre de la festejada</h1>
+        </div>
+        <button class="wax-btn" id="openBtn" type="button" aria-label="Abrir invitación">
+          <img src="sello_cera.png" alt="Sello para abrir invitación" decoding="async" fetchpriority="high">
+        </button>
+        <div class="wax-caption">Abrir invitación</div>
+      </div>
+    </div>
+  </div>
+
+  <canvas id="particles" aria-hidden="true"></canvas>
+
+  <audio id="audio" loop preload="metadata">
+    <source src="cancio.mp3" type="audio/mpeg">
+  </audio>
+
+  <main class="page">
+    <section class="hero">
+      <img id="heroImage" src="FPrincipal.jpg" alt="Portada de la invitación" decoding="async" fetchpriority="high">
+      <div class="hero-content">
+        <div class="hero-label" id="heroLabel">Mis XV</div>
+        <h1 class="hero-name" id="nombre">Nombre de la festejada</h1>
+        <div class="hero-date" id="fechaEvento"></div>
+      </div>
+    </section>
+
+    <div class="separator"></div>
+
+    <section class="section story-section" id="storySection">
+      <h2 id="storyTitle">Mi historia</h2>
+      <p class="story-text" id="storyText1" data-fulltext="Hoy celebro no solo mis 15 años, sino cada sonrisa que iluminó mi camino, cada aprendizaje que fortaleció mi corazón y cada sueño que, con amor y esperanza, me ha traído hasta este momento tan especial de mi vida."></p>
+      <div class="featured-photo">
+        <img id="storyImage" src="FHistoria.jpg" alt="Fotografía principal" loading="lazy" decoding="async">
+      </div>
+      <p class="story-text" id="storyText2" data-fulltext="Aquí termina un capítulo lleno de recuerdos que atesoraré por siempre y comienza uno nuevo, donde la ilusión, la luz y los sueños por cumplir marcan el inicio de todo lo que está por venir."></p>
+    </section>
+
+    <div class="separator"></div>
+
+    <section class="section" id="parentsSection">
+      <span class="eyebrow" id="parentsEyebrow">En compañía de mis padres</span>
+      <div class="script-block" id="parentsNames">María Fernanda López<br>&amp;<br>Carlos Alberto Montes</div>
+      <p id="parentsInviteText" style="margin-top:16px;">Tenemos el honor de invitarles a celebrar mis XV años.</p>
+    </section>
+
+    <div class="separator"></div>
+
+    <section class="section" id="godparentsSection">
+      <span class="eyebrow" id="godparentsEyebrow">Mis padrinos</span>
+      <div class="script-block" id="godparentsNames">Ana Patricia Hernández<br>&amp;<br>José Luis Ramírez</div>
+    </section>
+
+    <div class="separator"></div>
+
+    <section class="section" id="ceremonySection">
+      <h2 id="ceremonyTitle">Ceremonia</h2>
+      <div class="event-card">
+        <div class="event-time" id="ceremonyTime">16:45 hrs</div>
+        <div class="event-place" id="ceremonyPlace">Parroquia Cristo Rey</div>
+        <div class="event-media-stack" id="ceremonyIconWrap">
+          <div class="dresscode-figure">
+            <img id="ceremonyImage" src="cereminia.png" alt="Ceremonia" loading="lazy" decoding="async">
+          </div>
+        </div>
+        <div class="event-media-stack" id="ceremonyMapWrap" hidden>
+          <div class="map">
+            <iframe id="ceremonyMapEmbed" src="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa de la ceremonia"></iframe>
+          </div>
+        </div>
+        <div class="event-media-stack" id="ceremonyPhotoWrap" hidden>
+          <div class="event-place-photo">
+            <img id="ceremonyPhoto" src="" alt="Lugar de la ceremonia" loading="lazy" decoding="async">
+          </div>
+        </div>
+        <div>
+          <a class="btn" id="ceremonyMapLink" href="#" target="_blank" rel="noopener noreferrer" hidden>Cómo llegar</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="separator"></div>
+
+    <section class="section" id="receptionSection">
+      <h2 id="receptionTitle">Recepción</h2>
+      <div class="event-card">
+        <div class="event-time" id="receptionTime">18:30 hrs</div>
+        <div class="event-place" id="receptionPlace">Top Salón Obispado</div>
+        <div class="event-media-stack" id="receptionIconWrap" hidden>
+          <div class="dresscode-figure">
+            <img id="receptionImage" src="" alt="Recepción" loading="lazy" decoding="async">
+          </div>
+        </div>
+        <div class="event-media-stack" id="receptionMapWrap" hidden>
+          <div class="map">
+            <iframe id="receptionMapEmbed" src="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa del salón"></iframe>
+          </div>
+        </div>
+        <div class="event-media-stack" id="receptionPhotoWrap" hidden>
+          <div class="event-place-photo">
+            <img id="receptionPhoto" src="" alt="Lugar de la recepción" loading="lazy" decoding="async">
+          </div>
+        </div>
+        <div>
+          <a class="btn" id="receptionMapLink" href="#" target="_blank" rel="noopener noreferrer" hidden>Cómo llegar</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="separator"></div>
+
+    <section class="section" id="timelineSection">
+      <h2>Itinerario</h2>
+      <div class="timeline" id="timelineList"></div>
+    </section>
+
+    <div class="separator"></div>
+
+    <section class="section" id="countdown-section">
+      <h2 id="countdownTitle">Faltan pocos días</h2>
+      <p id="countdownIntro">La cuenta regresiva ha comenzado para vivir un momento inolvidable.</p>
+      <div class="countdown-shell">
+        <div id="countdown" aria-live="polite"></div>
+        <div class="countdown-caption" id="countdownCaption">Preparando una noche inolvidable.</div>
+      </div>
+    </section>
+
+    <div class="separator"></div>
+
+    <section class="section" id="gallerySection">
+      <h2>Galería</h2>
+      <div class="gallery-showcase">
+        <div class="gallery-stage" id="galleryStage">
+          <img src="G1.jpg" alt="Galería destacada" id="galleryPreviewImg" loading="lazy" decoding="async">
+        </div>
+        <div class="gallery-controls">
+          <div class="gallery-meta">
+            <strong id="galleryMetaIndex">Foto 1 de 6</strong>
+            <span id="galleryMetaHint">Toca una imagen para destacar o abrir.</span>
+          </div>
+          <div class="gallery-nav">
+            <button type="button" id="galleryPrev" aria-label="Foto anterior">‹</button>
+            <button type="button" id="galleryNext" aria-label="Foto siguiente">›</button>
+          </div>
+        </div>
+      </div>
+      <div class="gallery" id="galleryGrid"></div>
+    </section>
+
+    <div class="separator"></div>
+
+    <section class="section" id="dressSection">
+      <h2 id="dressTitle">Dress Code</h2>
+      <p id="dressValue">Formal</p>
+      <div class="dresscode-figure">
+        <img id="dressImage" src="vestimenta.png" alt="Código de vestimenta" loading="lazy" decoding="async">
+      </div>
+      <p class="mini-note" id="dressNote">Rojo reservado para la quinceañera.</p>
+    </section>
+
+    <div class="separator"></div>
+
+    <section class="section" id="rsvpSection">
+      <h2>Confirma tu presencia</h2>
+      <div class="rsvp-card">
+        <div class="field">
+          <label for="guestName">Tu nombre</label>
+          <input type="text" id="guestName" placeholder="Escríbelo aquí">
+        </div>
+        <div class="field" id="guestCountField">
+          <label for="guestCount">¿Cuántas personas asistirán?</label>
+          <select id="guestCount" data-pases="6">
+            <option value="">Selecciona una opción</option>
+          </select>
+        </div>
+        <div class="rsvp-buttons">
+          <button type="button" id="confirmYes">Confirmar asistencia</button>
+          <button type="button" id="confirmNo" class="btn-secondary">No podré asistir</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="separator"></div>
+
+    <section class="section" id="giftSection">
+      <h2 id="giftTitle">Opciones de regalo</h2>
+      <p id="giftIntro">Tu presencia es el regalo más valioso para mí, pero si deseas tener un detalle, aquí encontrarás algunas opciones pensadas con mucho cariño.</p>
+
+      <div class="gift-options">
+        <div class="gift-option-card" id="giftOption1Card">
+          <div class="gift-option-media">
+            <img class="envelope" id="envelopeImage" src="sobre.png" alt="Lluvia de sobres" loading="lazy" decoding="async">
+          </div>
+          <h3 class="gift-option-title" id="giftOption1Title">Lluvia de sobres</h3>
+          <p class="gift-option-copy" id="giftOption1Copy">Si lo prefieres, podrás acompañarme con un sobre el día del evento. Será un detalle recibido con muchísimo cariño y gratitud.</p>
+        </div>
+
+        <div class="gift-option-card" id="giftOption2Card">
+          <div class="gift-option-media">
+            <img class="surprise" id="surpriseImage" src="regalo.png" alt="Regalo sorpresa" loading="lazy" decoding="async">
+          </div>
+          <h3 class="gift-option-title" id="giftOption2Title">Regalo sorpresa</h3>
+          <p class="gift-option-copy" id="giftOption2Copy">También puedes sorprenderme con un detalle especial elegido por ti. Lo importante será el cariño con el que venga.</p>
+        </div>
+      </div>
+
+      <p class="mini-note" id="giftLinksIntro" style="margin-top:18px;">Si prefieres elegir un detalle en línea, también puedes apoyarte en estas opciones de mesa de regalos:</p>
+
+      <div class="gift-links" id="giftLinks"></div>
+    </section>
+
+    <div class="separator"></div>
+
+    <section class="section" id="agendaSectionUi">
+      <h2>Agenda este momento</h2>
+      <div class="utilities">
+        <a class="btn" href="#" id="calendarBtn">Agregar al calendario</a>
+        <a class="btn btn-secondary" href="#countdown-section" id="verCuenta">Ver cuenta regresiva</a>
+      </div>
+    </section>
+
+    <div class="separator"></div>
+
+    <section class="section" id="albumSection">
+      <h2 id="albumTitle">Álbum digital</h2>
+      <p id="albumCopy">Comparte las mejores fotos de este gran día y conserva en un solo lugar los recuerdos más especiales.</p>
+      <div class="utilities">
+        <a class="btn" href="#" id="albumBtn" target="_blank" rel="noopener noreferrer">Ver álbum digital</a>
+      </div>
+    </section>
+
+    <div class="separator"></div>
+    <div class="closing-note" id="closingNote">Gracias por ser parte de este momento inolvidable</div>
+
+    <footer class="brand-footer">
+      <button class="editor-secret-hotspot" id="editorSecretHotspot" type="button" aria-label="Abrir acceso de edición"></button>
+      <div class="brand-copy">
+        <p class="brand-caption">Invitación creada con amor digital</p>
+        <a class="brand-link" id="brandLink" href="https://www.facebook.com/profile.php?id=61587804296779&locale=es_LA" target="_blank" rel="noopener noreferrer">Creado por Digital Invita</a>
+        <p class="brand-question">Invitaciones digitales para eventos</p>
+      </div>
+      <div class="brand-cta">
+        <a id="brandCtaLink" href="https://wa.me/525550591264?text=Hola%21%20Quiero%20una%20invitaci%C3%B3n%20digital%20con%20estilo%20elegante%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n." target="_blank" rel="noopener noreferrer">Contáctanos</a>
+      </div>
+    </footer>
+  </main>
+
+  <div class="editor-overlay" id="editorOverlay" aria-hidden="true"></div>
+  <button class="editor-toggle" id="editorToggle" type="button" aria-label="Cerrar panel de edición">×</button>
+  <aside class="editor-panel" id="editorPanel" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="editorPanelTitle">
+    <div class="editor-shell">
+      <div class="editor-head">
+        <div>
+          <span class="editor-kicker">Modo edición</span>
+          <h3 id="editorPanelTitle">Dashboard de edición Digital Invita</h3>
+          <p class="editor-note">Atajo: <strong>Ctrl/Cmd + Shift + E</strong>. El panel ahora está pensado para trabajar cómodo en desktop: secciones amplias, inputs grandes y controles agrupados para editar más rápido sin perder contexto.</p>
+        </div>
+        <div class="editor-meta">
+          <div class="editor-meta-grid">
+            <div class="editor-stat">
+              <strong>Evento</strong>
+              <span id="editorEventSummary">Invitación editable</span>
+            </div>
+            <div class="editor-stat">
+              <strong>Flujo</strong>
+              <span>Vista previa en tiempo real</span>
+            </div>
+          </div>
+          <p class="editor-helper">Cuando termines, usa <strong>Guardar cambios</strong>. Si necesitas dejar la configuración lista para producción, copia el bloque <strong>INVITATION_CONFIG</strong>.</p>
+        </div>
+      </div>
+
+      <div class="editor-layout">
+        <aside class="editor-sidebar" aria-label="Navegación del editor">
+          <div class="editor-sidebar-inner">
+            <p class="editor-sidebar-title">Secciones</p>
+            <div class="editor-nav">
+              <button class="editor-nav-btn" type="button" data-editor-jump="editorSectionMain">Datos principales</button>
+              <button class="editor-nav-btn" type="button" data-editor-jump="editorSectionEvent">Evento</button>
+              <button class="editor-nav-btn" type="button" data-editor-jump="editorSectionGallery">Galería</button>
+              <button class="editor-nav-btn" type="button" data-editor-jump="editorSectionGifts">Regalos</button>
+              <button class="editor-nav-btn" type="button" data-editor-jump="editorSectionFinal">Detalles finales</button>
+              <button class="editor-nav-btn" type="button" data-editor-jump="editorSectionSettings">Configuración general</button>
+            </div>
+            <p class="editor-sidebar-tip">Tip: trabaja de arriba hacia abajo. Primero define los textos y la fecha, luego ajusta la experiencia visual y al final activa o desactiva bloques según lo que necesite cada cliente.</p>
+          </div>
+        </aside>
+
+        <div class="editor-content">
+          <section class="editor-section" id="editorSectionMain">
+            <div class="editor-section-header">
+              <div>
+                <h4>Datos principales</h4>
+                <p>Identidad del evento, contenido principal y estilo visual base. Todo lo más importante al inicio para editar sin rodeos.</p>
+              </div>
+            </div>
+            <div class="editor-section-grid">
+              <div class="editor-card">
+                <h5 class="editor-card-title">Identidad y meta</h5>
+                <p class="editor-card-subtitle">Controla el nombre del evento y cómo se comparte en navegador y redes.</p>
+                <div class="editor-grid">
+                  <div class="editor-field">
+                    <label for="cfgEventLabel">Etiqueta del evento</label>
+                    <input type="text" id="cfgEventLabel">
+                  </div>
+                  <div class="editor-field">
+                    <label for="cfgCelebrantName">Nombre de la festejada</label>
+                    <input type="text" id="cfgCelebrantName">
+                  </div>
+                  <div class="editor-field span-2">
+                    <label for="cfgPageTitle">Título del navegador</label>
+                    <input type="text" id="cfgPageTitle" placeholder="Si lo dejas vacío se genera automáticamente">
+                  </div>
+                  <div class="editor-field span-2">
+                    <label for="cfgOgDescription">Descripción compartida</label>
+                    <textarea id="cfgOgDescription"></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <div class="editor-card">
+                <h5 class="editor-card-title">Tema rápido y colores</h5>
+                <p class="editor-card-subtitle">Ajusta el look general con controles visuales claros y sin entrar al código.</p>
+                <div class="editor-grid cols-4">
+                  <div class="editor-field span-full">
+                    <label for="cfgThemePreset">Tema rápido</label>
+                    <select id="cfgThemePreset">
+                      <option value="">Selecciona un tema</option>
+                      <option value="rosa">Rosa Luxury</option>
+                      <option value="champagne">Champagne Blush</option>
+                      <option value="rojo">Rojo Princesa</option>
+                    </select>
+                  </div>
+                  <div class="editor-field">
+                    <label for="cfgBgTop">Fondo top</label>
+                    <input type="color" id="cfgBgTop">
+                  </div>
+                  <div class="editor-field">
+                    <label for="cfgBgMid">Fondo medio</label>
+                    <input type="color" id="cfgBgMid">
+                  </div>
+                  <div class="editor-field">
+                    <label for="cfgBgBottom">Fondo base</label>
+                    <input type="color" id="cfgBgBottom">
+                  </div>
+                  <div class="editor-field">
+                    <label for="cfgGold">Dorado</label>
+                    <input type="color" id="cfgGold">
+                  </div>
+                  <div class="editor-field">
+                    <label for="cfgParticleColor">Partículas</label>
+                    <input type="color" id="cfgParticleColor">
+                  </div>
+                  <div class="editor-field">
+                    <label for="cfgTextColor">Texto</label>
+                    <input type="color" id="cfgTextColor">
+                  </div>
+                  <div class="editor-field">
+                    <label for="cfgMutedColor">Texto secundario</label>
+                    <input type="color" id="cfgMutedColor">
+                  </div>
+                </div>
+              </div>
+
+              <div class="editor-card full">
+                <h5 class="editor-card-title">Historia y familia</h5>
+                <p class="editor-card-subtitle">Mantén juntos los textos emocionales y los nombres importantes para que el bloque narrativo sea fácil de revisar.</p>
+                <div class="editor-grid">
+                  <div class="editor-field span-2">
+                    <label for="cfgStoryTitle">Título de historia</label>
+                    <input type="text" id="cfgStoryTitle">
+                  </div>
+                  <div class="editor-field span-2">
+                    <label for="cfgStoryText1">Historia 1</label>
+                    <textarea id="cfgStoryText1"></textarea>
+                  </div>
+                  <div class="editor-field span-2">
+                    <label for="cfgStoryText2">Historia 2</label>
+                    <textarea id="cfgStoryText2"></textarea>
+                  </div>
+                  <div class="editor-field">
+                    <label for="cfgParentsEyebrow">Texto superior papás</label>
+                    <input type="text" id="cfgParentsEyebrow">
+                  </div>
+                  <div class="editor-field">
+                    <label for="cfgGodparentsEyebrow">Texto superior padrinos</label>
+                    <input type="text" id="cfgGodparentsEyebrow">
+                  </div>
+                  <div class="editor-field">
+                    <label for="cfgParentsNames">Papás (usa &lt;br&gt;)</label>
+                    <textarea id="cfgParentsNames"></textarea>
+                  </div>
+                  <div class="editor-field">
+                    <label for="cfgGodparentsNames">Padrinos (usa &lt;br&gt;)</label>
+                    <textarea id="cfgGodparentsNames"></textarea>
+                  </div>
+                  <div class="editor-field span-2">
+                    <label for="cfgParentsInviteText">Texto de invitación de papás</label>
+                    <textarea id="cfgParentsInviteText"></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <div class="editor-card full">
+                <h5 class="editor-card-title">Tipografías</h5>
+                <p class="editor-card-subtitle">Previsualiza las fuentes principales antes de guardar para mantener una dirección visual coherente.</p>
+                <div class="editor-grid cols-3">
+                  <div class="editor-field">
+                    <label for="cfgBodyFont">Tipografía base</label>
+                    <select id="cfgBodyFont">
+                      <option value="Cormorant Garamond">Cormorant Garamond</option>
+                      <option value="Georgia">Georgia</option>
+                      <option value="Times New Roman">Times New Roman</option>
+                    </select>
+                  </div>
+                  <div class="editor-field">
+                    <label for="cfgScriptFont">Tipografía cursiva</label>
+                    <select id="cfgScriptFont">
+                      <option value="Dancing Script">Dancing Script</option>
+                      <option value="Great Vibes">Great Vibes</option>
+                      <option value="Cormorant Garamond">Cormorant Garamond Italic</option>
+                    </select>
+                  </div>
+                  <div class="editor-field">
+                    <label for="cfgDisplayFont">Tipografía nombre</label>
+                    <select id="cfgDisplayFont">
+                      <option value="Great Vibes">Great Vibes</option>
+                      <option value="Dancing Script">Dancing Script</option>
+                      <option value="Cormorant Garamond">Cormorant Garamond</option>
+                    </select>
+                  </div>
+                  <div class="font-preview" id="bodyFontPreview">Vista base de texto<small>Texto general de la invitación</small></div>
+                  <div class="font-preview" id="scriptFontPreview">María Fernanda López<small>Nombres cursivos</small></div>
+                  <div class="font-preview" id="displayFontPreview">Nombre de la festejada<small>Nombre principal</small></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="editor-section" id="editorSectionEvent">
+            <div class="editor-section-header">
+              <div>
+                <h4>Evento</h4>
+                <p>Fechas, sedes y cronología del día. Todo el bloque operativo queda reunido en un solo lugar.</p>
+              </div>
+            </div>
+            <div class="editor-section-grid">
+              <div class="editor-card">
+                <h5 class="editor-card-title">Fecha general</h5>
+                <p class="editor-card-subtitle">Estas fechas alimentan la cuenta regresiva y el botón de calendario.</p>
+                <div class="editor-grid">
+                  <div class="editor-field">
+                    <label for="cfgEventDate">Inicio</label>
+                    <input type="datetime-local" id="cfgEventDate">
+                  </div>
+                  <div class="editor-field">
+                    <label for="cfgEventEnd">Fin</label>
+                    <input type="datetime-local" id="cfgEventEnd">
+                  </div>
+                </div>
+              </div>
+
+              <div class="editor-card">
+                <h5 class="editor-card-title">Ceremonia</h5>
+                <p class="editor-card-subtitle">Configura el contenido y la forma en que se mostrará visualmente.</p>
+                <div class="editor-grid">
+                  <div class="editor-field">
+                    <label for="cfgCeremonyTitle">Título</label>
+                    <input type="text" id="cfgCeremonyTitle">
+                  </div>
+                  <div class="editor-field">
+                    <label for="cfgCeremonyTime">Hora</label>
+                    <input type="text" id="cfgCeremonyTime">
+                  </div>
+                  <div class="editor-field span-2">
+                    <label for="cfgCeremonyPlace">Lugar</label>
+                    <input type="text" id="cfgCeremonyPlace">
+                  </div>
+                  <div class="editor-field">
+                    <label for="cfgCeremonyMediaMode">Modo visual</label>
+                    <div class="editor-quick-toggle-group" data-editor-pill-group>
+                      <input type="hidden" id="cfgCeremonyMediaMode" value="icon">
+                      <div class="editor-mode-grid">
+                        <button class="editor-pill" type="button" data-pill-value="icon">Ícono</button>
+                        <button class="editor-pill" type="button" data-pill-value="preview">Mapa</button>
+                        <button class="editor-pill" type="button" data-pill-value="combined">Combinado</button>
+                        <button class="editor-pill" type="button" data-pill-value="photo">Foto</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="editor-field">
+                    <label for="cfgCeremonyIconSrc">Ícono</label>
+                    <input type="text" id="cfgCeremonyIconSrc">
+                  </div>
+                  <div class="editor-field span-2">
+                    <label for="cfgCeremonyMapLink">Link del mapa</label>
+                    <input type="text" id="cfgCeremonyMapLink">
+                  </div>
+                  <div class="editor-field span-2">
+                    <label for="cfgCeremonyMapEmbed">Mapa embed</label>
+                    <textarea id="cfgCeremonyMapEmbed"></textarea>
+                  </div>
+                  <div class="editor-field span-2">
+                    <label for="cfgCeremonyPhotoSrc">Foto del lugar</label>
+                    <input type="text" id="cfgCeremonyPhotoSrc">
+                  </div>
+                </div>
+              </div>
+
+              <div class="editor-card">
+                <h5 class="editor-card-title">Recepción</h5>
+                <p class="editor-card-subtitle">Puedes combinar ícono, mapa o foto según el tipo de venue.</p>
+                <div class="editor-grid">
+                  <div class="editor-field">
+                    <label for="cfgReceptionTitle">Título</label>
+                    <input type="text" id="cfgReceptionTitle">
+                  </div>
+                  <div class="editor-field">
+                    <label for="cfgReceptionTime">Hora</label>
+                    <input type="text" id="cfgReceptionTime">
+                  </div>
+                  <div class="editor-field span-2">
+                    <label for="cfgReceptionPlace">Lugar</label>
+                    <input type="text" id="cfgReceptionPlace">
+                  </div>
+                  <div class="editor-field">
+                    <label for="cfgReceptionMediaMode">Modo visual</label>
+                    <div class="editor-quick-toggle-group" data-editor-pill-group>
+                      <input type="hidden" id="cfgReceptionMediaMode" value="preview">
+                      <div class="editor-mode-grid">
+                        <button class="editor-pill" type="button" data-pill-value="icon">Ícono</button>
+                        <button class="editor-pill" type="button" data-pill-value="preview">Mapa</button>
+                        <button class="editor-pill" type="button" data-pill-value="combined">Combinado</button>
+                        <button class="editor-pill" type="button" data-pill-value="photo">Foto</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="editor-field">
+                    <label for="cfgReceptionIconSrc">Ícono</label>
+                    <input type="text" id="cfgReceptionIconSrc">
+                  </div>
+                  <div class="editor-field span-2">
+                    <label for="cfgReceptionMapLink">Link del mapa</label>
+                    <input type="text" id="cfgReceptionMapLink">
+                  </div>
+                  <div class="editor-field span-2">
+                    <label for="cfgReceptionMapEmbed">Mapa embed</label>
+                    <textarea id="cfgReceptionMapEmbed"></textarea>
+                  </div>
+                  <div class="editor-field span-2">
+                    <label for="cfgReceptionPhotoSrc">Foto del lugar</label>
+                    <input type="text" id="cfgReceptionPhotoSrc">
+                  </div>
+                </div>
+              </div>
+
+              <div class="editor-card full">
+                <h5 class="editor-card-title">Itinerario</h5>
+                <p class="editor-card-subtitle">Agrega, ordena y limpia el programa del evento con un bloque dedicado.</p>
+                <p class="editor-helper">Puedes dejar hora o descripción en blanco. La invitación solo mostrará lo que tenga contenido.</p>
+                <div class="timeline-editor-list" id="editorTimelineList"></div>
+                <div class="editor-actions" style="margin-top:14px;">
+                  <button class="editor-btn" id="addTimelineRowBtn" type="button">Agregar evento</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="editor-section" id="editorSectionGallery">
+            <div class="editor-section-header">
+              <div>
+                <h4>Galería</h4>
+                <p>Archivos visuales y elementos de apoyo. Ideal para revisar imágenes sin mezclarlo con textos u horarios.</p>
+              </div>
+            </div>
+            <div class="editor-section-grid">
+              <div class="editor-card">
+                <h5 class="editor-card-title">Imágenes principales</h5>
+                <p class="editor-card-subtitle">Usa solo el nombre del archivo. El sistema limpia rutas automáticamente y conserva la extensión base si no la escribes.</p>
+                <div class="editor-builder-list">
+                  <div class="editor-builder-item">
+                    <div class="editor-builder-head">
+                      <strong>Portada</strong>
+                    </div>
+                    <div class="editor-filename-wrap">
+                      <div class="editor-field">
+                        <label for="cfgHeroImageSrc">Nombre de archivo</label>
+                        <input type="text" id="cfgHeroImageSrc" placeholder="FPrincipal.jpg">
+                      </div>
+                      <span class="editor-file-chip" id="cfgHeroImageChip">FPrincipal.jpg</span>
+                    </div>
+                  </div>
+                  <div class="editor-builder-item">
+                    <div class="editor-builder-head">
+                      <strong>Historia</strong>
+                    </div>
+                    <div class="editor-filename-wrap">
+                      <div class="editor-field">
+                        <label for="cfgStoryImageSrc">Nombre de archivo</label>
+                        <input type="text" id="cfgStoryImageSrc" placeholder="FHistoria.jpg">
+                      </div>
+                      <span class="editor-file-chip" id="cfgStoryImageChip">FHistoria.jpg</span>
+                    </div>
+                  </div>
+                  <div class="editor-builder-item">
+                    <div class="editor-builder-head">
+                      <strong>Dress code</strong>
+                    </div>
+                    <div class="editor-filename-wrap">
+                      <div class="editor-field">
+                        <label for="cfgDressImageSrc">Nombre de archivo</label>
+                        <input type="text" id="cfgDressImageSrc" placeholder="vestimenta.png">
+                      </div>
+                      <span class="editor-file-chip" id="cfgDressImageChip">vestimenta.png</span>
+                    </div>
+                  </div>
+                  <div class="editor-builder-item">
+                    <div class="editor-builder-head">
+                      <strong>Lluvia de sobres</strong>
+                    </div>
+                    <div class="editor-filename-wrap">
+                      <div class="editor-field">
+                        <label for="cfgEnvelopeImageSrc">Nombre de archivo</label>
+                        <input type="text" id="cfgEnvelopeImageSrc" placeholder="sobre.png">
+                      </div>
+                      <span class="editor-file-chip" id="cfgEnvelopeImageChip">sobre.png</span>
+                    </div>
+                  </div>
+                  <div class="editor-builder-item">
+                    <div class="editor-builder-head">
+                      <strong>Regalo sorpresa</strong>
+                    </div>
+                    <div class="editor-filename-wrap">
+                      <div class="editor-field">
+                        <label for="cfgSurpriseImageSrc">Nombre de archivo</label>
+                        <input type="text" id="cfgSurpriseImageSrc" placeholder="regalo.png">
+                      </div>
+                      <span class="editor-file-chip" id="cfgSurpriseImageChip">regalo.png</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="editor-card">
+                <h5 class="editor-card-title">Galería y álbum</h5>
+                <p class="editor-card-subtitle">Constructor de imágenes de galería: agrega o elimina bloques sin romper el layout visual existente.</p>
+                <div class="editor-quick-toggle-group">
+                  <div class="editor-builder-list" id="editorGalleryList"></div>
+                  <div class="editor-actions">
+                    <button class="editor-btn" id="addGalleryImageBtn" type="button">Agregar imagen a galería</button>
+                  </div>
+                </div>
+                <div class="editor-grid" style="margin-top:14px;">
+                  <div class="editor-field span-2">
+                    <label for="cfgAlbumTitle">Título de álbum digital</label>
+                    <input type="text" id="cfgAlbumTitle">
+                  </div>
+                  <div class="editor-field span-2">
+                    <label for="cfgAlbumCopy">Texto de álbum digital</label>
+                    <textarea id="cfgAlbumCopy"></textarea>
+                  </div>
+                  <div class="editor-field span-2">
+                    <label for="cfgAlbumButtonLabel">Texto del botón de álbum</label>
+                    <input type="text" id="cfgAlbumButtonLabel">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="editor-section" id="editorSectionGifts">
+            <div class="editor-section-header">
+              <div>
+                <h4>Regalos</h4>
+                <p>Controles claros para activar opciones, editar textos y construir botones online con vista previa inmediata.</p>
+              </div>
+            </div>
+            <div class="editor-section-grid">
+              <div class="editor-card">
+                <h5 class="editor-card-title">Texto principal</h5>
+                <p class="editor-card-subtitle">Aquí defines cómo se presenta la sección al cliente final.</p>
+                <div class="editor-grid">
+                  <div class="editor-field span-2">
+                    <label for="cfgGiftTitle">Título de regalos</label>
+                    <input type="text" id="cfgGiftTitle">
+                  </div>
+                  <div class="editor-field span-2">
+                    <label for="cfgGiftIntro">Introducción</label>
+                    <textarea id="cfgGiftIntro"></textarea>
+                  </div>
+                  <div class="editor-field span-2">
+                    <label for="cfgGiftLinksIntro">Texto antes de botones online</label>
+                    <textarea id="cfgGiftLinksIntro"></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <div class="editor-card">
+                <h5 class="editor-card-title">Opciones activas</h5>
+                <p class="editor-card-subtitle">Activa o desactiva cada alternativa sin saturar la pantalla con controles repetidos.</p>
+                <div class="editor-switch-grid">
+                  <label class="editor-switch">
+                    <span>
+                      <strong>Mostrar lluvia de sobres</strong>
+                      <small>Activa la tarjeta física para recibir sobres el día del evento.</small>
+                    </span>
+                    <input type="checkbox" id="cfgShowGiftOption1">
+                  </label>
+                  <label class="editor-switch">
+                    <span>
+                      <strong>Mostrar regalo sorpresa</strong>
+                      <small>Activa la segunda tarjeta con mensaje libre de regalo.</small>
+                    </span>
+                    <input type="checkbox" id="cfgShowGiftOption2">
+                  </label>
+                  <label class="editor-switch">
+                    <span>
+                      <strong>Mostrar botones online</strong>
+                      <small>Oculta o muestra la zona de botones externos de mesa de regalos.</small>
+                    </span>
+                    <input type="checkbox" id="cfgShowGiftLinks">
+                  </label>
+                </div>
+              </div>
+
+              <div class="editor-card">
+                <h5 class="editor-card-title">Lluvia de sobres</h5>
+                <p class="editor-card-subtitle">Mensaje específico de la primera opción de regalo.</p>
+                <div class="editor-grid">
+                  <div class="editor-field span-2">
+                    <label for="cfgGiftOption1Title">Título</label>
+                    <input type="text" id="cfgGiftOption1Title">
+                  </div>
+                  <div class="editor-field span-2">
+                    <label for="cfgGiftOption1Copy">Texto</label>
+                    <textarea id="cfgGiftOption1Copy"></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <div class="editor-card">
+                <h5 class="editor-card-title">Regalo sorpresa</h5>
+                <p class="editor-card-subtitle">Texto de la segunda tarjeta para quienes prefieren un detalle libre.</p>
+                <div class="editor-grid">
+                  <div class="editor-field span-2">
+                    <label for="cfgGiftOption2Title">Título</label>
+                    <input type="text" id="cfgGiftOption2Title">
+                  </div>
+                  <div class="editor-field span-2">
+                    <label for="cfgGiftOption2Copy">Texto</label>
+                    <textarea id="cfgGiftOption2Copy"></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <div class="editor-card full">
+                <h5 class="editor-card-title">Botones de regalo online</h5>
+                <p class="editor-card-subtitle">Cada botón incluye nombre, link, estilo y vista previa para que el cliente entienda fácilmente qué está editando.</p>
+                <div class="editor-links-list" id="editorGiftLinksList"></div>
+                <div class="editor-actions" style="margin-top:14px;">
+                  <button class="editor-btn" id="addGiftLinkBtn" type="button">Agregar botón online</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="editor-section" id="editorSectionFinal">
+            <div class="editor-section-header">
+              <div>
+                <h4>Detalles finales</h4>
+                <p>Bloque reorganizado por tipo de contenido para que el cierre de la invitación sea rápido de ajustar y fácil de entender.</p>
+              </div>
+            </div>
+            <div class="editor-section-grid">
+              <div class="editor-card">
+                <h5 class="editor-card-title">Cuenta regresiva</h5>
+                <p class="editor-card-subtitle">Configura el bloque previo al gran día.</p>
+                <div class="editor-grid">
+                  <div class="editor-field span-2">
+                    <label for="cfgCountdownTitle">Título</label>
+                    <input type="text" id="cfgCountdownTitle">
+                  </div>
+                  <div class="editor-field span-2">
+                    <label for="cfgCountdownIntro">Texto</label>
+                    <textarea id="cfgCountdownIntro"></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <div class="editor-card">
+                <h5 class="editor-card-title">Dress code</h5>
+                <p class="editor-card-subtitle">Todo lo relacionado con vestimenta en un solo bloque.</p>
+                <div class="editor-grid">
+                  <div class="editor-field span-2">
+                    <label for="cfgDressTitle">Título</label>
+                    <input type="text" id="cfgDressTitle">
+                  </div>
+                  <div class="editor-field">
+                    <label for="cfgDressValue">Código de vestimenta</label>
+                    <input type="text" id="cfgDressValue">
+                  </div>
+                  <div class="editor-field span-2">
+                    <label for="cfgDressNote">Nota</label>
+                    <textarea id="cfgDressNote"></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <div class="editor-card full">
+                <h5 class="editor-card-title">Cierre</h5>
+                <p class="editor-card-subtitle">Últimos mensajes visibles para los invitados.</p>
+                <div class="editor-grid">
+                  <div class="editor-field span-2">
+                    <label for="cfgClosingNote">Texto de cierre</label>
+                    <textarea id="cfgClosingNote"></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="editor-section" id="editorSectionSettings">
+            <div class="editor-section-header">
+              <div>
+                <h4>Configuración general</h4>
+                <p>Toggles globales, RSVP, branding y control de visibilidad para adaptar la invitación a cada cliente.</p>
+              </div>
+            </div>
+            <div class="editor-section-grid">
+              <div class="editor-card">
+                <h5 class="editor-card-title">Visibilidad de secciones</h5>
+                <p class="editor-card-subtitle">Activa solo lo que la invitación necesita mostrar.</p>
+                <div class="editor-switch-grid">
+                  <label class="editor-switch"><span><strong>Mostrar historia</strong><small>Bloque narrativo principal.</small></span><input type="checkbox" id="cfgShowStory"></label>
+                  <label class="editor-switch"><span><strong>Mostrar papás</strong><small>Tarjeta con nombres de padres.</small></span><input type="checkbox" id="cfgShowParents"></label>
+                  <label class="editor-switch"><span><strong>Mostrar padrinos</strong><small>Tarjeta con nombres de padrinos.</small></span><input type="checkbox" id="cfgShowGodparents"></label>
+                  <label class="editor-switch"><span><strong>Mostrar ceremonia</strong><small>Sección de ceremonia.</small></span><input type="checkbox" id="cfgShowCeremony"></label>
+                  <label class="editor-switch"><span><strong>Mostrar recepción</strong><small>Sección de recepción.</small></span><input type="checkbox" id="cfgShowReception"></label>
+                  <label class="editor-switch"><span><strong>Mostrar itinerario</strong><small>Línea de tiempo del evento.</small></span><input type="checkbox" id="cfgShowTimeline"></label>
+                  <label class="editor-switch"><span><strong>Mostrar cuenta regresiva</strong><small>Bloque de countdown.</small></span><input type="checkbox" id="cfgShowCountdown"></label>
+                  <label class="editor-switch"><span><strong>Mostrar galería</strong><small>Fotos destacadas y mosaico.</small></span><input type="checkbox" id="cfgShowGallery"></label>
+                  <label class="editor-switch"><span><strong>Mostrar dress code</strong><small>Información de vestimenta.</small></span><input type="checkbox" id="cfgShowDress"></label>
+                  <label class="editor-switch"><span><strong>Mostrar RSVP</strong><small>Bloque de confirmación.</small></span><input type="checkbox" id="cfgShowRsvp"></label>
+                  <label class="editor-switch"><span><strong>Mostrar regalos</strong><small>Sección de opciones de regalo.</small></span><input type="checkbox" id="cfgShowGifts"></label>
+                  <label class="editor-switch"><span><strong>Mostrar agenda</strong><small>Botón de calendario y utilidades.</small></span><input type="checkbox" id="cfgShowAgenda"></label>
+                  <label class="editor-switch"><span><strong>Mostrar álbum digital</strong><small>Llamada al álbum del evento.</small></span><input type="checkbox" id="cfgShowAlbum"></label>
+                  <label class="editor-switch"><span><strong>Mostrar cierre</strong><small>Mensaje final de despedida.</small></span><input type="checkbox" id="cfgShowClosing"></label>
+                  <label class="editor-switch"><span><strong>Mostrar foto en historia</strong><small>Activa la imagen dentro del bloque de historia.</small></span><input type="checkbox" id="cfgStoryImage"></label>
+                </div>
+              </div>
+
+              <div class="editor-card">
+                <h5 class="editor-card-title">RSVP y marca</h5>
+                <p class="editor-card-subtitle">Información de contacto, acompañantes y créditos de marca.</p>
+                <div class="editor-grid">
+                  <div class="editor-field span-2">
+                    <label for="cfgRsvpPhone">WhatsApp RSVP</label>
+                    <input type="text" id="cfgRsvpPhone">
+                  </div>
+                  <label class="editor-switch" style="grid-column:1 / -1;">
+                    <span>
+                      <strong>Mostrar número de acompañantes</strong>
+                      <small>Permite que el invitado seleccione cuántas personas asistirán.</small>
+                    </span>
+                    <input type="checkbox" id="cfgShowGuestCount">
+                  </label>
+                  <div class="editor-field">
+                    <label for="cfgMaxGuests">Máximo de acompañantes</label>
+                    <input type="number" id="cfgMaxGuests" min="1" max="20">
+                  </div>
+                  <div class="editor-field">
+                    <label for="cfgBrandCreditText">Texto marca</label>
+                    <input type="text" id="cfgBrandCreditText">
+                  </div>
+                  <div class="editor-field">
+                    <label for="cfgBrandCreditHref">Link marca</label>
+                    <input type="text" id="cfgBrandCreditHref">
+                  </div>
+                  <div class="editor-field">
+                    <label for="cfgBrandCtaLabel">Texto botón marca</label>
+                    <input type="text" id="cfgBrandCtaLabel">
+                  </div>
+                  <div class="editor-field span-2">
+                    <label for="cfgBrandCtaHref">Link botón marca</label>
+                    <input type="text" id="cfgBrandCtaHref">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <div class="editor-footer">
+        <p class="editor-footer-copy">Guarda para ver cambios al instante. Si quieres reutilizar esta versión como plantilla base, usa las acciones de exportación o copia del config.</p>
+        <div class="editor-actions">
+          <button class="editor-btn" id="copyEditorConfigBtn" type="button">Copiar config</button>
+          <button class="editor-btn" id="exportEditorConfigBtn" type="button">Exportar</button>
+          <button class="editor-btn" id="saveEditorBaseBtn" type="button">Guardar base</button>
+          <button class="editor-btn" id="resetEditorConfigBtn" type="button">Volver a base</button>
+          <button class="editor-btn primary" id="saveEditorConfigBtn" type="button">Guardar cambios</button>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <div class="editor-auth" id="editorAuth">
+    <div class="editor-auth-card">
+      <h4>Acceso de edición</h4>
+      <p>Ingresa tus datos para abrir el panel desde el teléfono o desde vista cliente.</p>
+      <div class="editor-field">
+        <label for="editorUsername">Usuario</label>
+        <input type="text" id="editorUsername" autocomplete="username">
+      </div>
+      <div class="editor-field">
+        <label for="editorPassword">Contraseña</label>
+        <input type="password" id="editorPassword" autocomplete="current-password">
+      </div>
+      <div class="editor-auth-error" id="editorAuthError"></div>
+      <div class="editor-actions">
+        <button class="editor-btn primary" id="editorLoginBtn" type="button">Entrar</button>
+        <button class="editor-btn" id="editorCancelBtn" type="button">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Galería ampliada">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="closeLightbox" type="button" aria-label="Cerrar galería">×</button>
+      <div class="lightbox-main">
+        <div class="viewer-counter" id="viewerCounter">1 / 6</div>
+        <img class="lightbox-img" id="lightboxImg" alt="Imagen ampliada">
+      </div>
+      <div class="thumbs" id="thumbs"></div>
+    </div>
+  </div>
+
+  <button class="floating-btn" id="musicBtn" type="button" aria-label="Pausar música"></button>
+  <button class="floating-btn" id="toTopBtn" type="button" aria-label="Volver arriba">↑</button>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="assets/app.js" defer></script>
+
+</body>
+</html>
