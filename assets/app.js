@@ -35,7 +35,7 @@
     "muted": "#f0c4b7",
     "bodyFont": "Cormorant Garamond",
     "scriptFont": "Dancing Script",
-    "displayFont": "Dancing Script"
+    "displayFont": "Cormorant Garamond"
   },
   "images": {
     "hero": "FPrincipal.jpg",
