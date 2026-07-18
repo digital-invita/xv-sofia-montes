@@ -8,12 +8,7 @@
   }
   window.__DIGITAL_INVITA_APP_INITIALIZED__ = true;
 
-/* ================================
-       EDITA SOLO ESTE BLOQUE
-       1. Si cambias textos, links, colores u horarios en código, hazlo aquí.
-       2. Si cambias algo desde el panel, usa "Copiar config" y reemplaza este bloque.
-       3. HTML/CSS solo se toca cuando quieras cambiar diseño o estructura visual.
-    ================================ */
+
     const INVITATION_CONFIG =
 {
   "meta": {
