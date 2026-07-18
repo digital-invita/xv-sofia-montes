@@ -10,6 +10,8 @@
   window.__DIGITAL_INVITA_APP_INITIALIZED__ = true;
 
     const INVITATION_CONFIG =
+const INVITATION_CONFIG =
+
 {
   "meta": {
     "pageTitle": "Mis XV | Sofia Montes",
@@ -187,7 +189,7 @@
     ]
   },
   "closing": {
-    "note": "\"Cada meta alcanzada es el inicio de un nuevo camino.\nHoy celebramos el esfuerzo, la dedicación y los sueños\nque comienzan a hacerse realidad.\""
+    "note": "Gracias por ser parte de este momento inolvidable"
   },
   "brand": {
     "creditText": "Creado por Digital Invita",
@@ -196,8 +198,10 @@
     "ctaHref": "https://wa.me/525550591264?text=Hola%21%20Quiero%20una%20invitaci%C3%B3n%20digital%20con%20estilo%20elegante%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n."
   }
 }
+  
+  ;
       
-      ;
+    
 
     let EVENT_DATE = new Date(INVITATION_CONFIG.event.eventDate);
     let EVENT_END = new Date(INVITATION_CONFIG.event.eventEnd);
