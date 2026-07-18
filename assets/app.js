@@ -10,8 +10,6 @@
   window.__DIGITAL_INVITA_APP_INITIALIZED__ = true;
 
     const INVITATION_CONFIG =
-const INVITATION_CONFIG =
-
 {
   "meta": {
     "pageTitle": "Mis XV | Sofia Montes",
@@ -198,10 +196,8 @@ const INVITATION_CONFIG =
     "ctaHref": "https://wa.me/525550591264?text=Hola%21%20Quiero%20una%20invitaci%C3%B3n%20digital%20con%20estilo%20elegante%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n."
   }
 }
-  
-  ;
       
-    
+      ;
 
     let EVENT_DATE = new Date(INVITATION_CONFIG.event.eventDate);
     let EVENT_END = new Date(INVITATION_CONFIG.event.eventEnd);
