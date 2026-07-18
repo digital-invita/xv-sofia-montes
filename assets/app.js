@@ -24,7 +24,7 @@ const INVITATION_CONFIG =
     "eventDate": "2027-03-11T15:33",
     "eventEnd": "2027-03-11T23:11",
     "timeZone": "America/Mexico_City",
-    "eventLocation": "Top Salón Obispado",
+    "eventLocation": "",
     "rsvpPhone": "5550591264"
   },
   "theme": {
