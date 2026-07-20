@@ -77,7 +77,7 @@
   },
   "reception": {
     "title": "Recepción",
-    "time": "09:00 hrs ",
+    "time": "17:00 hrs",
     "place": "Centro de Convenciones Posada del Río",
     "mediaMode": "preview",
     "iconSrc": "recepcion.png",
